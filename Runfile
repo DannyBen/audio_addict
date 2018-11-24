@@ -1,0 +1,28 @@
+require "runfile-tasks"
+require "byebug"
+require "pretty_trace/enable-trim"
+require "lp"
+
+require_relative 'lib/audio_addict'
+
+title   "AudioAddict Developer Toolbelt"
+summary "Runfile tasks for building the AudioAddict gem"
+version AudioAddict::VERSION
+
+include AudioAddict
+
+RunfileTasks::RubyGems.all 'audio_addict'
+RunfileTasks::Testing.rspec
+
+help   "Run interactive console"
+action :console, :c do
+  run "bundle exec bin/console"
+end
+
+help   "Generate changelog"
+action :changelog do
+  run 'github_changelog_generator --cache-file tmp/changlog-cache'  
+  run "git commit -am 'update changelog' && git push"
+end
+
+require './debug' if File.exist? 'debug.rb'
