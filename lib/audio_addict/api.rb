@@ -18,12 +18,10 @@ module AudioAddict
     end
 
     def get(path)
-      require_network
       response http.get "/#{network}/#{path}", http_opts
     end
 
     def post(path)
-      require_network
       response http.post "/#{network}/#{path}", http_opts
     end
 
@@ -39,10 +37,6 @@ module AudioAddict
     end
 
   private
-
-    def require_network
-      raise ArgumentError, "No network specified" unless network
-    end
 
     def response(httparty_response)
       raise APIError.new httparty_response unless httparty_response.success?
@@ -67,13 +61,7 @@ module AudioAddict
 
     def member_session_params
       raise ArgumentError, "Please provide login credentials" if !user or !password
-
-      {
-        member_session: {
-          username: user,
-          password: password,
-        }
-      }
+      { member_session: { username: user, password: password } }
     end
 
   end
