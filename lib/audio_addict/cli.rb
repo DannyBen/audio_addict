@@ -7,14 +7,14 @@ module AudioAddict
 
     version VERSION
     docopt File.expand_path 'docopt.txt', __dir__
-    subcommands ['set', 'listen', 'channels', 'current']
+    subcommands ['network', 'channel', 'channels', 'current']
 
-    def set
+    def network
       Config.network = args['NETWORK']
       Config.save
     end
 
-    def listen
+    def channel
       Config.channel = args['CHANNEL']
       Config.save
     end
