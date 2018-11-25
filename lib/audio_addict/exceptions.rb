@@ -1,4 +1,8 @@
 module AudioAddict
+  class Interrupt < Interrupt; end
+  class Error < StandardError; end
+  class ArgumentError < ArgumentError; end
+
   class APIError < StandardError
     attr_reader :response
 

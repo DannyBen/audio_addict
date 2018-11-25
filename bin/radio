@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'audio_addict'
+require 'colsole'
+
+begin
+  AudioAddict::CLI.execute ARGV
+rescue AudioAddict::Interrupt
+  say! "\nGoodbye"
+  exit 1  
+rescue => e
+  puts e.backtrace.reverse if ENV['DEBUG']
+  say! "!undred!#{e.class}!txtrst!\n#{e.message}"
+  exit 1
+end

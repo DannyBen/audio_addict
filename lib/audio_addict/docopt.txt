@@ -1,0 +1,38 @@
+AudioAddict Radio
+
+Usage:
+  radio set NETWORK
+  radio listen CHANNEL
+  radio channels [SEARCH]
+  radio current
+  radio (-h|--help|--version)
+
+Commands:
+  set
+    Save the AudioAddict network to the config file for future use.
+
+  listen
+    Save the channel to the config file for future use.
+
+  channels
+    Show list of channels.
+
+  current
+    Show currently configured network and channel, and the currently 
+    playing track.
+
+Params:
+  NETWORK
+    AudioAddict network key. Can be one of:
+    di, rockradio, ...
+
+  CHANNEL
+    AudioAddict channel key.
+
+  SEARCH
+    Channel name or a partial name to search for.
+
+Examples:
+  radio set rockradio
+  radio listen modernrock
+  radio channels metal
