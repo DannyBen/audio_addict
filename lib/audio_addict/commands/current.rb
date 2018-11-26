@@ -9,7 +9,7 @@ module AudioAddict
       usage "radio current --help"
 
       def run(args)
-        say "!txtblu!  Network !txtrst!: !txtgrn!#{Config.network}"
+        say "!txtblu!  Network !txtrst!: !txtgrn!#{current_network}"
         say "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! (#{current_channel.key})"
 
         track = current_channel.current_track

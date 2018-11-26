@@ -20,18 +20,27 @@ module AudioAddict
 
         if network
           if !Radio.valid_network? network
-            say "Invalid network !txtred!#{network}"
-            say "Valid options are: #{Radio::NETWORKS.join ', '}"
+            say "Invalid network !txtred!#{network}!txtrst!. Valid options are:\n"
+            Radio::NETWORKS.each do |key, name|
+              say "!txtblu! #{key.to_s.rjust 20} : !txtgrn!#{name}"
+            end
             exit 1
           end
 
           Config.network = network
+          @radio = nil
         end
 
-        Config.channel = channel
-        Config.save
-        say "Saved to !txtpur!#{Config.path}"
+        if radio.valid_channel? channel
+          Config.channel = channel
+          Config.save
+          say "Saved to !txtpur!#{Config.path}"
+        
+        else
+          say "Invalid channel !txtred!#{channel}!txtrst! in !txtgrn!#{radio.name}!txtrst!."
+          say "Run !txtpur!radio channels!txtrst! for a list of available channels."
 
+        end
       end
     end
   end

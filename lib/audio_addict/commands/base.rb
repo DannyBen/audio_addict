@@ -7,7 +7,11 @@ module AudioAddict
     class Base < MisterBin::Command
 
       def radio
-        @radio ||= Radio.new Config.network
+        @radio ||= Radio.new current_network
+      end
+
+      def current_network
+        Config.network
       end
 
       def current_channel
