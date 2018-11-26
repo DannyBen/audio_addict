@@ -9,7 +9,7 @@ module AudioAddict
       usage "radio vote --help"
 
       def run(args)
-        CurrentCmd.new.run args
+        NowCmd.new.run args
         answer = get_user_vote
         exit if answer == :abort
 

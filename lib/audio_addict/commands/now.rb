@@ -9,8 +9,8 @@ module AudioAddict
       usage "radio now --help"
 
       def run(args)
-        say   "!txtblu!  Network !txtrst!: !txtgrn!#{radio.name}!txtrst! : #{radio.network}"
-        say   "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! : #{current_channel.key}"
+        say   "!txtblu!  Network !txtrst!: !txtgrn!#{radio.name}!txtrst! # #{radio.network}"
+        say   "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! # #{current_channel.key}"
         say   "!txtblu!    Track !txtrst!: ... "
 
         track = current_channel.current_track
