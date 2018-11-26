@@ -5,6 +5,12 @@ module AudioAddict
 
     attr_reader :user, :password, :network
 
+    NETWORKS = %w[di rockradio radiotunes jazzradio classicalradio]
+
+    def self.valid_network?(network)
+      NETWORKS.include? network
+    end
+
     def initialize(network, user: nil, password: nil)
       @user, @password, @network = user, password, network
     end
@@ -21,12 +27,8 @@ module AudioAddict
       channels[channel_key]
     end
 
-    def member
-      api.session['member']
-    end
-
     def favorites
-      member['network_favorite_channels']
+      api.member['network_favorite_channels']
     end
 
     def api

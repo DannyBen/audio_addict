@@ -1,18 +1,16 @@
 AudioAddict Radio
 
 Usage:
-  radio network NETWORK
-  radio channel CHANNEL
+  radio set CHANNEL [NETWORK]
   radio channels [SEARCH]
   radio current
+  radio vote
   radio (-h|--help|--version)
 
 Commands:
-  network
-    Save the AudioAddict network to the config file for future use.
-
-  channel
-    Save the channel to the config file for future use.
+  set
+    Save the AudioAddict channel and optionally the network to the 
+    config file for future use. 
 
   channels
     Show list of channels.
@@ -21,10 +19,13 @@ Commands:
     Show currently configured network and channel, and the currently 
     playing track.
 
+  vote
+    Vote on the currently playing track.
+
 Params:
   NETWORK
     AudioAddict network key. Can be one of:
-    di, rockradio, ...
+    di, rockradio, radiotunes, jazzradio or classicalradio
 
   CHANNEL
     AudioAddict channel key.
@@ -33,6 +34,7 @@ Params:
     Channel name or a partial name to search for.
 
 Examples:
-  radio network rockradio
-  radio channel modernrock
+  radio set modernrock rockradio
+  radio set modernrock
+  radio channels
   radio channels metal

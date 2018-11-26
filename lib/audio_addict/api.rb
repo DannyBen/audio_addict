@@ -25,8 +25,16 @@ module AudioAddict
       response http.post "/#{network}/#{path}", http_opts
     end
 
+    def delete(path)
+      response http.delete "/#{network}/#{path}", http_opts
+    end
+
     def logged_in?
       user and password and session_key
+    end
+
+    def member
+      session['member']
     end
 
     def session

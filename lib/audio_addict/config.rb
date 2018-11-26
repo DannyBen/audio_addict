@@ -8,7 +8,7 @@ module AudioAddict
       end
 
       def network
-        properties[:network]
+        properties[:network] || 'di'
       end
 
       def channel=(value)
@@ -16,7 +16,7 @@ module AudioAddict
       end
 
       def channel
-        properties[:channel]
+        properties[:channel] || 'trance'
       end
 
       def save

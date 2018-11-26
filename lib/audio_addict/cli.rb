@@ -1,5 +1,6 @@
 require 'super_docopt'
 require 'colsole'
+require 'tty/prompt'
 
 module AudioAddict
   class CLI < SuperDocopt::Base
@@ -7,20 +8,28 @@ module AudioAddict
 
     version VERSION
     docopt File.expand_path 'docopt.txt', __dir__
-    subcommands ['network', 'channel', 'channels', 'current']
+    subcommands ['set', 'channels', 'current', 'vote']
 
-    def network
-      Config.network = args['NETWORK']
-      Config.save
-    end
+    def set
+      network = args['NETWORK']
+      channel = args['CHANNEL']
 
-    def channel
-      Config.channel = args['CHANNEL']
+      if network
+        if !Radio.valid_network? network
+          say "Invalid network !txtred!#{network}"
+          say "Valid options are: #{Radio::NETWORKS.join ', '}"
+          exit 1
+        end
+
+        Config.network = network
+      end
+
+      Config.channel = channel
       Config.save
+      say "Saved to !txtpur!#{Config.path}"
     end
 
     def channels
-      radio = Radio.new Config.network
       search = args['SEARCH']
       channels = radio.channels.values
 
@@ -34,17 +43,42 @@ module AudioAddict
     end
 
     def current
-      radio = Radio.new Config.network
-      channel = radio[Config.channel]
-
       say "!txtgrn!Network: !txtblu!#{Config.network}"
-      say "!txtgrn!Channel: !txtblu!#{channel.name}!txtrst! (#{channel.key})"
+      say "!txtgrn!Channel: !txtblu!#{current_channel.name}!txtrst! (#{current_channel.key})"
 
-      track = channel.current_track
-      say "!txtgrn!  Track: !txtblu!#{track.title}"
-      say "!txtgrn!     By: !txtblu!#{track.artist}"
-
+      track = current_channel.current_track
+      say "!txtgrn!  Track: !txtblu!#{track.title.strip}"
+      say "!txtgrn!     By: !txtblu!#{track.artist.strip}"
     end
+
+    def vote
+      current
+      puts "------------------------------------------------------------\n"
+      answer = get_user_vote
+      exit if answer == :abort
+
+      current_channel.vote answer
+    end
+
+  private
+
+    def radio
+      @radio ||= Radio.new Config.network
+    end
+
+    def current_channel
+      radio[Config.channel]
+    end
+
+    def prompt
+      @prompt ||= TTY::Prompt.new
+    end
+
+    def get_user_vote
+      options = { "Like" => :up, "Dislike" => :down, "Unvote" => :delete, "Abort" => :abort }
+      prompt.select "Vote", options, marker: '>'
+    end
+
   end
 end
 

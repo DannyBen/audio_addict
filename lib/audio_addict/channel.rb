@@ -25,8 +25,13 @@ module AudioAddict
 
     def vote(direction = :up)
       track_id = current_track.id
-      endpoint = "tracks/#{track_id}/vote/#{id}/#{direction}"
-      radio.api.post endpoint
+      endpoint = "tracks/#{track_id}/vote/#{id}"
+
+      if direction == :delete
+        radio.api.delete endpoint
+      else
+        radio.api.post "#{endpoint}/#{direction}"
+      end
     end
   end
 end

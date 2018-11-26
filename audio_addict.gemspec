@@ -17,9 +17,10 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.4.0"
 
+  s.add_runtime_dependency 'colsole', '~> 0.5'
   s.add_runtime_dependency 'httparty', '~> 0.16'
   s.add_runtime_dependency 'lightly', '~> 0.3'
-  s.add_runtime_dependency 'super_docopt', '~> 0.1'
   s.add_runtime_dependency 'requires', '~> 0.1'
-  s.add_runtime_dependency 'colsole', '~> 0.5'
+  s.add_runtime_dependency 'super_docopt', '~> 0.1'
+  s.add_runtime_dependency 'tty-prompt', '~> 0.17'
 end
