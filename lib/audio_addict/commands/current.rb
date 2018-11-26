@@ -1,20 +1,21 @@
 module AudioAddict
   module Commands
-    class CurrentCmd < Base
+    class NowCmd < Base
       summary "Show network, channel and playing track" 
 
       help "Display the configured network and channel, as well as the currently playing track."
 
-      usage "radio current"
-      usage "radio current --help"
+      usage "radio now"
+      usage "radio now --help"
 
       def run(args)
-        say "!txtblu!  Network !txtrst!: !txtgrn!#{current_network}"
-        say "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! (#{current_channel.key})"
+        say   "!txtblu!  Network !txtrst!: !txtgrn!#{radio.name}!txtrst! : #{radio.network}"
+        say   "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! : #{current_channel.key}"
+        say   "!txtblu!    Track !txtrst!: ... "
 
         track = current_channel.current_track
-        say "!txtblu!    Track !txtrst!: !txtgrn!#{track.title.strip}"
-        say "!txtblu!       By !txtrst!: !txtgrn!#{track.artist.strip}"
+        resay "!txtblu!    Track !txtrst!: !txtgrn!#{track.title.strip}"
+        say   "!txtblu!       By !txtrst!: !txtgrn!#{track.artist.strip}"
       end
 
     end

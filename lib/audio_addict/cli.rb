@@ -1,15 +1,16 @@
 module AudioAddict
   class CLI
-    def self.runner
-      runner = MisterBin::Runner.new version: VERSION,
+    def self.router
+      router = MisterBin::Runner.new version: VERSION,
         header: "AudioAddict Radio Utilities"
 
-      runner.route 'set',      to: Commands::SetCmd
-      runner.route 'channels', to: Commands::ChannelsCmd
-      runner.route 'current',  to: Commands::CurrentCmd
-      runner.route 'vote',     to: Commands::VoteCmd
+      router.route 'network',  to: Commands::NetworkCmd
+      router.route 'channel',  to: Commands::ChannelCmd
+      router.route 'channels', to: Commands::ChannelsCmd
+      router.route 'now',      to: Commands::NowCmd
+      router.route 'vote',     to: Commands::VoteCmd
 
-      runner
+      router
     end
   end
 

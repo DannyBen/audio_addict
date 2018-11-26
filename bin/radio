@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 require 'audio_addict'
 
-runner = AudioAddict::CLI.runner
+router = AudioAddict::CLI.router
 
 begin
-  exit runner.run ARGV
-rescue AudioAddict::Interrupt
+  exit router.run ARGV
+rescue AudioAddict::Interrupt, TTY::Reader::InputInterrupt
   say! "\nGoodbye"
   exit 1  
 rescue => e
