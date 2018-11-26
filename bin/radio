@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 require 'audio_addict'
-require 'colsole'
+
+runner = AudioAddict::CLI.runner
 
 begin
-  AudioAddict::CLI.execute ARGV
+  exit runner.run ARGV
 rescue AudioAddict::Interrupt
   say! "\nGoodbye"
   exit 1  
