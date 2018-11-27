@@ -18,7 +18,7 @@ module AudioAddict
         if radio.valid_channel? channel
           Config.channel = channel
           Config.save
-          say "Saved to !txtpur!#{Config.path}"
+          say "Saved !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
         
         else
           say "!txtred!Invalid channel: #{radio.name} > #{channel}"

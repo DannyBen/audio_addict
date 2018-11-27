@@ -62,9 +62,12 @@ module AudioAddict
         api.get 'channels'
       end
 
+      File.write 'out.txt', JSON.pretty_generate(response)
+
       result = {}
       response.map do |channel|
-        result[channel['key']] = Channel.new self, channel
+        key = channel['key']
+        result[key] = Channel.new self, channel
       end
       result
     end

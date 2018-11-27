@@ -14,6 +14,8 @@ module AudioAddict
       example "radio channels metal"
 
       def run(args)
+        say "!undgrn!#{radio.name}\n"
+
         search = args['SEARCH']
 
         channels = search ? radio.search(search) : radio.channels
