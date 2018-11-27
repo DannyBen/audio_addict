@@ -3,20 +3,15 @@ require 'yaml'
 module AudioAddict
   class Config
     class << self
-      def network=(value)
-        properties[:network] = value
-      end
+      attr_writer :path
 
-      def network
-        properties[:network] || 'di'
-      end
-
-      def channel=(value)
-        properties[:channel] = value
-      end
-
-      def channel
-        properties[:channel] || 'trance'
+      def method_missing(name, *args, &_blk)
+        if name.to_s.end_with? '='
+          name = name[0..-2].to_sym
+          properties[name] = args.first
+        else
+          properties[name]
+        end
       end
 
       def save
@@ -32,7 +27,7 @@ module AudioAddict
       end
 
       def path
-        "#{Dir.home}/.audio_addict/config"
+        @path ||= "#{Dir.home}/.audio_addict/config"
       end
     end
   end
