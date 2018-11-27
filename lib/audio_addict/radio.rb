@@ -33,6 +33,12 @@ module AudioAddict
       @channels ||= channels!
     end
 
+    def search(query)
+      channels.select! do |key, channel|
+        "#{key} #{channel.name.downcase}".include? query.downcase
+      end 
+    end
+
     def [](channel_key)
       channels[channel_key]
     end

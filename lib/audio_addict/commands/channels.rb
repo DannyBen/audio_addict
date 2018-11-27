@@ -15,12 +15,10 @@ module AudioAddict
 
       def run(args)
         search = args['SEARCH']
-        channels = radio.channels.values
 
-        if search
-          channels.select! { |c| "#{c.key} #{c.name.downcase}".include? search.downcase } 
-        end
+        channels = search ? radio.search(search) : radio.channels
         
+        channels = channels.values
         channels.each do |channel|
           say "!txtgrn!#{channel.key.rjust 25} !txtblu!#{channel.name.strip}"
         end
