@@ -4,6 +4,8 @@ module AudioAddict
       router = MisterBin::Runner.new version: VERSION,
         header: "AudioAddict Radio Utilities"
 
+      router.route 'login',    to: Commands::LoginCmd
+      router.route 'status',   to: Commands::StatusCmd
       router.route 'network',  to: Commands::NetworkCmd
       router.route 'channel',  to: Commands::ChannelCmd
       router.route 'channels', to: Commands::ChannelsCmd

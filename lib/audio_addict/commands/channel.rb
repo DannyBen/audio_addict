@@ -21,8 +21,8 @@ module AudioAddict
           say "Saved to !txtpur!#{Config.path}"
         
         else
-          say "Invalid channel !txtred!#{channel}!txtrst! in !txtgrn!#{radio.name}!txtrst!."
-          say "Run !txtpur!radio channels!txtrst! for a list of available channels."
+          say "!txtred!Invalid channel: #{radio.name} > #{channel}"
+          say "Run !txtpur!radio channels!txtrst! for a list of available channels"
 
         end
       end

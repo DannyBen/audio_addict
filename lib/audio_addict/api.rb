@@ -7,14 +7,11 @@ module AudioAddict
 
     base_uri 'https://api.audioaddict.com/v1'
 
-    attr_reader :user, :password, :network
+    attr_accessor :network
+    attr_writer :user, :password
 
     def initialize(network, user: nil, password: nil)
       @user, @password, @network = user, password, network
-      
-      if !user and !password and ENV['AUDIO_ADDICT_LOGIN']
-        @user, @password = ENV['AUDIO_ADDICT_LOGIN'].split ':'
-      end
     end
 
     def get(path)
@@ -27,6 +24,14 @@ module AudioAddict
 
     def delete(path)
       response http.delete "/#{network}/#{path}", http_opts
+    end
+
+    def user
+      @user ||= Config.user
+    end
+
+    def password
+      @password ||= Config.password
     end
 
     def logged_in?
@@ -68,7 +73,7 @@ module AudioAddict
     end
 
     def member_session_params
-      raise ArgumentError, "Please provide login credentials" if !user or !password
+      raise LoginError unless user and password
       { member_session: { username: user, password: password } }
     end
 

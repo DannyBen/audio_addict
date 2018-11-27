@@ -10,12 +10,13 @@ module AudioAddict
 
       def run(args)
         NowCmd.new.run args
+        puts ""
         answer = get_user_vote
         exit if answer == :abort
 
         say "Voting... "
         current_channel.vote answer
-        resay "Voted"
+        resay "!txtgrn!Voted"
       end
 
     private

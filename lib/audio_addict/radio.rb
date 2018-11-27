@@ -3,7 +3,7 @@ module AudioAddict
     include Cache
     include Inspectable
 
-    attr_reader :user, :password, :network
+    attr_reader :network
 
     NETWORKS = {
       di: "Digitally Imported",
@@ -17,8 +17,8 @@ module AudioAddict
       NETWORKS.keys.include? network.to_sym
     end
 
-    def initialize(network, user: nil, password: nil)
-      @user, @password, @network = user, password, network
+    def initialize(network)
+      @network = network
     end
 
     def inspectable
@@ -46,7 +46,7 @@ module AudioAddict
     end
 
     def api
-      @api ||= API.new network, user: user, password: password
+      @api ||= API.new network
     end
 
   private
