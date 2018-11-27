@@ -6,10 +6,13 @@ router = AudioAddict::CLI.router
 begin
   exit router.run ARGV
 rescue AudioAddict::Interrupt, TTY::Reader::InputInterrupt
-  say! "\nGoodbye"
+  say "\nGoodbye"
   exit 1  
 rescue => e
+  say ""
   puts e.backtrace.reverse if ENV['DEBUG']
-  say! "!undred!#{e.class}!txtrst!\n#{e.message}"
+  say ""
+  say "!undred!ERROR: #{e.class}"
+  say e.message
   exit 1
 end
