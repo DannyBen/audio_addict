@@ -44,6 +44,10 @@ module AudioAddict
       end
     end
 
+    def session_key
+      session['key']
+    end
+
   private
 
     def response(httparty_response)
@@ -61,10 +65,6 @@ module AudioAddict
 
     def headers
       { "X-Session-Key" => session_key }
-    end
-
-    def session_key
-      session['key']
     end
 
     def member_session_params
