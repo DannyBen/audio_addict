@@ -34,7 +34,7 @@ module AudioAddict
     end
 
     def search(query)
-      channels.select! do |key, channel|
+      channels.select do |key, channel|
         "#{key} #{channel.name.downcase}".include? query.downcase
       end 
     end
@@ -61,8 +61,6 @@ module AudioAddict
       response = cache.get "#{network}/channels" do
         api.get 'channels'
       end
-
-      File.write 'out.txt', JSON.pretty_generate(response)
 
       result = {}
       response.map do |channel|
