@@ -40,7 +40,7 @@ module AudioAddict
       def save(channel)
         Config.channel = channel
         Config.save
-        say "Saved !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
+        say "Saved Channel: !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
       end
 
       def interactive_menu(channel = nil)

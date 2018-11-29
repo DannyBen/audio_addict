@@ -8,7 +8,12 @@ module AudioAddict
       def method_missing(name, *args, &_blk)
         if name.to_s.end_with? '='
           name = name[0..-2].to_sym
-          properties[name] = args.first
+          value = args.first
+          if value
+            properties[name] = value
+          else
+            properties.delete value
+          end
         else
           properties[name]
         end
