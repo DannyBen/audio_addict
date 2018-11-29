@@ -36,10 +36,10 @@ module AudioAddict
 
     private
 
-      def save(channel)
+      def save(channel, echo: true)
         Config.channel = channel
         Config.save
-        say "Saved Channel: !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
+        say "Channel : !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}" if echo
       end
 
       def interactive_menu(channel = nil)
@@ -49,7 +49,7 @@ module AudioAddict
           save list.first.key
         else
           answer = get_user_input list
-          save answer unless answer == :abort
+          save(answer, echo: false) unless answer == :abort
         end
       end
 

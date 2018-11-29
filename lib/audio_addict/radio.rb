@@ -21,6 +21,15 @@ module AudioAddict
       classicalradio: "classicalradio.com"
     }
 
+    def self.networks(search = nil)
+      if search
+        result = NETWORKS.select { |k, v| "#{k} #{v}".downcase.include? search.downcase }
+        result.any? ? result : NETWORKS
+      else
+        NETWORKS
+      end
+    end
+
     def self.valid_network?(network)
       NETWORKS.keys.include? network.to_sym
     end
@@ -73,9 +82,6 @@ module AudioAddict
       response = cache.get "#{network}/channels" do
         api.get 'channels'
       end
-
-      # Debug
-      # File.write 'out.yml', response.to_yaml
 
       result = {}
       response.map do |channel|
