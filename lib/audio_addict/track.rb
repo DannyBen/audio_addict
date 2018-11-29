@@ -17,6 +17,7 @@ module AudioAddict
       properties['track_id']
     end
 
+    # This is only here due to the global Runfile method with the same name
     def title
       properties['title']
     end

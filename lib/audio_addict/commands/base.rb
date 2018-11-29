@@ -27,7 +27,7 @@ module AudioAddict
       end
 
       def current_channel
-        radio[Config.channel]
+        @current_channel ||= radio[Config.channel]
       end
 
       def prompt

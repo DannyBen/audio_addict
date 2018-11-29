@@ -23,6 +23,10 @@ module AudioAddict
     end
 
     def track_history
+      @track_history ||= track_history!
+    end
+
+    def track_history!
       response = radio.api.get "track_history/channel/#{id}"
       response.map { |track| Track.new self, track }
     end
@@ -40,6 +44,17 @@ module AudioAddict
       else
         radio.api.post "#{endpoint}/#{direction}"
       end
+
+      log_like if direction == :up and Config.like_log
     end
+
+  private
+
+    def log_like
+      message = "#{radio.name} :: #{name} :: #{current_track.artist} :: #{current_track.title}"
+      file = Config.like_log
+      File.append file, message unless File.contains? file, message
+    end
+    
   end
 end
