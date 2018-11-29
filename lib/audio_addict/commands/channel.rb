@@ -47,8 +47,7 @@ module AudioAddict
         list = channel ? radio.search(channel).values : radio.channels.values
 
         answer = get_user_input list
-        abort if answer == :abort
-        save answer
+        save answer unless answer == :abort
       end
 
       def get_user_input(channels)

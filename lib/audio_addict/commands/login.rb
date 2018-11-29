@@ -9,12 +9,19 @@ module AudioAddict
       usage "radio login --help"
 
       def run(args)
+        proceed = true
+
         if radio.api.logged_in?
           say "!txtylw!You are already logged in"
-          proceed = prompt.yes? "Continue anyway?"
-          abort unless proceed
+          proceed = prompt.yes? "Login again?"
         end
+        
+        login_prompt if proceed
+      end
 
+    private
+
+      def login_prompt
         user = prompt.ask "Username :"
         pass = prompt.ask "Password :", echo: false
         
@@ -23,9 +30,10 @@ module AudioAddict
           radio.api.login user, pass
           resay "!txtgrn!Saved"
         else
-          say "!txtred!Not saved"
+          say "!txtred!Aborted"
         end
       end
+      
     end
   end
 end

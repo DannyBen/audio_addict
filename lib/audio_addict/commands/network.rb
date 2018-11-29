@@ -20,12 +20,11 @@ module AudioAddict
           say "Invalid network !txtred!#{network}!txtrst!.\n" if network
           network = get_user_input
 
-          abort if network == :abort
-
-          Config.network = network
-          Config.save
-
-          say "Saved."
+          unless network == :abort
+            Config.network = network
+            Config.save
+            say "!txtgrn!Saved"
+          end
         end
       end
 
