@@ -16,6 +16,7 @@ module AudioAddict
     def login(username, password)
       session = session(username, password)
       Config.session_key = session['key']
+      Config.listen_key = session['member']['listen_key']
       Config.save
     end
 
@@ -32,7 +33,7 @@ module AudioAddict
     end
 
     def logged_in?
-      !!session_key
+      session_key and listen_key
     end
 
     def basic_auth
@@ -49,6 +50,10 @@ module AudioAddict
 
     def session_key
       Config.session_key
+    end
+
+    def listen_key
+      Config.listen_key
     end
 
   private

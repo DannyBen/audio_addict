@@ -65,6 +65,7 @@ module AudioAddict
       result = {}
       response.map do |channel|
         key = channel['key']
+        next if channel['name'][0] == 'X'  # these seem to be inactive
         result[key] = Channel.new self, channel
       end
       result

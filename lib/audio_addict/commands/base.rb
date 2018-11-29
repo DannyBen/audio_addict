@@ -11,7 +11,11 @@ module AudioAddict
         config_keys.each do |key|
           missing.push key unless Config.has_key? key
         end
-        raise ConfigError, "Missing keys: #{missing.join ', '}" if missing.any?
+
+        if missing.any?
+          missing_keys = missing.map { |k| "- !txtblu!#{k}" }.join "\n"
+          raise ConfigError, "This operation requires some config parameters that are missing:\n#{missing_keys}" 
+        end
       end
 
       def radio
