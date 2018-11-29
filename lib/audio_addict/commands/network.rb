@@ -38,18 +38,16 @@ module AudioAddict
 
         if network == last_stored_network
           say "Network Unchanged"
-
         else
           save network
-          if channel        
-            ChannelCmd.new.run("CHANNEL" => channel)
+        end
 
-          else
-            Config.channel = nil
-            Config.save
-            say "Run !txtpur!radio channel!txtrst! to set the channel"
-
-          end
+        if channel        
+          ChannelCmd.new.run("CHANNEL" => channel)
+        else
+          Config.delete :channel
+          Config.save
+          say "Run !txtpur!radio channel!txtrst! to set the channel"
         end
       end
 
