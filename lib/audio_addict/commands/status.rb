@@ -10,13 +10,25 @@ module AudioAddict
         say "!txtblu! Config Path !txtrst!: !txtgrn!#{Config.path}"
 
         say "!txtblu! Session Key !txtrst!: "
-        say Config.session_key ? "!txtgrn!#{Config.session_key}" : "!txtred!<Unset>"
+        if Config.session_key
+          say "!txtgrn!#{Config.session_key}"
+        else 
+          say "!txtred!<Unset>!txtrst! - run !txtpur!radio login!txtrst! to fix"
+        end
 
         say "!txtblu!     Network !txtrst!: "
-        say Config.network ? "!txtgrn!#{Config.network}" : "!txtred!<Unset>"
+        if Config.network 
+          say "!txtgrn!#{Config.network}"
+        else
+          say "!txtred!<Unset>!txtrst! - run !txtpur!radio network!txtrst! to fix"
+        end
 
         say "!txtblu!     Channel !txtrst!: "
-        say Config.channel ? "!txtgrn!#{Config.channel}" : "!txtred!<Unset>"
+        if Config.channel
+          say "!txtgrn!#{Config.channel}"
+        else
+          say"!txtred!<Unset>!txtrst! - run !txtpur!radio channel!txtrst! to fix"
+        end
 
       end
     end
