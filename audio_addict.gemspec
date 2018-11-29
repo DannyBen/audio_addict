@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name        = 'audio_addict'
   s.version     = AudioAddict::VERSION
   s.date        = Date.today.to_s
-  s.summary     = "AudioAddict API and CLI"
-  s.description = "API and CLI for AudioAddict radio networks"
+  s.summary     = "AudioAddict Command Line"
+  s.description = "Command line for playlist management and voting for AudioAddict radio networks"
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*.*']
@@ -16,8 +16,6 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/dannyben/audio_addict'
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.4.0"
-
-  s.metadata['allowed_push_host'] = 'http://nowhere.com'
 
   s.add_runtime_dependency 'colsole', '~> 0.5'
   s.add_runtime_dependency 'httparty', '~> 0.16'
