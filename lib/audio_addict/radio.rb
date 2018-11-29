@@ -65,10 +65,14 @@ module AudioAddict
       result = {}
       response.map do |channel|
         key = channel['key']
-        next if channel['name'][0] == 'X'  # these seem to be inactive
-        result[key] = Channel.new self, channel
+        candidate = Channel.new self, channel
+        result[key] = candidate unless inactive_channel? candidate
       end
-      result
+      result.sort_by { |key, channel| channel.name }.to_h
+    end
+
+    def inactive_channel?(channel)
+      channel.name[0] == 'X' and channel.key[0] != 'x'
     end
 
   end

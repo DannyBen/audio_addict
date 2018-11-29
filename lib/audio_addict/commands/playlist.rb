@@ -84,9 +84,8 @@ module AudioAddict
         }
 
         channels = []
-        source_list = radio.channels.sort_by { |key, channel| channel.name }
         
-        source_list.each do |key, channel|
+        radio.channels.each do |key, channel|
           channel_data = { name: channel.name, key: key, active: true }
           channels << channel_data
         end
