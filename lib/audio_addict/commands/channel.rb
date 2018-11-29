@@ -15,6 +15,8 @@ module AudioAddict
       example "radio channel modernrock"
 
       def run(args)
+        needs :network
+
         channel = args['CHANNEL']
 
         if !channel

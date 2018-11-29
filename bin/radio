@@ -10,8 +10,10 @@ rescue AudioAddict::Interrupt, TTY::Reader::InputInterrupt
   exit 1  
 rescue => e
   say ""
-  puts e.backtrace.reverse if ENV['DEBUG']
-  say ""
+  if ENV['DEBUG']
+    puts e.backtrace.reverse 
+    say ""
+  end
   say "!undred!ERROR: #{e.class}"
   say e.message
   exit 1

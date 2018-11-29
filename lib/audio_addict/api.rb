@@ -8,49 +8,47 @@ module AudioAddict
     base_uri 'https://api.audioaddict.com/v1'
 
     attr_accessor :network
-    attr_writer :user, :password
 
-    def initialize(network, user: nil, password: nil)
-      @user, @password, @network = user, password, network
+    def initialize(network)
+      @network = network
     end
 
-    def get(path)
-      response http.get "/#{network}/#{path}", http_opts
+    def login(username, password)
+      session = session(username, password)
+      Config.session_key = session['key']
+      Config.save
     end
 
-    def post(path)
-      response http.post "/#{network}/#{path}", http_opts
+    def get(path, args={})
+      response http.get "/#{network}/#{path}", headers: headers, body: args
     end
 
-    def delete(path)
-      response http.delete "/#{network}/#{path}", http_opts
+    def post(path, args={})
+      response http.post "/#{network}/#{path}", headers: headers, body: args
     end
 
-    def user
-      @user ||= Config.user
-    end
-
-    def password
-      @password ||= Config.password
+    def delete(path, args={})
+      response http.delete "/#{network}/#{path}", headers: headers, body: args
     end
 
     def logged_in?
-      user and password and session_key
+      !!session_key
     end
 
-    def member
-      session['member']
+    def basic_auth
+      http.basic_auth 'streams', 'diradio'
     end
 
-    def session
+    def session(username, password)
+      params = { member_session: { username: username, password: password } }
       cache.get "/#{network}/member_sessions" do
-        http.basic_auth 'streams', 'diradio'
-        response http.post("/#{network}/member_sessions", body: member_session_params)
+        basic_auth
+        response http.post "/#{network}/member_sessions", body: params
       end
     end
 
     def session_key
-      session['key']
+      Config.session_key
     end
 
   private
@@ -64,17 +62,8 @@ module AudioAddict
       @http ||= self.class
     end
 
-    def http_opts
-      { headers: headers }
-    end
-
     def headers
       { "X-Session-Key" => session_key }
-    end
-
-    def member_session_params
-      raise LoginError unless user and password
-      { member_session: { username: user, password: password } }
     end
 
   end

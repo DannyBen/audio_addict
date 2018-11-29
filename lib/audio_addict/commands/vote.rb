@@ -9,6 +9,8 @@ module AudioAddict
       usage "radio vote --help"
 
       def run(args)
+        needs :network, :channel, :session_key
+
         NowCmd.new.run args
         puts ""
         answer = get_user_vote

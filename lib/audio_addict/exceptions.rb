@@ -3,6 +3,7 @@ module AudioAddict
   
   class Interrupt < Error; end
   class ArgumentError < Error; end
+  class ConfigError < Error; end
   
   class LoginError < Error
     def initialize(msg="This operation requires logging in")
@@ -15,7 +16,7 @@ module AudioAddict
 
     def initialize(response)
       @response = response
-      super "#{response.code} #{response.message}: #{response.body}"
+      super "#{response.code} #{response.message}:\n#{response.body}"
     end
   end
 end

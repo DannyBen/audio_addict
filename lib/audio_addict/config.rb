@@ -18,6 +18,10 @@ module AudioAddict
         File.deep_write path, properties.to_yaml
       end
 
+      def has_key?(key)
+        properties.has_key? key
+      end
+
       def properties
         @properties ||= properties!
       end

@@ -6,6 +6,14 @@ module AudioAddict
   module Commands
     class Base < MisterBin::Command
 
+      def needs(*config_keys)
+        missing = []
+        config_keys.each do |key|
+          missing.push key unless Config.has_key? key
+        end
+        raise ConfigError, "Missing keys: #{missing.join ', '}" if missing.any?
+      end
+
       def radio
         @radio ||= Radio.new current_network
       end
