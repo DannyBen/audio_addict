@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.4.0"
 
+  s.metadata['allowed_push_host'] = 'http://nowhere.com'
+
   s.add_runtime_dependency 'colsole', '~> 0.5'
   s.add_runtime_dependency 'httparty', '~> 0.16'
   s.add_runtime_dependency 'lightly', '~> 0.3'
