@@ -30,10 +30,13 @@ module AudioAddict
       def init_command
         @outfile = "#{@filename}.yml"
 
-        say "This will generate the !txtgrn!#{@outfile}!txtrst! configuration file."
-        say "!txtred!Warning: File already exists!" if File.exist? @outfile
-        proceed = prompt.yes? "Proceed?"
-        generate_config if proceed
+        say "!txtred!Warning!txtrst!: !txtgrn!#{@outfile}!txtrst! already exists!" if File.exist? @outfile
+        proceed = prompt.yes? "Create #{@outfile}?"
+        if proceed
+          generate_config 
+          say ""
+          generate_command # we also generate the playlist
+        end
       end
 
       def generate_command
@@ -43,9 +46,8 @@ module AudioAddict
         if !File.exist? @infile
           say "!txtred!Cannot find #{@infile}"
         else
-          say "This will generate the !txtgrn!#{@outfile}!txtrst! playlist."
-          say "!txtred!Warning: File already exists!" if File.exist? @outfile
-          proceed = prompt.yes? "Proceed?"
+          say "!txtred!Warning!txtrst!: !txtgrn!#{@outfile}!txtrst! already exists!" if File.exist? @outfile
+          proceed = prompt.yes? "Create #{@outfile}?"
           generate_playlist if proceed
         end
       end
@@ -80,7 +82,7 @@ module AudioAddict
 
       def generate_config
         data = {
-          template: "http://prem2.#{current_network}.com:80/%{channel_key}?%{listen_key}"
+          template: "http://prem2.#{radio.domain}:80/%{channel_key}?%{listen_key}"
         }
 
         channels = []
@@ -94,10 +96,6 @@ module AudioAddict
 
         File.write @outfile, data.to_yaml
         say "Saved !txtgrn!#{@outfile}"
-
-        proceed = prompt.yes? "Generate playlist as well?"
-        generate_command if proceed
-
       end
 
       def listen_key

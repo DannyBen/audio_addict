@@ -13,6 +13,14 @@ module AudioAddict
       classicalradio: "Classical Radio"
     }
 
+    DOMAINS = {
+      di: "di.fm",
+      rockradio: "rockradio.com",
+      radiotunes: "radiotunes.com",
+      jazzradio: "jazzradio.com",
+      classicalradio: "classicalradio.com"
+    }
+
     def self.valid_network?(network)
       NETWORKS.keys.include? network.to_sym
     end
@@ -27,6 +35,10 @@ module AudioAddict
 
     def name
       NETWORKS[network.to_sym]
+    end
+
+    def domain
+      DOMAINS[network.to_sym]
     end
 
     def channels

@@ -1,20 +1,20 @@
 module AudioAddict
   module Commands
-    class NetworkCmd < Base
-      summary "Set the radio network"
+    class SetCmd < Base
+      summary "Set the radio network and channel"
 
-      help "Save the network to the config file for future use"
+      help "Save the network and optionally the channel to the config file for future use"
 
-      usage "radio network [NETWORK CHANNEL]"
-      usage "radio network --help"
+      usage "radio set [NETWORK CHANNEL]"
+      usage "radio set --help"
 
       param "NETWORK", "AudioAddict network key. Leave empty for an interactive prompt."
       param "CHANNEL", "AudioAddict channel key. You can use a partial key here for an interactive prompt, or leave empty to only set the network.\nIf left empty, you might need to run the channel command to set the channel separately."
 
-      example "radio network"
-      example "radio network rockradio"
-      example "radio network rockradio modern"
-      example "radio network rockradio modernrock"
+      example "radio set"
+      example "radio set rockradio"
+      example "radio set rockradio modern"
+      example "radio set rockradio modernrock"
 
       def run(args)
         network = args['NETWORK']

@@ -33,7 +33,7 @@ module AudioAddict
         if Config.network 
           say "!txtgrn!#{Config.network}"
         else
-          say "!txtred!<Unset>!txtrst! - run !txtpur!radio network!txtrst! to fix"
+          say "!txtred!<Unset>!txtrst! - run !txtpur!radio set!txtrst! to fix"
         end
 
         say "!txtblu!     Channel !txtrst!: "
