@@ -42,7 +42,11 @@ module AudioAddict
       end
 
       def path
-        @path ||= "#{Dir.home}/.audio_addict/config"
+        @path ||= ENV.fetch('AUDIO_ADDICT_CONFIG_PATH', default_path)
+      end
+
+      def default_path
+        "#{Dir.home}/.audio_addict/config"
       end
 
     end
