@@ -45,9 +45,10 @@ module AudioAddict
         if channel        
           ChannelCmd.new.run("CHANNEL" => channel)
         else
-          Config.delete :channel
+          channel = radio.channels.values.first.key
+          Config.channel = channel
           Config.save
-          say "Run !txtpur!radio channel!txtrst! to set the channel"
+          say "Saved Channel: !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
         end
       end
 

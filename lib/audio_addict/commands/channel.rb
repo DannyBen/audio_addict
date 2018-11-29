@@ -30,7 +30,6 @@ module AudioAddict
 
         else
           say "!txtred!Invalid channel: #{radio.name} > #{channel}"
-          say "Run without a channel name for an interactive list"
 
         end
       end
@@ -46,8 +45,12 @@ module AudioAddict
       def interactive_menu(channel = nil)
         list = channel ? radio.search(channel).values : radio.channels.values
 
-        answer = get_user_input list
-        save answer unless answer == :abort
+        if list.count == 1
+          save list.first.key
+        else
+          answer = get_user_input list
+          save answer unless answer == :abort
+        end
       end
 
       def get_user_input(channels)
