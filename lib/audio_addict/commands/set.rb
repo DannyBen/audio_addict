@@ -22,40 +22,40 @@ module AudioAddict
         network = args['NETWORK']
         channel = args['CHANNEL']
 
-        proceed = true
-
         if !network or !Radio.valid_network? network
-          network = get_user_input network
-          proceed = false if network == :abort
+          interactive_menu network
+
+        elsif Radio.valid_network? network
+          save network
+
         end
 
-        handle network, channel if proceed
+        ChannelCmd.new.run("CHANNEL" => channel)
       end
 
     private
 
-      def handle(network, channel)
-        save network
-        ChannelCmd.new.run("CHANNEL" => channel)
-      end
-
-      def save(network)
+      def save(network, echo: true)
         Config.network = network
         Config.save
         say "Network : !txtgrn!#{radio.name}!txtrst! # #{network}" unless @interactive_menu_user
       end
 
-      def get_user_input(network)
+      def interactive_menu(network = nil)
         list = Radio.networks network
 
         if list.count == 1
-          list.keys.first
+          save list.keys.first
         else
-          @interactive_menu_used = true
-          options = list.invert
-          options["Abort"] = :abort
-          prompt.select "Network :", options, marker: '>', filter: true
+          answer = get_user_input list
+          save(answer, echo: false) unless answer == :abort
         end
+      end
+
+      def get_user_input(networks)
+        options = networks.invert
+        options["Abort"] = :abort
+        prompt.select "Network :", options, marker: '>', filter: true
       end
 
     end
