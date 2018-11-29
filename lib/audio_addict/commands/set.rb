@@ -9,7 +9,7 @@ module AudioAddict
       usage "radio set --help"
 
       param "NETWORK", "AudioAddict network key. Leave empty for an interactive prompt."
-      param "CHANNEL", "AudioAddict channel key. You can use a partial key here for an interactive prompt, or leave empty to only set the network.\nIf left empty, you might need to run the channel command to set the channel separately."
+      param "CHANNEL", "AudioAddict channel key. You can use a partial key here or leave empty for an interactive prompt."
 
       example "radio set"
       example "radio set rockradio"
@@ -42,14 +42,7 @@ module AudioAddict
           save network
         end
 
-        if channel        
-          ChannelCmd.new.run("CHANNEL" => channel)
-        else
-          channel = radio.channels.values.first.key
-          Config.channel = channel
-          Config.save
-          say "Saved Channel: !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}"
-        end
+        ChannelCmd.new.run("CHANNEL" => channel)
       end
 
       def save(network)
@@ -61,7 +54,7 @@ module AudioAddict
       def get_user_input
         options = Radio::NETWORKS.invert
         options["Abort"] = :abort
-        prompt.select "Choose a Network :", options, marker: '>'
+        prompt.select "Network :", options, marker: '>', filter: true
       end
 
     end

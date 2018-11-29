@@ -23,7 +23,7 @@ module AudioAddict
 
       def login_prompt
         user = prompt.ask "Username :"
-        pass = prompt.ask "Password :", echo: false
+        pass = prompt.mask "Password :"
         
         if user and pass
           say "Logging in... "

@@ -56,7 +56,7 @@ module AudioAddict
       def get_user_input(channels)
         options = channels.map { |channel| ["#{channel.name.ljust 20} # #{channel.key}", channel.key] }.to_h
         options = { "Abort" => :abort }.merge options
-        prompt.select "Choose a Channel :", options, marker: '>'
+        prompt.select "Channel :", options, marker: '>', filter: true
       end
 
     end
