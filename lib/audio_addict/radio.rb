@@ -74,18 +74,16 @@ module AudioAddict
         api.get 'channels'
       end
 
+      # Debug
+      # File.write 'out.yml', response.to_yaml
+
       result = {}
       response.map do |channel|
         key = channel['key']
         candidate = Channel.new self, channel
-        result[key] = candidate unless inactive_channel? candidate
+        result[key] = candidate if candidate.active?
       end
       result.sort_by { |key, channel| channel.name }.to_h
     end
-
-    def inactive_channel?(channel)
-      channel.name[0] == 'X' and channel.key[0] != 'x'
-    end
-
   end
 end

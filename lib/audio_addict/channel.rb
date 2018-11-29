@@ -14,6 +14,14 @@ module AudioAddict
       [:key, :name, :id]
     end
 
+    def active?
+      # Seems like each network has a different way of marking inactive channels.
+      # This is where we normalize it
+      return false if !properties['asset_id']
+      return false if name[0] == 'X' and key[0] != 'x'
+      return true
+    end
+
     def track_history
       response = radio.api.get "track_history/channel/#{id}"
       response.map { |track| Track.new self, track }
