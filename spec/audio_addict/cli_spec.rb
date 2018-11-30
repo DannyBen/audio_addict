@@ -1,20 +1,16 @@
 require 'spec_helper'
 
-describe 'commands (error handling)' do
-  require_mock_server!
-
-  subject { AudioAddict::CLI.router }
+describe CLI do
+  subject { described_class.router }
 
   before do 
-    AudioAddict::API.base_uri "http://localhost:3000"
-    reset_config
-    reset_tmp_dir
+    API.base_uri "http://localhost:3000"
   end
 
-  describe "missing needed config values" do
+  describe "missing config values" do
     before { Config.delete :network }
 
-    it "raises an error" do
+    it "raises errors" do
       expect{ subject.run ["channels"] }.to raise_error(ConfigError)
       expect{ subject.run ["now"] }.to raise_error(ConfigError)
       expect{ subject.run ["playlist", "init", "hello"] }.to raise_error(ConfigError)
