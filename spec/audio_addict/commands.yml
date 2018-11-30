@@ -1,21 +1,40 @@
 :commands:
+# usage
 - :cmd: ""
+
+# status
 - :cmd: "status"
 - :cmd: "status --help"
 - :cmd: "status --unsafe"
+
+# login
 - :cmd: "login"
   :kbd: ['n']
 - :cmd: "login"
   :kbd: ['y', 'user', 'password']
+- :cmd: "login"
+  :kbd: ['y', 'user', '']
+
+# set
 - :cmd: "set --help"
 - :cmd: "set dance di"
+
+# channels
 - :cmd: "channels"
 - :cmd: "channels tran"
 - :cmd: "channels --help"
+
+# now
 - :cmd: "now"
 - :cmd: "now --help"
+
+# playlist
 - :cmd: "playlist"
 - :cmd: "playlist --help"
+
+# vote
 - :cmd: "vote --help"
 - :cmd: "vote"
-  :kbd: [':enter']
+  :kbd: ['%{enter}']
+- :cmd: "vote"
+  :kbd: ['%{down}%{down}'] # unvote

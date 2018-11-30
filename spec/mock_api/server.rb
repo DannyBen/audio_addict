@@ -50,6 +50,10 @@ post '/:network/tracks/:track/vote/:channel/:direction' do
   json vote: :success
 end
 
+delete '/:network/tracks/:track/vote/:channel' do
+  json vote: :success
+end
+
 # Not Implemented
 get '*' do
   path = params['splat'].first
@@ -59,5 +63,10 @@ end
 post '*' do
   path = params['splat'].first
   halt 500, "POST #{path} : not implemented"
+end
+
+delete '*' do
+  path = params['splat'].first
+  halt 500, "DELETE #{path} : not implemented"
 end
 

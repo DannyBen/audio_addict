@@ -16,15 +16,15 @@ describe 'command line execution' do
     keyboard = spec[:kbd]
     live = spec[:live]
 
-    it "works: #{command}" do
+    test_name = "#{command}"
+    test_name = "#{command} (#{keyboard.join ' '})" if keyboard
+
+    fixture = test_name
+    fixture = "empty" if fixture.empty?
+    fixture.gsub!(/[^a-zA-Z\- \(\)\{\}]/, '')
+    
+    it "works: #{test_name}" do
       AudioAddict::API.base_uri live ? live_api_base : mock_api_base
-
-      test_name = "#{command}"
-      test_name = "#{command} (#{keyboard.join ' '})" if keyboard
-
-      fixture = test_name
-      fixture = "empty" if fixture.empty?
-      fixture.gsub!(/[^a-zA-Z\- \(\)]/, '')
 
       argv = command.split ' '
       output = interactive *keyboard do

@@ -30,8 +30,7 @@ module SpecMixin
     begin
       $stdin = StringIO.new
       until args.empty?
-        arg = args.shift
-        arg = keyboard[arg] if arg.is_a? Symbol or arg[0] == ':'
+        arg = args.shift % keyboard
         $stdin.puts arg
       end
       $stdin.rewind
