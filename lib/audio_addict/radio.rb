@@ -68,10 +68,6 @@ module AudioAddict
       channels.keys.include? channel
     end
 
-    def favorites
-      api.member['network_favorite_channels']
-    end
-
     def api
       @api ||= API.new network
     end

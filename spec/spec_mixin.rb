@@ -7,6 +7,7 @@ module SpecMixin
     Config.channel = "trance"
     Config.cache_dir = 'cache'
     Config.cache_life = '10s'
+    Config.like_log = 'tmp/like.log'
   end
 
   def reset_tmp_dir

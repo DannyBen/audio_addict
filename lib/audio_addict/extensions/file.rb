@@ -2,6 +2,7 @@ require 'fileutils'
 
 class File
   def self.contains?(file, content)
+    return false unless File.exist? file
     foreach file do |line|
       return true if line.chomp == content
     end

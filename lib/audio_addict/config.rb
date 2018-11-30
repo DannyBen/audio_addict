@@ -22,17 +22,6 @@ module AudioAddict
         File.deep_write path, properties.to_yaml
       end
 
-      def valid?
-        required_keys.each do |key|
-          return false unless has_key? key
-        end
-        true
-      end
-
-      def required_keys
-        [:network, :channel, :session_key]
-      end
-
       def has_key?(key)
         properties.has_key? key
       end
