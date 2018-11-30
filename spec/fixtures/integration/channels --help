@@ -1,0 +1,19 @@
+Show list of channels
+
+List and search channels in the currently set radio network
+
+Usage:
+  radio channels [SEARCH]
+  radio channels --help
+
+Options:
+  -h --help
+    Show this help
+
+Parameters:
+  SEARCH
+    Channel name or a partial name to search for.
+
+Examples:
+  radio channels
+  radio channels metal

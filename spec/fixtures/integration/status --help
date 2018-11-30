@@ -1,0 +1,12 @@
+Show configuration status
+
+Usage:
+  radio status [--unsafe]
+  radio status --help
+
+Options:
+  -u --unsafe
+    Show the full session and listen keys
+
+  -h --help
+    Show this help

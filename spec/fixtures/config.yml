@@ -1,0 +1,5 @@
+---
+:session_key: dummy-session
+:listen_key: dummy-listen
+:network: di
+:channel: ebm

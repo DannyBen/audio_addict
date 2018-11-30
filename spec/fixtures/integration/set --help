@@ -1,0 +1,27 @@
+Set the radio network and channel
+
+Save the channel and network to the config file for future use
+
+Usage:
+  radio set [CHANNEL NETWORK]
+  radio set --help
+
+Options:
+  -h --help
+    Show this help
+
+Parameters:
+  CHANNEL
+    AudioAddict channel key. You can use a partial key here or leave empty for
+    an interactive prompt.
+
+  NETWORK
+    AudioAddict network key. You can use a partial key here or leave empty for
+    an interactive prompt.
+
+Examples:
+  radio set
+  radio set punk
+  radio set dance digitally
+  radio set dance di
+  radio set metal rockradio

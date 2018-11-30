@@ -1,0 +1,10 @@
+AudioAddict Radio Utilities
+
+Commands:
+  [1;32mlogin     [0mSave login credentials
+  [1;32mstatus    [0mShow configuration status
+  [1;32mset       [0mSet the radio network and channel
+  [1;32mchannels  [0mShow list of channels
+  [1;32mnow       [0mShow network, channel and playing track
+  [1;32mvote      [0mVote on the currently playing track
+  [1;32mplaylist  [0mGenerate playlists
