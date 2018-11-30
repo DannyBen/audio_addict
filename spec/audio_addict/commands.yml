@@ -55,3 +55,4 @@
 - :cmd: "playlist --help"
 - :cmd: "playlist init hello"
   :kbd: ["%{enter}", "%{enter}"]
+- :cmd: "playlist generate hello"
