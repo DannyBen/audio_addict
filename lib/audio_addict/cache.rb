@@ -4,11 +4,23 @@ module AudioAddict
   module Cache
 
     def cache
-      @cache ||= Lightly.new life: '6h', dir: cache_dir
+      @cache ||= Lightly.new life: cache_life, dir: cache_dir
+    end
+
+    def cache_life
+      @cache_life ||= cache_life!
+    end
+
+    def cache_life!
+      Config.cache_life || '6h'
     end
 
     def cache_dir
-      @cache_dir ||= ENV.fetch('AUDIO_ADDICT_CACHE_PATH', "#{Dir.home}/.audio_addict/cache")
+      @cache_dir ||= cache_dir!
+    end
+
+    def cache_dir!
+      Config.cache_dir || "#{Dir.home}/.audio_addict/cache"
     end
 
   end

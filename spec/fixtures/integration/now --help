@@ -1,0 +1,12 @@
+Show network, channel and playing track
+
+Display the configured network and channel, as well as the currently playing
+track.
+
+Usage:
+  radio now
+  radio now --help
+
+Options:
+  -h --help
+    Show this help
