@@ -1,0 +1,16 @@
+commands:
+- :cmd: ""
+- :cmd: "status"
+- :cmd: "status --help"
+- :cmd: "status --unsafe"
+- :cmd: "login"
+  :kbd: ['n']
+- :cmd: "login"
+  :kbd: ['y', 'user', 'password']
+- :cmd: "set --help"
+- :cmd: "set dance di"
+- :cmd: "channels"
+- :cmd: "channels tran"
+- :cmd: "channels --help"
+- :cmd: "now"
+- :cmd: "now --help"
