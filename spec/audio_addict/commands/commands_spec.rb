@@ -3,12 +3,12 @@ require 'spec_helper'
 # This is a spec generator.
 # It will generate several "it" statements, based on the commands.yml file.
 # This particular test is responsible for the majority of the code coverage.
-describe 'command line execution' do
+describe 'commands (generated specs)' do
   require_mock_server!
 
   subject { AudioAddict::CLI.router }
 
-  commands = YAML.load_file 'spec/audio_addict/commands.yml'
+  commands = YAML.load_file 'spec/audio_addict/commands/commands.yml'
   commands = commands[:commands]
 
   before do 
@@ -31,17 +31,7 @@ describe 'command line execution' do
 
     it "works: #{test_name}" do
       fixture = test_name.gsub(/[^#\w\- \(\)\{\}\[\]]/, '')
-
-      if config
-        config.each do |key, value|
-          if value
-            Config.properties[key] = value
-          else
-            Config.delete key
-          end
-        end
-      end
-
+      config.each { |key| Config.delete key } if config
       argv = command.split ' '
       
       Dir.chdir 'spec/tmp' do

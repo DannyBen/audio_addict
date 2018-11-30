@@ -9,11 +9,7 @@
 - :cmd: "status --unsafe"
 - :cmd: "status"
   :tag:  "missing-config"
-  :cfg: 
-    :session_key: 
-    :listen_key: 
-    :network: 
-    :channel: 
+  :cfg: [session_key, listen_key, network, channel]
 
 # login
 - :cmd: "login"

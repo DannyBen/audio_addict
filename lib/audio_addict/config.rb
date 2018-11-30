@@ -15,7 +15,7 @@ module AudioAddict
       end
 
       def delete(key)
-        properties.delete key
+        properties.delete key.to_sym
       end
 
       def save
@@ -23,7 +23,7 @@ module AudioAddict
       end
 
       def has_key?(key)
-        properties.has_key? key
+        properties.has_key? key.to_sym
       end
 
       def properties

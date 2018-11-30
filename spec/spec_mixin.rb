@@ -14,7 +14,9 @@ module SpecMixin
     if Dir.exist? tmp_dir
       Dir["#{tmp_dir}/**/*"].each { |file| File.delete file if File.file? file }
     else
+      # :nocov:
       Dir.mkdir tmp_dir
+      # :nocov:
     end
   end
 
