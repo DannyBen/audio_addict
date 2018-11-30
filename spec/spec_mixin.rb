@@ -1,5 +1,5 @@
 module SpecMixin
-  def prepare_dummy_config
+  def reset_config
     Config.path = 'spec/fixtures/config.yml'
     Config.session_key = "dummy-session"
     Config.listen_key = "dummy-listen"
@@ -15,7 +15,9 @@ module SpecMixin
     result = JSON.parse result.body
     raise "Please start the mock server" unless result['mockserver'] == 'online'
   rescue Errno::ECONNREFUSED
+    # :nocov:
     raise "Please start the mock server"
+    # :nocov:
   end
 
   def keyboard
@@ -53,7 +55,9 @@ module SpecMixin
 
   def interactive(*args, &block)
     if ENV['DEBUG'] == '2'
+      # :nocov:
       interactive! *args, &block
+      # :nocov:
     else
       capture_output { interactive! *args, &block }
     end

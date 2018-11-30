@@ -1,4 +1,5 @@
 :commands:
+
 # usage
 - :cmd: ""
 
@@ -18,6 +19,13 @@
 # set
 - :cmd: "set --help"
 - :cmd: "set dance di"
+- :cmd: "set"
+  :kbd: ["%{down}", "%{down}"]
+- :cmd: "set trance"
+- :cmd: "set tran"
+  :kbd: ["%{down}"]
+- :cmd: "set deathmetal"
+- :cmd: "set dan digitally"
 
 # channels
 - :cmd: "channels"

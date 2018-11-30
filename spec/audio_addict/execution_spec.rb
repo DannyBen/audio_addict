@@ -1,6 +1,11 @@
 require 'spec_helper'
 
+# This is a spec generator.
+# It will generate several "it" statements, based on the commands.yml file.
+# This particular test is responsible for the majority of the code coverage.
 describe 'command line execution' do
+  require_mock_server!
+
   subject { AudioAddict::CLI.router }
 
   commands = YAML.load_file 'spec/audio_addict/commands.yml'
@@ -10,6 +15,8 @@ describe 'command line execution' do
   #       so base_uri stuff should move to a helper and executed once only
   let(:mock_api_base) { "http://localhost:3000" }
   let(:live_api_base) { 'https://api.audioaddict.com/v1' }
+
+  before { reset_config }
 
   commands.each do |spec|
     command = spec[:cmd]
