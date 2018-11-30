@@ -1,13 +1,24 @@
 module SpecMixin
   def reset_config
-    Config.path = 'spec/fixtures/config.yml'
+    Config.path = 'tmp/config.yml'
     Config.session_key = "dummy-session"
     Config.listen_key = "dummy-listen"
     Config.network = "di"
     Config.channel = "trance"
-    Config.cache_dir = 'spec/cache'
+    Config.cache_dir = 'cache'
     Config.cache_life = '10s'
-    Config.save
+  end
+
+  def reset_tmp_dir
+    if Dir.exist? tmp_dir
+      Dir["#{tmp_dir}/**/*"].each { |file| File.delete file if File.file? file }
+    else
+      Dir.mkdir tmp_dir
+    end
+  end
+
+  def tmp_dir
+    File.expand_path 'tmp', __dir__
   end
 
   def require_mock_server!

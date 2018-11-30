@@ -11,33 +11,46 @@ describe 'command line execution' do
   commands = YAML.load_file 'spec/audio_addict/commands.yml'
   commands = commands[:commands]
 
-  # TODO: We probably dont need to test anything against the live server
-  #       so base_uri stuff should move to a helper and executed once only
-  let(:mock_api_base) { "http://localhost:3000" }
-  let(:live_api_base) { 'https://api.audioaddict.com/v1' }
-
-  before { reset_config }
+  before do 
+    AudioAddict::API.base_uri "http://localhost:3000"
+    reset_config
+    reset_tmp_dir
+  end
 
   commands.each do |spec|
     command = spec[:cmd]
     keyboard = spec[:kbd]
     live = spec[:live]
+    config = spec[:cfg]
+    tag = spec[:tag]
 
     test_name = "#{command}"
-    test_name = "#{command} (#{keyboard.join ' '})" if keyboard
+    test_name = "#{test_name} (#{keyboard.join ' '})" if keyboard
+    test_name = "#{test_name} ##{tag}" if tag
+    test_name = "#no-arguments" if test_name.empty?
 
-    fixture = test_name
-    fixture = "empty" if fixture.empty?
-    fixture.gsub!(/[^a-zA-Z\- \(\)\{\}]/, '')
-    
     it "works: #{test_name}" do
-      AudioAddict::API.base_uri live ? live_api_base : mock_api_base
+      fixture = test_name.gsub(/[^#\w\- \(\)\{\}\[\]]/, '')
+
+      if config
+        config.each do |key, value|
+          if value
+            Config.properties[key] = value
+          else
+            Config.delete key
+          end
+        end
+      end
 
       argv = command.split ' '
-      output = interactive *keyboard do
-        subject.run argv
+      
+      Dir.chdir 'spec/tmp' do
+        output = interactive *keyboard do
+          subject.run argv
+        end
+        expect(output).to match_fixture "integration/#{fixture}"
       end
-      expect(output).to match_fixture "integration/#{fixture}"
+
     end
   end
 end

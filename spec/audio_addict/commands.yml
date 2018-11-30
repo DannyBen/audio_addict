@@ -7,6 +7,13 @@
 - :cmd: "status"
 - :cmd: "status --help"
 - :cmd: "status --unsafe"
+- :cmd: "status"
+  :tag:  "missing-config"
+  :cfg: 
+    :session_key: 
+    :listen_key: 
+    :network: 
+    :channel: 
 
 # login
 - :cmd: "login"
@@ -36,13 +43,15 @@
 - :cmd: "now"
 - :cmd: "now --help"
 
-# playlist
-- :cmd: "playlist"
-- :cmd: "playlist --help"
-
 # vote
 - :cmd: "vote --help"
 - :cmd: "vote"
   :kbd: ['%{enter}']
 - :cmd: "vote"
   :kbd: ['%{down}%{down}'] # unvote
+
+# playlist
+- :cmd: "playlist"
+- :cmd: "playlist --help"
+- :cmd: "playlist init hello"
+  :kbd: ["%{enter}", "%{enter}"]

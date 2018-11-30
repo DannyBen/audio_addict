@@ -40,7 +40,7 @@ module AudioAddict
         if Config.channel
           say "!txtgrn!#{Config.channel}"
         else
-          say"!txtred!<Unset>!txtrst! - run !txtpur!radio channel!txtrst! to fix"
+          say"!txtred!<Unset>!txtrst! - run !txtpur!radio set!txtrst! to fix"
         end
 
       end

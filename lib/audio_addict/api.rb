@@ -15,7 +15,6 @@ module AudioAddict
 
     def login(username, password)
       session = session(username, password)
-      File.write 'out.txt', session
       Config.session_key = session['key']
       Config.listen_key = session['member']['listen_key']
       Config.save

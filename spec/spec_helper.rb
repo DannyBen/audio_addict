@@ -11,6 +11,8 @@ include SpecMixin
 
 reset_config
 
+Dir.mkdir 'spec/tmp' unless Dir.exist? 'spec/tmp'
+
 RSpec.configure do |c|
   c.include SpecMixin
   c.include Colsole

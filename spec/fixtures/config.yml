@@ -1,7 +1,0 @@
----
-:session_key: dummy-session
-:listen_key: dummy-listen
-:network: di
-:channel: trance
-:cache_dir: spec/cache
-:cache_life: 10s
