@@ -1,7 +1,7 @@
 ---
-:session_key: dummy-session
-:listen_key: dummy-listen
+:session_key: session-key-new
+:listen_key: listen-key-new
 :network: di
-:channel: trance
+:channel: dance
 :cache_dir: spec/cache
 :cache_life: 10s

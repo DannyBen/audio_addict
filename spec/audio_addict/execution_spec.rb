@@ -4,6 +4,7 @@ describe 'command line execution' do
   subject { AudioAddict::CLI.router }
 
   commands = YAML.load_file 'spec/audio_addict/commands.yml'
+  commands = commands[:commands]
 
   # TODO: We probably dont need to test anything against the live server
   #       so base_uri stuff should move to a helper and executed once only
@@ -23,6 +24,7 @@ describe 'command line execution' do
 
       fixture = test_name
       fixture = "empty" if fixture.empty?
+      fixture.gsub!(/[^a-zA-Z\- \(\)]/, '')
 
       argv = command.split ' '
       output = interactive *keyboard do

@@ -1,0 +1,26 @@
+Generate playlists
+
+Usage:
+  radio playlist init NAME
+  radio playlist generate NAME
+  radio playlist --help
+
+Commands:
+  init
+    Create a playlist configuration file. This step is required prior to using
+    the generate command.
+
+  generate
+    Generate a playlist file based on the configuration file.
+
+Options:
+  -h --help
+    Show this help
+
+Parameters:
+  NAME
+    The name of the playlist without any extension
+
+Examples:
+  radio playlist init MyRockMusic
+  radio playlist generate MyRockMusic

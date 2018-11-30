@@ -1,0 +1,4 @@
+Usage:
+  radio playlist init NAME
+  radio playlist generate NAME
+  radio playlist --help

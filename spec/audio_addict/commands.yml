@@ -1,4 +1,4 @@
-commands:
+:commands:
 - :cmd: ""
 - :cmd: "status"
 - :cmd: "status --help"
@@ -16,3 +16,6 @@ commands:
 - :cmd: "now --help"
 - :cmd: "playlist"
 - :cmd: "playlist --help"
+- :cmd: "vote --help"
+- :cmd: "vote"
+  :kbd: [':enter']
