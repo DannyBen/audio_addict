@@ -39,6 +39,7 @@ Features
 - View list of channels
 - View currently playing track
 - Vote on the currently playing track
+- Save a log of a all your liked tracks
 - Generate playlists
 
 
