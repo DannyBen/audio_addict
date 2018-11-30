@@ -14,3 +14,5 @@ commands:
 - :cmd: "channels --help"
 - :cmd: "now"
 - :cmd: "now --help"
+- :cmd: "playlist"
+- :cmd: "playlist --help"
