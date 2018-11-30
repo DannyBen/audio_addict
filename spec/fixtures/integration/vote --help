@@ -1,0 +1,11 @@
+Vote on the currently playing track
+
+Start an interactive voting prompt for the currently playing track.
+
+Usage:
+  radio vote
+  radio vote --help
+
+Options:
+  -h --help
+    Show this help

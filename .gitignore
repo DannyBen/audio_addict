@@ -12,4 +12,5 @@
 /spec/tmp
 /tmp
 /toc.txt
+/mockserver.pid
 *.gem

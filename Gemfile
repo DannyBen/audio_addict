@@ -7,9 +7,10 @@ group :development, :test do
   gem 'pretty_trace'
   gem 'rspec'
   gem 'rspec_fixtures'
-  gem 'runfile'
-  gem 'runfile-tasks'
+  gem 'runfile', require: false
+  gem 'runfile-tasks', require: false
   gem 'simplecov'
+  gem 'sinatra', require: false
 end
 
 gemspec

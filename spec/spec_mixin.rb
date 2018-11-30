@@ -31,7 +31,7 @@ module SpecMixin
       $stdin = StringIO.new
       until args.empty?
         arg = args.shift
-        arg = keyboard[arg] if arg.is_a? Symbol
+        arg = keyboard[arg] if arg.is_a? Symbol or arg[0] == ':'
         $stdin.puts arg
       end
       $stdin.rewind
@@ -53,7 +53,7 @@ module SpecMixin
   end
 
   def interactive(*args, &block)
-    if ENV['DEBUG_STDOUT']
+    if ENV['DEBUG'] == '2'
       interactive! *args, &block
     else
       capture_output { interactive! *args, &block }
