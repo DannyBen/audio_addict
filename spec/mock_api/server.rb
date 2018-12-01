@@ -39,7 +39,9 @@ post '/:network/member_sessions' do
   response = {
     key: 'session-key-new',
     member: {
-      listen_key: "listen-key-new"
+      listen_key: "listen-key-new",
+      user_type: 'premium',
+      email:  'eli@marko.com',
     }
   }
   json response

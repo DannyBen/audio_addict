@@ -17,6 +17,8 @@ module AudioAddict
       session = session(username, password)
       Config.session_key = session['key']
       Config.listen_key = session['member']['listen_key']
+      Config.email = session['member']['email']
+      Config.premium = session['member']['user_type'] == 'premium'
       Config.save
     end
 
@@ -42,10 +44,8 @@ module AudioAddict
 
     def session(username, password)
       params = { member_session: { username: username, password: password } }
-      cache.get "/#{network}/member_sessions" do
-        basic_auth
-        response http.post "/#{network}/member_sessions", body: params
-      end
+      basic_auth
+      response http.post "/#{network}/member_sessions", body: params
     end
 
     def session_key

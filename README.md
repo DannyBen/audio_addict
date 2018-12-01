@@ -23,8 +23,8 @@ Demo
 Install
 --------------------------------------------------
 
-Please note that in order to use this gem you need to have a premium account
-at one of the AudioAddict networks.
+Please note that in order to use this gem you need to have an AUdioAddict 
+account (free or premium) at one of the AudioAddict networks.
 
 ```
 $ gem install audio_addict
