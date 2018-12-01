@@ -14,6 +14,11 @@ radio network.
 
 ---
 
+Demo
+--------------------------------------------------
+
+![Demo](https://raw.githubusercontent.com/DannyBen/audio_addict/master/demo/demo.gif)
+
 
 Install
 --------------------------------------------------
