@@ -30,7 +30,7 @@ module AudioAddict
           radio.api.login user, pass
           resay "!txtgrn!Saved"
         else
-          say "!txtred!Aborted"
+          say "!txtred!Cancelled"
         end
       end
       

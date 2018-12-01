@@ -14,7 +14,7 @@ module AudioAddict
         NowCmd.new.run args
         puts ""
         answer = get_user_vote
-        unless answer == :abort
+        unless answer == :cancel
           say "Voting... "
           current_channel.vote answer
           resay "!txtgrn!Voted"
@@ -25,7 +25,7 @@ module AudioAddict
 
       def get_user_vote
         options = { "Like" => :up, "Dislike" => :down, 
-          "Unvote" => :delete, "Abort" => :abort }
+          "Unvote" => :delete, "Cancel" => :cancel }
         prompt.select "Your Vote :", options, marker: '>'
       end
 

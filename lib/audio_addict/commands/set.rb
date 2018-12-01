@@ -69,7 +69,7 @@ module AudioAddict
           save_channel list.first.key
         else
           answer = channel_prompt list
-          save_channel(answer, echo: false) unless answer == :abort
+          save_channel(answer, echo: false) unless answer == :cancel
         end
       end
 
@@ -80,19 +80,19 @@ module AudioAddict
           save_network list.keys.first
         else
           answer = network_prompt list
-          save_network(answer, echo: false) unless answer == :abort
+          save_network(answer, echo: false) unless answer == :cancel
         end
       end
 
       def channel_prompt(channels)
         options = channels.map { |channel| ["#{channel.name.ljust 20} # #{channel.key}", channel.key] }.to_h
-        options = { "Abort" => :abort }.merge options
+        options = { "Cancel" => :cancel }.merge options
         prompt.select "Channel :", options, marker: '>', filter: true
       end
 
       def network_prompt(networks)
         options = networks.invert
-        options["Abort"] = :abort
+        options["Cancel"] = :cancel
         prompt.select "Network :", options, marker: '>', filter: true
       end
 
