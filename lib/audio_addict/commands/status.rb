@@ -8,39 +8,46 @@ module AudioAddict
 
       option "-u --unsafe", "Show the full session and listen keys"
 
+      def keys
+        {
+          path: { 
+            name: "Config Path", value: Config.path },
+
+          session_key: { 
+            name: "Session Key", command: 'login', secret: true },
+
+          listen_key: { 
+            name: "Listen Key", command: 'login', secret: true },
+
+          network: { 
+            name: "Network", command: 'set' },
+
+          channel: { 
+            name: "Channel", command: 'set' },
+
+          like_log: { 
+            name: "Like Log", command: 'config like_log PATH' },
+        }
+      end
+
       def run(args)
-        say "!txtblu! Config Path !txtrst!: !txtgrn!#{Config.path}"
+        keys.each do |key, info|
+          value = info[:value] || Config.properties[key]
 
-        say "!txtblu! Session Key !txtrst!: "
-        if Config.session_key
-          key = Config.session_key
-          display_key = args['--unsafe'] ? key : "***#{key[-4, 4]}"
-          say "!txtgrn!#{display_key}"
-        else 
-          say "!txtred!<Unset>!txtrst! - run !txtpur!radio login!txtrst! to fix"
-        end
+          if value and !args['--unsafe'] and info[:secret]
+            value = "***#{value[-4, 4]}" 
+          end
+          
+          if value
+            display_value = "!txtgrn!#{value}!txtrst!"
+          else
+            display_value = "!txtred!<Unset>!txtrst!"
+            if info[:command]
+              display_value = "#{display_value} - set with !txtpur!radio #{info[:command]}"
+            end
+          end
 
-        say "!txtblu!  Listen Key !txtrst!: "
-        if Config.listen_key
-          key = Config.listen_key
-          display_key = args['--unsafe'] ? key : "***#{key[-4, 4]}"
-          say "!txtgrn!#{display_key}"
-        else 
-          say "!txtred!<Unset>!txtrst! - run !txtpur!radio login!txtrst! to fix"
-        end
-
-        say "!txtblu!     Network !txtrst!: "
-        if Config.network 
-          say "!txtgrn!#{Config.network}"
-        else
-          say "!txtred!<Unset>!txtrst! - run !txtpur!radio set!txtrst! to fix"
-        end
-
-        say "!txtblu!     Channel !txtrst!: "
-        if Config.channel
-          say "!txtgrn!#{Config.channel}"
-        else
-          say"!txtred!<Unset>!txtrst! - run !txtpur!radio set!txtrst! to fix"
+          say "!txtblu!#{info[:name].rjust 14}!txtrst! : #{display_value}"
         end
 
       end
