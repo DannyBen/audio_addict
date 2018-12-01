@@ -13,6 +13,9 @@ module AudioAddict
           path: { 
             name: "Config Path", value: Config.path },
 
+          email: { 
+            name: "Email", command: 'login' },
+
           session_key: { 
             name: "Session Key", command: 'login', secret: true },
 

@@ -12,7 +12,7 @@ module AudioAddict
         proceed = true
 
         if radio.api.logged_in?
-          say "!txtylw!You are already logged in"
+          say "!txtylw!You are already logged in as !undylw!#{Config.email}"
           proceed = prompt.yes? "Login again?"
         end
         
@@ -22,7 +22,7 @@ module AudioAddict
     private
 
       def login_prompt
-        user = prompt.ask "Username :"
+        user = prompt.ask "Username :", default: Config.email
         pass = prompt.mask "Password :"
         
         if user and pass

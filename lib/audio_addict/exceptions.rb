@@ -4,6 +4,7 @@ module AudioAddict
   class Interrupt < Error; end
   class ArgumentError < Error; end
   class ConfigError < Error; end
+  class PremiumAccount < Error; end
   
   class APIError < Error
     attr_reader :response

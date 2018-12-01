@@ -18,6 +18,10 @@ module AudioAddict
         end
       end
 
+      def require_premium_account
+        raise PremiumAccount, "This operation requires a premium account" unless Config.premium
+      end
+
       def radio
         @radio ||= Radio.new current_network
       end

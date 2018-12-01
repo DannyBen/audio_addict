@@ -1,4 +1,5 @@
 [0;34m   Config Path[0m : [0;32mtmp/config.yml[0m
+[0;34m         Email[0m : [0;32meli@marko.com[0m
 [0;34m   Session Key[0m : [0;31m<Unset>[0m - set with [0;35mradio login
 [0m[0;34m    Listen Key[0m : [0;31m<Unset>[0m - set with [0;35mradio login
 [0m[0;34m       Network[0m : [0;31m<Unset>[0m - set with [0;35mradio set

@@ -3,7 +3,9 @@
 :cache_dir: cache
 :cache_life: 10s
 :channel: trance
+:email: eli@marko.com
 :like_log: tmp/like.log
 :listen_key: dummy-listen
 :network: di
+:premium: true
 :session_key: dummy-session

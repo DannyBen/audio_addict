@@ -18,6 +18,8 @@ module AudioAddict
       def init_command(args)
         needs :network, :channel, :listen_key
 
+        require_premium_account
+
         name = args['NAME']
         outfile = "#{name}.yml"
 
@@ -32,6 +34,8 @@ module AudioAddict
 
       def generate_command(args)
         needs :network, :channel, :listen_key
+
+        require_premium_account
 
         name = args['NAME']
 

@@ -1,6 +1,8 @@
 module SpecMixin
   def reset_config
     Config.path = 'tmp/config.yml'
+    Config.email = "eli@marko.com"
+    Config.premium = true
     Config.session_key = "dummy-session"
     Config.listen_key = "dummy-listen"
     Config.network = "di"
