@@ -45,7 +45,7 @@ Features
 - View currently playing track
 - Vote on the currently playing track
 - Save a log of a all your liked tracks
-- Generate playlists
+- Generate playlists (requires a premium account)
 
 
 Usage
