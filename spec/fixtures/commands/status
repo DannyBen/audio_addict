@@ -1,6 +1,6 @@
-[0;34m Config Path [0m: [0;32mtmp/config.yml
-[0m[0;34m Session Key [0m: [0;32m***sion
-[0m[0;34m  Listen Key [0m: [0;32m***sten
-[0m[0;34m     Network [0m: [0;32mdi
-[0m[0;34m     Channel [0m: [0;32mtrance
-[0m
+[0;34m   Config Path[0m : [0;32mtmp/config.yml[0m
+[0;34m   Session Key[0m : [0;32m***sion[0m
+[0;34m    Listen Key[0m : [0;32m***sten[0m
+[0;34m       Network[0m : [0;32mdi[0m
+[0;34m       Channel[0m : [0;32mtrance[0m
+[0;34m      Like Log[0m : [0;32mtmp/like.log[0m
