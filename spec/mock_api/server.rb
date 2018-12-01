@@ -20,6 +20,8 @@ get '/:network/channels' do
     { id: 2, key: "dance",          name: "Dance",           asset_id: 2 },
     { id: 3, key: "ebm",            name: "EBM",             asset_id: 3 },
     { id: 4, key: "classictrance",  name: "Classic Trance",  asset_id: 4 },
+    { id: 5, key: "hiddenchannel",  name: "Hidden Dance"                 },
+    { id: 6, key: "anotherhidden",  name: "XHidden Dance",   asset_id: 6 },
   ]
   json response
 end
