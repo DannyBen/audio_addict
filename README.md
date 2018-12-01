@@ -61,6 +61,8 @@ Commands:
   now       Show network, channel and playing track
   vote      Vote on the currently playing track
   playlist  Generate playlists
+  config    Manage local configuration
+
 
 ```
 
