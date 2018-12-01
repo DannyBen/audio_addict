@@ -18,29 +18,38 @@ describe 'commands (generated specs)' do
   end
 
   commands.each do |spec|
-    command = spec[:cmd]
-    keyboard = spec[:kbd]
-    live = spec[:live]
-    config = spec[:cfg]
-    tag = spec[:tag]
+    it "works" do
+      command = spec[:cmd]
+      keyboard = spec[:kbd]
+      live = spec[:live]
+      tag = spec[:tag]&.to_sym
 
-    test_name = "#{command}"
-    test_name = "#{test_name} (#{keyboard.join ' '})" if keyboard
-    test_name = "#{test_name} ##{tag}" if tag
-    test_name = "#no-arguments" if test_name.empty?
+      test_name = "#{command}"
+      test_name = "#{test_name} (#{keyboard.join ' '})" if keyboard
+      test_name = "#{test_name} ##{tag}" if tag
+      test_name = "#no-arguments" if test_name.empty?
 
-    it "works: #{test_name}" do
+      say "$ !txtpur!#{test_name}"
+
       fixture = test_name.gsub(/[^#\w\- \(\)\{\}\[\]]/, '')
-      config.each { |key| Config.delete key } if config
       argv = command.split ' '
       
       Dir.chdir 'spec/tmp' do
+        send tag if tag and respond_to? tag
         output = interactive *keyboard do
           subject.run argv
         end
-        expect(output).to match_fixture "integration/#{fixture}"
+        expect(output).to match_fixture "commands/#{fixture}"
       end
 
     end
+  end
+
+  def missing_config
+    Config.delete :session_key, :listen_key, :network, :channel
+  end
+
+  def create_config
+    Config.save
   end
 end

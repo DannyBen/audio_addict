@@ -1,0 +1,52 @@
+Manage local configuration
+
+Usage:
+  radio config set KEY VALUE
+  radio config get KEY
+  radio config del KEY
+  radio config show
+  radio config edit
+  radio config keys
+  radio config --help
+
+Commands:
+  get
+    Show the value of this config key.
+
+  set
+    Set the value of this config key.
+
+  del
+    Delete the value of this config key.
+
+  show
+    Show the entire config file contents.
+
+  edit
+    Open the config file for editing.
+
+  keys
+    Show a list of supported config keys and their purpose.
+
+Options:
+  -s --show
+    Show the contents of the config file
+
+  -e --edit
+    Open the config file for editing
+
+  -h --help
+    Show this help
+
+Parameters:
+  KEY
+    Config key
+
+  VALUE
+    Config value
+
+Examples:
+  radio config edit
+  radio config set like_log ~/like.log
+  radio config del session_key
+  radio config get listen_key

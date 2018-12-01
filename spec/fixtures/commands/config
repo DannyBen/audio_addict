@@ -1,0 +1,8 @@
+Usage:
+  radio config set KEY VALUE
+  radio config get KEY
+  radio config del KEY
+  radio config show
+  radio config edit
+  radio config keys
+  radio config --help

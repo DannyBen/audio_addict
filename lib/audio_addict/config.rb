@@ -14,12 +14,12 @@ module AudioAddict
         end
       end
 
-      def delete(key)
-        properties.delete key.to_sym
+      def delete(*keys)
+        keys.each { |key| properties.delete key.to_sym }
       end
 
       def save
-        File.deep_write path, properties.to_yaml
+        File.deep_write path, sorted_properties.to_yaml
       end
 
       def has_key?(key)
@@ -32,6 +32,10 @@ module AudioAddict
 
       def properties!
         File.exist?(path) ? YAML.load_file(path) : {}
+      end
+
+      def sorted_properties
+        properties.sort.to_h
       end
 
       def path
