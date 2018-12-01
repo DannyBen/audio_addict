@@ -1,3 +1,7 @@
+[0;32memail
+[0m  Last email used for logging in.
+  Usually set with [0;35mradio login[0m.
+
 [0;32msession_key
 [0m  Used for authentication.
   Usually set with [0;35mradio login[0m.

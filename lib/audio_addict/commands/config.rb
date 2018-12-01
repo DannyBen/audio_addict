@@ -76,6 +76,7 @@ module AudioAddict
 
       def key_guide
         {
+          email: "Last email used for logging in.\nUsually set with !txtpur!radio login!txtrst!.",
           session_key: "Used for authentication.\nUsually set with !txtpur!radio login!txtrst!.",
           listen_key: "Used for generating playlists.\nUsually set with !txtpur!radio login!txtrst!.",
           network: "Specify the AudioAddict network you are currently listening to.\nUsually set with !txtpur!radio set!txtrst!.",

@@ -7,5 +7,5 @@
 :like_log: tmp/like.log
 :listen_key: dummy-listen
 :network: di
-:premium: false
+:premium: true
 :session_key: dummy-session
