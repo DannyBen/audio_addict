@@ -1,0 +1,9 @@
+[4;35m# tmp/config.yml
+[0m---
+:cache_dir: cache
+:cache_life: 10s
+:channel: trance
+:like_log: tmp/like.log
+:listen_key: dummy-listen
+:network: di
+:session_key: dummy-session

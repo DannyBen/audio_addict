@@ -8,8 +8,7 @@
 - :cmd: "status --help"
 - :cmd: "status --unsafe"
 - :cmd: "status"
-  :tag:  "missing-config"
-  :cfg: [session_key, listen_key, network, channel]
+  :tag:  "missing_config"
 
 # login
 - :cmd: "login"
@@ -52,3 +51,14 @@
 - :cmd: "playlist init hello"
   :kbd: ["%{enter}", "%{enter}"]
 - :cmd: "playlist generate hello"
+
+# config
+- :cmd: "config"
+- :cmd: "config --help"
+- :cmd: "config show"
+- :cmd: "config show"
+  :tag: "create_config"
+- :cmd: "config set hello world"
+- :cmd: "config get session_key"
+- :cmd: "config del hello"
+- :cmd: "config keys"
