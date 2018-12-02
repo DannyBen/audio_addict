@@ -3,6 +3,7 @@ Manage local like log
 Usage:
   radio log show
   radio log tail [--lines N]
+  radio log sort
   radio log --help
 
 Commands:
@@ -11,6 +12,9 @@ Commands:
 
   tail
     Show the last few rows of the like log
+
+  sort
+    Sort the log alphabetically and save it
 
 Options:
   -l --lines N

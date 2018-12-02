@@ -74,3 +74,5 @@
   :tag: 'fresh_like_log'
 - :cmd: "log tail --lines 3"
   :tag: 'fresh_like_log'
+- :cmd: "log sort"
+  :tag: 'fresh_like_log'
