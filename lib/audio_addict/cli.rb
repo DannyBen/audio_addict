@@ -12,6 +12,7 @@ module AudioAddict
       router.route 'vote',     to: Commands::VoteCmd
       router.route 'playlist', to: Commands::PlaylistCmd
       router.route 'config',   to: Commands::ConfigCmd
+      router.route 'log',      to: Commands::LogCmd
 
       router
     end

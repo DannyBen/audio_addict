@@ -12,14 +12,11 @@ module AudioAddict
           missing.push key unless Config.has_key? key
         end
 
-        if missing.any?
-          missing_keys = missing.map { |k| "- !txtblu!#{k}" }.join "\n"
-          raise ConfigError, "This operation requires some config parameters that are missing:\n#{missing_keys}" 
-        end
+        raise ConfigError, missing if missing.any?
       end
 
       def require_premium_account
-        raise PremiumAccount, "This operation requires a premium account" unless Config.premium
+        raise PremiumAccount unless Config.premium
       end
 
       def radio

@@ -67,6 +67,7 @@ Commands:
   vote      Vote on the currently playing track
   playlist  Generate playlists
   config    Manage local configuration
+  log       Manage local like log
 
 
 ```
