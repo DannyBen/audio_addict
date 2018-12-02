@@ -42,7 +42,9 @@
 - :cmd: "vote --help"
 - :cmd: "vote"
   :kbd: ['%{enter}']
-- :cmd: "vote"
+- :cmd: "vote --all"
+  :kbd: ['%{enter}']
+- :cmd: "vote --all"
   :kbd: ['%{down}%{down}'] # unvote
 
 # playlist

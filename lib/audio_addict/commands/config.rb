@@ -17,12 +17,12 @@ module AudioAddict
       option "-s --show", "Show the contents of the config file"
       option "-e --edit", "Open the config file for editing"
 
-      command "get", "Show the value of this config key."
-      command "set", "Set the value of this config key."
-      command "del", "Delete the value of this config key."
-      command "show", "Show the entire config file contents."
-      command "edit", "Open the config file for editing."
-      command "guide", "Show a list of supported config keys and their purpose."
+      command "get", "Show the value of this config key"
+      command "set", "Set the value of this config key"
+      command "del", "Delete the value of this config key"
+      command "show", "Show the entire config file contents"
+      command "edit", "Open the config file for editing"
+      command "guide", "Show a list of supported config keys and their purpose"
 
       example "radio config edit"
       example "radio config set like_log ~/like.log"
