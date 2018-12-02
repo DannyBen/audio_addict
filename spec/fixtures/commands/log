@@ -1,0 +1,4 @@
+Usage:
+  radio log show
+  radio log tail [--lines N]
+  radio log --help

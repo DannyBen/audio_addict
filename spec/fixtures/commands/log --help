@@ -1,0 +1,26 @@
+Manage local like log
+
+Usage:
+  radio log show
+  radio log tail [--lines N]
+  radio log --help
+
+Commands:
+  show
+    Show the entire like log
+
+  tail
+    Show the last few rows of the like log
+
+Options:
+  -l --lines N
+    Number of lines to show [default: 5]
+
+  -h --help
+    Show this help
+
+Examples:
+  radio log show
+  radio log tail
+  radio log tail --lines 10
+  radio log sort

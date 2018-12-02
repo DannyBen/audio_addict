@@ -9,3 +9,4 @@ Commands:
   [1;32mvote      [0mVote on the currently playing track
   [1;32mplaylist  [0mGenerate playlists
   [1;32mconfig    [0mManage local configuration
+  [1;32mlog       [0mManage local like log

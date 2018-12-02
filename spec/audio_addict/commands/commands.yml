@@ -64,3 +64,13 @@
 - :cmd: "config get session_key"
 - :cmd: "config del hello"
 - :cmd: "config guide"
+
+# log
+- :cmd: "log"
+- :cmd: "log --help"
+- :cmd: "log show"
+  :tag: 'fresh_like_log'
+- :cmd: "log tail"
+  :tag: 'fresh_like_log'
+- :cmd: "log tail --lines 3"
+  :tag: 'fresh_like_log'
