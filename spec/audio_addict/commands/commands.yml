@@ -61,4 +61,4 @@
 - :cmd: "config set hello world"
 - :cmd: "config get session_key"
 - :cmd: "config del hello"
-- :cmd: "config keys"
+- :cmd: "config guide"

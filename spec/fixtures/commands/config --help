@@ -6,7 +6,7 @@ Usage:
   radio config del KEY
   radio config show
   radio config edit
-  radio config keys
+  radio config guide
   radio config --help
 
 Commands:
@@ -25,7 +25,7 @@ Commands:
   edit
     Open the config file for editing.
 
-  keys
+  guide
     Show a list of supported config keys and their purpose.
 
 Options:

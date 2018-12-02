@@ -4,5 +4,5 @@ Usage:
   radio config del KEY
   radio config show
   radio config edit
-  radio config keys
+  radio config guide
   radio config --help

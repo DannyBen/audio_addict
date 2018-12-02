@@ -8,7 +8,7 @@ module AudioAddict
       usage "radio config del KEY"
       usage "radio config show"
       usage "radio config edit"
-      usage "radio config keys"
+      usage "radio config guide"
       usage "radio config --help"
 
       param "KEY", "Config key"
@@ -22,7 +22,7 @@ module AudioAddict
       command "del", "Delete the value of this config key."
       command "show", "Show the entire config file contents."
       command "edit", "Open the config file for editing."
-      command "keys", "Show a list of supported config keys and their purpose."
+      command "guide", "Show a list of supported config keys and their purpose."
 
       example "radio config edit"
       example "radio config set like_log ~/like.log"
@@ -64,7 +64,7 @@ module AudioAddict
         system "#{editor} #{Config.path}"
       end
 
-      def keys_command(args)
+      def guide_command(args)
         key_guide.each do |key, value|
           say "!txtgrn!#{key}"
           say word_wrap "  #{value}"
