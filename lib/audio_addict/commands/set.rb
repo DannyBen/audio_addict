@@ -92,7 +92,7 @@ module AudioAddict
 
       def network_prompt(networks)
         options = networks.invert
-        options["Cancel"] = :cancel
+        options["Skip"] = :cancel
         prompt.select "Network :", options, marker: '>', filter: true
       end
 
