@@ -8,7 +8,7 @@ module AudioAddict
       usage "radio channels [SEARCH]"
       usage "radio channels --help"
 
-      param "SEARCH", "Channel name or a partial name to search for."
+      param "SEARCH", "Channel name or a partial name to search for"
 
       example "radio channels"
       example "radio channels metal"

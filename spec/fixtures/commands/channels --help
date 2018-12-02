@@ -12,7 +12,7 @@ Options:
 
 Parameters:
   SEARCH
-    Channel name or a partial name to search for.
+    Channel name or a partial name to search for
 
 Examples:
   radio channels

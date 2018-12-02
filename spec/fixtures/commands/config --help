@@ -11,22 +11,22 @@ Usage:
 
 Commands:
   get
-    Show the value of this config key.
+    Show the value of this config key
 
   set
-    Set the value of this config key.
+    Set the value of this config key
 
   del
-    Delete the value of this config key.
+    Delete the value of this config key
 
   show
-    Show the entire config file contents.
+    Show the entire config file contents
 
   edit
-    Open the config file for editing.
+    Open the config file for editing
 
   guide
-    Show a list of supported config keys and their purpose.
+    Show a list of supported config keys and their purpose
 
 Options:
   -s --show
