@@ -8,17 +8,22 @@ module AudioAddict
 
       def run(args)
         needs :network, :channel
-
-        tracks = current_channel.track_history
-        max_artist_len = tracks.map { |t| t.artist.size }.max
-
         say "!undgrn!#{radio.name} > #{current_channel.name}"
         say ''
-        current_channel.track_history.each do |channel|
+        tracks.each do |channel|
           say "!txtgrn! #{channel.artist.rjust max_artist_len}!txtrst! : !txtblu!#{channel.title}"
         end
       end
 
+    private
+
+      def tracks
+        @tracks ||= current_channel.track_history
+      end
+
+      def max_artist_len
+        tracks.map { |t| t.artist.size }.max
+      end
     end
   end
 end
