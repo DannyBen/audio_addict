@@ -76,3 +76,7 @@
   :tag: 'fresh_like_log'
 - :cmd: "log sort"
   :tag: 'fresh_like_log'
+
+# history
+- :cmd: "history --help"
+- :cmd: "history"

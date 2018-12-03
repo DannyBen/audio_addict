@@ -64,6 +64,7 @@ Commands:
   set       Set the radio network and channel
   channels  Show list of channels
   now       Show network, channel and playing track
+  history   Show track history for the current channel
   vote      Vote on the currently playing track
   playlist  Generate playlists
   config    Manage local configuration

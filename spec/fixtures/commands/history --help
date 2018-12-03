@@ -1,0 +1,9 @@
+Show track history for the current channel
+
+Usage:
+  radio history
+  radio history --help
+
+Options:
+  -h --help
+    Show this help

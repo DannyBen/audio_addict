@@ -6,6 +6,7 @@ Commands:
   [1;32mset       [0mSet the radio network and channel
   [1;32mchannels  [0mShow list of channels
   [1;32mnow       [0mShow network, channel and playing track
+  [1;32mhistory   [0mShow track history for the current channel
   [1;32mvote      [0mVote on the currently playing track
   [1;32mplaylist  [0mGenerate playlists
   [1;32mconfig    [0mManage local configuration
