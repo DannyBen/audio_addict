@@ -1,7 +1,7 @@
 Manage local like log
 
 Usage:
-  radio log show
+  radio log show [SEARCH]
   radio log tail [--lines N]
   radio log sort
   radio log --help
@@ -23,8 +23,13 @@ Options:
   -h --help
     Show this help
 
+Parameters:
+  SEARCH
+    Show only log lines matching this string
+
 Examples:
   radio log show
+  radio log show paramore
   radio log tail
   radio log tail --lines 10
   radio log sort
