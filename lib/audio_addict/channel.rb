@@ -35,9 +35,9 @@ module AudioAddict
       track_history.first
     end
 
-    def vote(direction = :up)
-      track_id = current_track.id
-      endpoint = "tracks/#{track_id}/vote/#{id}"
+    def vote(direction = :up, track: nil)
+      track ||= current_track.id
+      endpoint = "tracks/#{track}/vote/#{id}"
 
       if direction == :delete
         radio.api.delete endpoint
