@@ -9,6 +9,7 @@ module AudioAddict
       router.route 'set',      to: Commands::SetCmd
       router.route 'channels', to: Commands::ChannelsCmd
       router.route 'now',      to: Commands::NowCmd
+      router.route 'history',  to: Commands::HistoryCmd
       router.route 'vote',     to: Commands::VoteCmd
       router.route 'playlist', to: Commands::PlaylistCmd
       router.route 'config',   to: Commands::ConfigCmd
