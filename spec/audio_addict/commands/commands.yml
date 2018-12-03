@@ -46,6 +46,14 @@
   :kbd: ['%{enter}']
 - :cmd: "vote --all"
   :kbd: ['%{down}%{down}'] # unvote
+- :cmd: "vote --past"
+  :kbd: ['%{down}', '%{enter}']
+- :cmd: "vote --past"
+  :kbd: ['%{down}%{down}', 'n']
+- :cmd: "vote --past --all"
+  :kbd: ['%{down}', '%{enter}']
+- :cmd: "vote --past --all"
+  :kbd: ['%{enter}']
 
 # playlist
 - :cmd: "playlist"

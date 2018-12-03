@@ -10,8 +10,8 @@ module AudioAddict
         needs :network, :channel
         say "!undgrn!#{radio.name} > #{current_channel.name}"
         say ''
-        tracks.each do |channel|
-          say "!txtgrn! #{channel.artist.rjust max_artist_len}!txtrst! : !txtblu!#{channel.title}"
+        tracks.each do |track|
+          say "!txtgrn! #{track.artist.rjust max_artist_len}!txtrst! : !txtblu!#{track.title}"
         end
       end
 

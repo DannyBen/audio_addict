@@ -1,14 +1,25 @@
-Vote on the currently playing track
+Vote on a recently played track
 
-Start an interactive voting prompt for the currently playing track.
+Start an interactive voting prompt for the currently playing track or for
+previously played tracks.
 
 Usage:
-  radio vote [--all]
+  radio vote [--all --past]
   radio vote --help
 
 Options:
   -a --all
     Show all voting options
 
+  -p --past
+    Vote on previously played tracks
+
   -h --help
     Show this help
+
+Examples:
+  radio vote
+  radio vote --all
+  radio vote --past
+  radio vote --all --past
+  radio vote -ap
