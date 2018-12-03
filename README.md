@@ -65,7 +65,7 @@ Commands:
   channels  Show list of channels
   now       Show network, channel and playing track
   history   Show track history for the current channel
-  vote      Vote on the currently playing track
+  vote      Vote on a recently played track
   playlist  Generate playlists
   config    Manage local configuration
   log       Manage local like log
