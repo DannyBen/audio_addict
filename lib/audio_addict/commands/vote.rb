@@ -19,31 +19,24 @@ module AudioAddict
 
       def run(args)
         needs :network, :channel, :session_key
-        
-        style = args['--all'] ? :menu : :simple
-        mode = args['--past'] ? :past : :now
-
-        if mode == :now
-          vote_now style
-        else
-          vote_past style
-        end
+        @args = args
+        vote_mode == :now ? vote_now : vote_past
       end
 
     private
 
-      def vote_past(style)
+      def vote_past
         track = get_user_track
         unless track == :cancel
-          vote = get_user_vote style: style
+          vote = get_user_vote
           send_vote vote, track unless vote == :cancel
         end
       end
 
-      def vote_now(style)
+      def vote_now
         NowCmd.new.run
         puts ""
-        vote = get_user_vote style: style
+        vote = get_user_vote
         send_vote vote unless vote == :cancel
       end
 
@@ -67,8 +60,8 @@ module AudioAddict
         prompt.select "Track:", options, marker: '>'
       end
 
-      def get_user_vote(style: :menu)
-        style == :menu ? menu_prompt : simple_prompt
+      def get_user_vote
+        vote_style == :menu ? menu_prompt : simple_prompt
       end
 
       def menu_prompt
@@ -80,6 +73,14 @@ module AudioAddict
       def simple_prompt
         like = prompt.yes? "Vote?"
         like ? :up : :cancel
+      end
+
+      def vote_style
+        @args['--all'] ? :menu : :simple
+      end
+
+      def vote_mode
+        @args['--past'] ? :past : :now
       end
 
     end
