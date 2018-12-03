@@ -42,7 +42,7 @@ module AudioAddict
       end
 
       def simple_prompt
-        like = prompt.yes? "Like?"
+        like = prompt.yes? "Vote?"
         like ? :up : :cancel
       end
 
