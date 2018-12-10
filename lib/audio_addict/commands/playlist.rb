@@ -58,11 +58,10 @@ module AudioAddict
           template: "http://prem2.#{radio.domain}:80/%{channel_key}?%{listen_key}"
         }
 
-        channels = []
+        channels = {}
         
         radio.channels.each do |key, channel|
-          channel_data = { name: channel.name, key: key, active: true }
-          channels << channel_data
+          channels[key.to_sym] = channel.name
         end
 
         data[:channels] = channels
@@ -74,7 +73,7 @@ module AudioAddict
       def generate_playlist(infile, outfile)
         data = YAML.load_file infile
         template = data[:template]
-        channels = data[:channels].select { |c| c[:active] }
+        channels = data[:channels]
 
         output = []
         output << "[playlist]"
@@ -82,10 +81,10 @@ module AudioAddict
 
         index = 0
 
-        channels.each do |channel|
+        channels.each do |key, name|
           index += 1
-          output << "File#{index}=#{template}" % template_params(channel[:key])
-          output << "Title#{index}=#{channel[:name]}"
+          output << "File#{index}=#{template}" % template_params(key)
+          output << "Title#{index}=#{name}"
           output << "Length#{index}=0"
         end
 

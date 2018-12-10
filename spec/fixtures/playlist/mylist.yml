@@ -1,0 +1,7 @@
+---
+:template: http://prem2.di.fm:80/%{channel_key}?%{listen_key}
+:channels:
+  :classictrance: Classic Trance
+  :dance: Dance
+  :ebm: EBM
+  :trance: Trance
