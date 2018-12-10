@@ -8,7 +8,7 @@ describe Commands::ConfigCmd do
     reset_tmp_dir
   end
 
-  describe "init", :focus do
+  describe "init" do
     it "generates the YAML and PLS files properly" do
       Dir.chdir 'spec/tmp' do
         FileUtils.rm 'mylist.yml' if File.exist? 'mylist.yml'
