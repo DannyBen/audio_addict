@@ -60,6 +60,11 @@ module AudioAddict
       end 
     end
 
+    def search_by_id(ids)
+      ids = [ids] unless ids.is_a? Array
+      channels.select { |_key, channel| ids.include? channel.id }
+    end
+
     def [](channel_key)
       channels[channel_key]
     end

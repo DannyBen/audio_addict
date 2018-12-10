@@ -33,6 +33,8 @@
 - :cmd: "channels"
 - :cmd: "channels tran"
 - :cmd: "channels --help"
+- :cmd: "channels --info"
+- :cmd: "channels tran --info"
 
 # now
 - :cmd: "now"

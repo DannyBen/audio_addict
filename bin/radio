@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'audio_addict'
+include Colsole
 
 router = AudioAddict::CLI.router
 

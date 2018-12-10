@@ -35,6 +35,13 @@ module AudioAddict
       track_history.first
     end
 
+    def similar_channels
+      similar = properties['similar_channels']
+      return [] unless similar
+      ids = similar.map { |s| s['similar_channel_id'] }
+      radio.search_by_id ids
+    end
+
     def vote(direction = :up, track: nil)
       track ||= current_track.id
       endpoint = "tracks/#{track}/vote/#{id}"
