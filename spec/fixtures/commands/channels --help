@@ -3,10 +3,14 @@ Show list of channels
 List and search channels in the currently set radio network
 
 Usage:
-  radio channels [SEARCH]
+  radio channels [SEARCH --info]
   radio channels --help
 
 Options:
+  -i --info
+    Show results with additional info, such as channel description and related
+    channels
+
   -h --help
     Show this help
 
@@ -16,4 +20,6 @@ Parameters:
 
 Examples:
   radio channels
+  radio channels --info
   radio channels metal
+  radio channels metal -i

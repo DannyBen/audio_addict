@@ -1,11 +1,20 @@
 require 'sinatra'
 require 'byebug'
+require 'yaml'
 
 set :port, 3000
 set :bind, '0.0.0.0'
 
 def json(hash)
   JSON.pretty_generate hash
+end
+
+def config
+  @config ||= YAML.load_file(config_file)
+end
+
+def config_file
+  File.expand_path 'config.yml', __dir__
 end
 
 # Handshake
@@ -15,38 +24,17 @@ end
 
 # Channels
 get '/:network/channels' do
-  response = [
-    { id: 1, key: "trance",         name: "Trance",          asset_id: 1 },
-    { id: 2, key: "dance",          name: "Dance",           asset_id: 2 },
-    { id: 3, key: "ebm",            name: "EBM",             asset_id: 3 },
-    { id: 4, key: "classictrance",  name: "Classic Trance",  asset_id: 4 },
-    { id: 5, key: "hiddenchannel",  name: "Hidden Dance"                 },
-    { id: 6, key: "anotherhidden",  name: "XHidden Dance",   asset_id: 6 },
-  ]
-  json response
+  json config[:channels]
 end
 
 # Tracks
 get '/:network/track_history/channel/*' do
-  response = [
-    { track_id: 1, artist: "Dennis Sheperd", title: "Wanting (feat Molly Bancroft)" },
-    { track_id: 2, artist: "D.Wingel",       title: "Alone in the Space" },
-    { track_id: 3, artist: "Lulu Rouge",     title: "Sign Me Out" },
-  ]
-  json response
+  json config[:track_history]
 end
 
 # Login
 post '/:network/member_sessions' do
-  response = {
-    key: 'session-key-new',
-    member: {
-      listen_key: "listen-key-new",
-      user_type: 'premium',
-      email:  'eli@marko.com',
-    }
-  }
-  json response
+  json config[:login]
 end
 
 # Vote
