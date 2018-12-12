@@ -14,6 +14,7 @@ Parameters:
   CHANNEL
     AudioAddict channel key. You can use a partial key here or leave empty for
     an interactive prompt.
+    Use '-' to set the first channel in the network.
 
   NETWORK
     AudioAddict network key. You can use a partial key here or leave empty for
@@ -25,3 +26,4 @@ Examples:
   radio set dance digitally
   radio set dance di
   radio set metal rockradio
+  radio set - rockradio

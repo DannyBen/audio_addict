@@ -1,0 +1,3 @@
+Usage:
+  radio api [get|post|delete] ENDPOINT
+  radio api --help

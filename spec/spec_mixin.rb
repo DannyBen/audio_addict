@@ -22,6 +22,11 @@ module SpecMixin
     end
   end
 
+  def reset_like_log
+    log_fixture = File.expand_path 'fixtures/like.log', __dir__
+    system %Q[cp "#{log_fixture}" 'tmp/like.log']
+  end
+
   def tmp_dir
     File.expand_path 'tmp', __dir__
   end

@@ -61,7 +61,8 @@ module AudioAddict
         channels = {}
         
         radio.channels.each do |key, channel|
-          channels[key.to_sym] = channel.name
+          key = fix_key key.to_sym
+          channels[key] = channel.name
         end
 
         data[:channels] = channels
@@ -100,6 +101,12 @@ module AudioAddict
 
       def listen_key
         Config.listen_key
+      end
+
+      # This is a patch to circumvent some anomalies in the AudioAddict API
+      def fix_key(key)
+        key = :electrohouse if current_network == 'di' and key == :electro
+        key
       end
 
     end

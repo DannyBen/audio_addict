@@ -8,7 +8,7 @@ module AudioAddict
       usage "radio set [CHANNEL NETWORK]"
       usage "radio set --help"
 
-      param "CHANNEL", "AudioAddict channel key. You can use a partial key here or leave empty for an interactive prompt."
+      param "CHANNEL", "AudioAddict channel key. You can use a partial key here or leave empty for an interactive prompt.\nUse '-' to set the first channel in the network."
       param "NETWORK", "AudioAddict network key. You can use a partial key here or leave empty for an interactive prompt."
 
       example "radio set"
@@ -16,6 +16,7 @@ module AudioAddict
       example "radio set dance digitally"
       example "radio set dance di"
       example "radio set metal rockradio"
+      example "radio set - rockradio"
 
       def run(args)
         channel = args['CHANNEL']
@@ -49,6 +50,9 @@ module AudioAddict
 
         if !channel
           channel_menu
+
+        elsif channel == '-'
+          save_channel radio.channels.keys.first
 
         elsif radio.valid_channel? channel
           save_channel channel
