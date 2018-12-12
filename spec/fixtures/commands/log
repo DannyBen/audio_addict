@@ -2,4 +2,6 @@ Usage:
   radio log show [SEARCH]
   radio log tail [--lines N]
   radio log sort
+  radio log browse
+  radio log tree [--save FILE]
   radio log --help

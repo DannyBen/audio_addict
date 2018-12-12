@@ -52,9 +52,4 @@ describe 'commands (generated specs)' do
   def create_config
     Config.save
   end
-
-  def fresh_like_log
-    log_fixture = File.expand_path '../../fixtures/like.log', __dir__
-    system %Q[cp "#{log_fixture}" 'tmp/like.log']
-  end
 end

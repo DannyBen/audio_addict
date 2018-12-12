@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Commands::ConfigCmd do
+describe Commands::PlaylistCmd do
   subject { CLI.router }
 
   before do 

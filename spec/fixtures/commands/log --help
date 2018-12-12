@@ -4,6 +4,8 @@ Usage:
   radio log show [SEARCH]
   radio log tail [--lines N]
   radio log sort
+  radio log browse
+  radio log tree [--save FILE]
   radio log --help
 
 Commands:
@@ -16,9 +18,18 @@ Commands:
   sort
     Sort the log alphabetically and save it
 
+  browse
+    Browse the log file interactively
+
+  tree
+    Show or save the log as YAML
+
 Options:
   -l --lines N
     Number of lines to show [default: 5]
+
+  -s --save FILE
+    Save the tree output to a YAML file
 
   -h --help
     Show this help
@@ -33,3 +44,4 @@ Examples:
   radio log tail
   radio log tail --lines 10
   radio log sort
+  radio log tree --save out.yml

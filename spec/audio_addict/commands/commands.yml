@@ -28,6 +28,7 @@
   :kbd: ["%{down}"]
 - :cmd: "set deathmetal"
 - :cmd: "set dan digitally"
+- :cmd: "set - di"
 
 # channels
 - :cmd: "channels"
@@ -79,16 +80,28 @@
 - :cmd: "log"
 - :cmd: "log --help"
 - :cmd: "log show"
-  :tag: 'fresh_like_log'
+  :tag: reset_like_log
 - :cmd: "log show vocal"
-  :tag: 'fresh_like_log'
+  :tag: reset_like_log
 - :cmd: "log tail"
-  :tag: 'fresh_like_log'
+  :tag: reset_like_log
 - :cmd: "log tail --lines 3"
-  :tag: 'fresh_like_log'
+  :tag: reset_like_log
 - :cmd: "log sort"
-  :tag: 'fresh_like_log'
+  :tag: reset_like_log
+- :cmd: "log tree"
+  :tag: reset_like_log
+- :cmd: "log tree --save logtree.yml"
+  :tag: reset_like_log
+- :cmd: "log browse"
+  :tag: reset_like_log
+  :kbd: ['%{enter}', '%{enter}', '%{enter}', 'n']
 
 # history
 - :cmd: "history --help"
 - :cmd: "history"
+
+# api
+- :cmd: "api"
+- :cmd: "api --help"
+- :cmd: "api channels"

@@ -1,0 +1,39 @@
+---
+- id: 1
+  key: trance
+  description: trance description
+  name: Trance
+  asset_id: 1
+  similar_channels:
+  - similar_channel_id: 2
+  - similar_channel_id: 4
+- id: 2
+  key: dance
+  description: dance description
+  name: Dance
+  asset_id: 2
+  similar_channels:
+  - similar_channel_id: 1
+  - similar_channel_id: 4
+- id: 3
+  key: ebm
+  description: ebm description
+  name: EBM
+  asset_id: 3
+- id: 4
+  key: classictrance
+  description: classictrance description
+  name: Classic Trance
+  asset_id: 4
+  similar_channels:
+  - similar_channel_id: 1
+  - similar_channel_id: 2
+- id: 5
+  key: hiddenchannel
+  description: hiddenchannel description
+  name: Hidden Dance
+- id: 6
+  key: anotherhidden
+  description: anotherhidden description
+  name: XHidden Dance
+  asset_id: 6
