@@ -69,7 +69,7 @@ Commands:
   playlist  Generate playlists
   config    Manage local configuration
   log       Manage local like log
-
+  api       Make direct calls to the AudioAddict API
 
 ```
 
