@@ -12,7 +12,6 @@ describe 'commands (generated specs)' do
   commands = commands[:commands]
 
   before do 
-    AudioAddict::API.base_uri "http://localhost:3000"
     reset_config
     reset_tmp_dir
   end

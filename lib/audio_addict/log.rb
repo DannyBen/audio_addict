@@ -21,7 +21,8 @@ module AudioAddict
     end
 
     def sort
-      File.write path, data.sort.join
+      output = data.sort.join("\n") + "\n"
+      File.write path, output
     end
 
     def tree

@@ -4,7 +4,6 @@ describe Commands::PlaylistCmd do
   subject { CLI.router }
 
   before do 
-    AudioAddict::API.base_uri "http://localhost:3000"
     reset_tmp_dir
   end
 
