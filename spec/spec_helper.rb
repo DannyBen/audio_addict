@@ -16,4 +16,8 @@ Dir.mkdir 'spec/tmp' unless Dir.exist? 'spec/tmp'
 RSpec.configure do |c|
   c.include SpecMixin
   c.include Colsole
+
+  c.before :suite do
+    AudioAddict::API.base_uri "http://localhost:3000"
+  end
 end

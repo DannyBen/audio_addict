@@ -5,10 +5,6 @@ describe API do
 
   subject { described_class.new 'di' }
 
-  before do 
-    API.base_uri "http://localhost:3000"
-  end
-
   context "on api error" do
     it "raises an error" do
       expect { subject.get 'no-such-route' }.to raise_error(APIError)

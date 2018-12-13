@@ -5,7 +5,6 @@ describe CLI do
 
   before do 
     reset_config
-    API.base_uri "http://localhost:3000"
   end
 
   describe "missing config values" do
