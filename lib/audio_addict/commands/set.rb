@@ -18,7 +18,7 @@ module AudioAddict
       example "radio set metal rockradio"
       example "radio set - rockradio"
 
-      def run(args)
+      def run
         channel = args['CHANNEL']
         network = args['NETWORK']
 

@@ -14,10 +14,8 @@ module AudioAddict
       example "radio get track_history/channel/1"
       example "radio post tracks/1/vote/2/up"
 
-      def run(args)
+      def run
         needs :network
-        @args = args
-
         response = api.send(api_method, endpoint)
         puts response.to_yaml
       end
@@ -25,13 +23,13 @@ module AudioAddict
     private
 
       def api_method
-        return :post if @args['post']
-        return :delete if @args['delete']
+        return :post if args['post']
+        return :delete if args['delete']
         return :get
       end
 
       def endpoint
-        @args['ENDPOINT']
+        args['ENDPOINT']
       end
 
       def api

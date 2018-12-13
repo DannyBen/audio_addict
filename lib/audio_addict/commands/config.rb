@@ -29,13 +29,13 @@ module AudioAddict
       example "radio config del session_key"
       example "radio config get listen_key"
 
-      def get_command(args)
+      def get_command
         key = args['KEY'].to_sym
         value = Config.properties[key]
         say value ? "!txtgrn!#{value}" : "!txtred!<Unset>"
       end
 
-      def set_command(args)
+      def set_command
         key = args['KEY'].to_sym
         value = args['VALUE']
         Config.properties[key] = value
@@ -43,14 +43,14 @@ module AudioAddict
         say "!txtgrn!#{key}=#{value}"
       end
 
-      def del_command(args)
+      def del_command
         key = args['KEY'].to_sym
         Config.delete key
         Config.save
         say "!txtgrn!Deleted"
       end
 
-      def show_command(args)
+      def show_command
         say "!undpur!# #{Config.path}"
         if File.exist? Config.path
           puts File.read Config.path
@@ -59,12 +59,12 @@ module AudioAddict
         end
       end
 
-      def edit_command(args)
+      def edit_command
         editor = ENV['EDITOR'] || 'vi'
         system "#{editor} #{Config.path}"
       end
 
-      def guide_command(args)
+      def guide_command
         key_guide.each do |key, value|
           say "!txtgrn!#{key}"
           say word_wrap "  #{value}"

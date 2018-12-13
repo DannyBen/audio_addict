@@ -8,7 +8,7 @@ module AudioAddict
       usage "radio now"
       usage "radio now --help"
 
-      def run(args = nil)
+      def run
         needs :network, :channel
 
         say   "!txtblu!  Network !txtrst!: !txtgrn!#{radio.name}!txtrst! # #{radio.network}"

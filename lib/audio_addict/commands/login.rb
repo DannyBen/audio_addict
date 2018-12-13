@@ -8,7 +8,7 @@ module AudioAddict
       usage "radio login"
       usage "radio login --help"
 
-      def run(args)
+      def run
         proceed = true
 
         if radio.api.logged_in?

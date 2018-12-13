@@ -17,7 +17,7 @@ module AudioAddict
       example "radio channels metal"
       example "radio channels metal -i"
 
-      def run(args)
+      def run
         needs :network
 
         say "!undgrn!#{radio.name}\n"
