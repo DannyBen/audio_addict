@@ -6,7 +6,7 @@ module AudioAddict
       usage "radio history"
       usage "radio history --help"
 
-      def run(args)
+      def run
         needs :network, :channel
         say "!undgrn!#{radio.name} > #{current_channel.name}"
         say ''

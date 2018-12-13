@@ -17,9 +17,8 @@ module AudioAddict
       example "radio vote --all --past"
       example "radio vote -ap"
 
-      def run(args)
+      def run
         needs :network, :channel, :session_key
-        @args = args
         vote_mode == :now ? vote_now : vote_past
       end
 
@@ -34,7 +33,7 @@ module AudioAddict
       end
 
       def vote_now
-        NowCmd.new.run
+        NowCmd.new(args).run
         puts ""
         vote = get_user_vote
         send_vote vote unless vote == :cancel
@@ -76,11 +75,11 @@ module AudioAddict
       end
 
       def vote_style
-        @args['--all'] ? :menu : :simple
+        args['--all'] ? :menu : :simple
       end
 
       def vote_mode
-        @args['--past'] ? :past : :now
+        args['--past'] ? :past : :now
       end
 
     end

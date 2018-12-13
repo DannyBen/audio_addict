@@ -28,25 +28,25 @@ module AudioAddict
       example "radio log sort"
       example "radio log tree --save out.yml"
 
-      def show_command(args)
+      def show_command
         needs :like_log
         query = args['SEARCH']
         puts query ? log.search(query) : log.data
       end
 
-      def tail_command(args)
+      def tail_command
         needs :like_log
         lines = args['--lines'].to_i
         puts log.data[-lines..-1]
       end
 
-      def sort_command(args)
+      def sort_command
         needs :like_log
         log.sort
         say "!txtgrn!Sorted"
       end
 
-      def browse_command(args=nil)
+      def browse_command
         tree = log.tree
 
         say ""
@@ -61,7 +61,7 @@ module AudioAddict
         browse_command if prompt.yes?("Again?")
       end
 
-      def tree_command(args)
+      def tree_command
         yaml = log.tree.to_yaml
         filename = args['--save']
         

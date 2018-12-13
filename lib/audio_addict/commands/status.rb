@@ -33,7 +33,7 @@ module AudioAddict
         }
       end
 
-      def run(args)
+      def run
         keys.each do |key, info|
           value = info[:value] || Config.properties[key]
 

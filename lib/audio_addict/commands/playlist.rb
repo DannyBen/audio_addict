@@ -15,7 +15,7 @@ module AudioAddict
       example "radio playlist init MyRockMusic"
       example "radio playlist generate MyRockMusic"
 
-      def init_command(args)
+      def init_command
         needs :network, :channel, :listen_key
 
         require_premium_account
@@ -28,16 +28,16 @@ module AudioAddict
         if proceed
           generate_config outfile
           say ""
-          generate_command({ 'NAME' => name }) # we also generate the playlist
+          generate_command name
         end
       end
 
-      def generate_command(args)
+      def generate_command(name=nil)
         needs :network, :channel, :listen_key
 
         require_premium_account
 
-        name = args['NAME']
+        name ||= args['NAME']
 
         infile = "#{name}.yml"
         outfile = "#{name}.pls"
