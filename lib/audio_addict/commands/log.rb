@@ -1,7 +1,9 @@
 module AudioAddict
   module Commands
     class LogCmd < Base
-      summary "Manage local like log"
+      summary "Manage local like-log"
+
+      help "This command provides access and utilities for the local log of liked tracks. Before you can use this command, make sure you have configured the path to your log."
 
       usage "radio log show [SEARCH]"
       usage "radio log tail [--lines N]"

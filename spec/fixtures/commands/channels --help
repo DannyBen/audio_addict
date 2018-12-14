@@ -1,6 +1,7 @@
 Show list of channels
 
-List and search channels in the currently set radio network
+This command lets you list and search for channels in the currently active radio
+network.
 
 Usage:
   radio channels [SEARCH --info]

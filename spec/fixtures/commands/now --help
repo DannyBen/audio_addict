@@ -1,7 +1,7 @@
 Show network, channel and playing track
 
-Display the configured network and channel, as well as the currently playing
-track.
+This command displays the active network and channel, as well as the currently
+playing track.
 
 Usage:
   radio now

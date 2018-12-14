@@ -1,4 +1,8 @@
-Manage local like log
+Manage local like-log
+
+This command provides access and utilities for the local log of liked tracks.
+Before you can use this command, make sure you have configured the path to your
+log.
 
 Usage:
   radio log show [SEARCH]

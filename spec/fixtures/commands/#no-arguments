@@ -10,5 +10,5 @@ Commands:
   [1;32mvote      [0mVote on a recently played track
   [1;32mplaylist  [0mGenerate playlists
   [1;32mconfig    [0mManage local configuration
-  [1;32mlog       [0mManage local like log
+  [1;32mlog       [0mManage local like-log
   [1;32mapi       [0mMake direct calls to the AudioAddict API

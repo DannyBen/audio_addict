@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem 'mister_bin', path: '/vagrant/gems/mister_bin'
+
 group :development, :test do
   gem 'byebug'
   gem 'github_changelog_generator'

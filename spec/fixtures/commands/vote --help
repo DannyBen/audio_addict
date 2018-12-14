@@ -1,7 +1,7 @@
 Vote on a recently played track
 
-Start an interactive voting prompt for the currently playing track or for
-previously played tracks.
+This command starts an interactive voting prompt for the currently playing track
+or for previously played tracks.
 
 Usage:
   radio vote [--all --past]

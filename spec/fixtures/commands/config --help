@@ -1,5 +1,7 @@
 Manage local configuration
 
+This command provides low level access to your local configuration file.
+
 Usage:
   radio config set KEY VALUE
   radio config get KEY
