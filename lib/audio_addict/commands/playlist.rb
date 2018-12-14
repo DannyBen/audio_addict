@@ -3,11 +3,13 @@ module AudioAddict
     class PlaylistCmd < Base
       summary "Generate playlists" 
 
+      help "This command lets you generate playlists for the active network. In order to allow configuration, the process is done in two stages: 'init' and 'generate'."
+
       usage "radio playlist init NAME"
       usage "radio playlist generate NAME"
       usage "radio playlist --help"
 
-      command "init", "Create a playlist configuration file. This step is required prior to using the generate command."
+      command "init", "Create a playlist configuration file. This step is required prior to using the generate command. After you generate this file, feel free to edit it to your preferences (sort order, remove channels etc)."
       command "generate", "Generate a playlist file based on the configuration file."
 
       param "NAME", "The name of the playlist without any extension"

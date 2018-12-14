@@ -3,7 +3,7 @@ module AudioAddict
     class ChannelsCmd < Base
       summary "Show list of channels"
 
-      help "List and search channels in the currently set radio network"
+      help "This command lets you list and search for channels in the currently active radio network."
 
       usage "radio channels [SEARCH --info]"
       usage "radio channels --help"

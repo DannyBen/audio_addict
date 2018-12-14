@@ -1,5 +1,8 @@
 Generate playlists
 
+This command lets you generate playlists for the active network. In order to
+allow configuration, the process is done in two stages: 'init' and 'generate'.
+
 Usage:
   radio playlist init NAME
   radio playlist generate NAME
@@ -8,7 +11,8 @@ Usage:
 Commands:
   init
     Create a playlist configuration file. This step is required prior to using
-    the generate command.
+    the generate command. After you generate this file, feel free to edit it to
+    your preferences (sort order, remove channels etc).
 
   generate
     Generate a playlist file based on the configuration file.

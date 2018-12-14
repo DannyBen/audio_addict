@@ -3,7 +3,7 @@ module AudioAddict
     class NowCmd < Base
       summary "Show network, channel and playing track" 
 
-      help "Display the configured network and channel, as well as the currently playing track."
+      help "This command displays the active network and channel, as well as the currently playing track."
 
       usage "radio now"
       usage "radio now --help"

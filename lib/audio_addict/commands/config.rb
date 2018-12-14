@@ -3,6 +3,8 @@ module AudioAddict
     class ConfigCmd < Base
       summary "Manage local configuration"
 
+      help "This command provides low level access to your local configuration file."
+
       usage "radio config set KEY VALUE"
       usage "radio config get KEY"
       usage "radio config del KEY"

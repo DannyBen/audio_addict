@@ -3,7 +3,7 @@ module AudioAddict
     class VoteCmd < Base
       summary "Vote on a recently played track" 
 
-      help "Start an interactive voting prompt for the currently playing track or for previously played tracks."
+      help "This command starts an interactive voting prompt for the currently playing track or for previously played tracks."
 
       usage "radio vote [--all --past]"
       usage "radio vote --help"

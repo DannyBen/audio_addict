@@ -3,6 +3,8 @@ module AudioAddict
     class StatusCmd < Base
       summary "Show configuration status"
 
+      help "This command shows high level status based on your configuration file."
+
       usage "radio status [--unsafe]"
       usage "radio status --help"
 

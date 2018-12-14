@@ -1,5 +1,7 @@
 Show configuration status
 
+This command shows high level status based on your configuration file.
+
 Usage:
   radio status [--unsafe]
   radio status --help

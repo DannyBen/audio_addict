@@ -3,6 +3,8 @@ module AudioAddict
     class HistoryCmd < Base
       summary "Show track history for the current channel" 
 
+      help "This command shows the last few tracks that were playing on the currently active channel in reverse order (top track is the most recent)."
+
       usage "radio history"
       usage "radio history --help"
 
