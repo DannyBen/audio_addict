@@ -60,7 +60,6 @@ AudioAddict Radio Utilities
 
 Commands:
   login     Save login credentials
-  status    Show configuration status
   set       Set the radio network and channel
   channels  Show list of channels
   now       Show network, channel and playing track
