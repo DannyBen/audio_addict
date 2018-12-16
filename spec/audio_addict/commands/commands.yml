@@ -3,13 +3,6 @@
 # usage
 - :cmd: ""
 
-# status
-- :cmd: "status"
-- :cmd: "status --help"
-- :cmd: "status --unsafe"
-- :cmd: "status"
-  :tag:  "missing_config"
-
 # login
 - :cmd: "login"
   :kbd: ['n']
@@ -75,6 +68,9 @@
 - :cmd: "config get session_key"
 - :cmd: "config del hello"
 - :cmd: "config guide"
+- :cmd: "config check"
+- :cmd: "config check"
+  :tag: "missing_config"
 
 # log
 - :cmd: "log"

@@ -8,6 +8,7 @@ Usage:
   radio config del KEY
   radio config show
   radio config edit
+  radio config check
   radio config guide
   radio config --help
 
@@ -29,6 +30,9 @@ Commands:
 
   guide
     Show a list of supported config keys and their purpose
+
+  check
+    Verify and report problems with the config file
 
 Options:
   -s --show
