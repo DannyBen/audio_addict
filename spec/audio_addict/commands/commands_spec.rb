@@ -45,7 +45,7 @@ describe 'commands (generated specs)' do
   end
 
   def missing_config
-    Config.delete :session_key, :listen_key, :network, :channel
+    Config.delete :session_key, :listen_key, :network, :channel, :like_log
   end
 
   def create_config

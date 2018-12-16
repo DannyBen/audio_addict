@@ -5,7 +5,6 @@ module AudioAddict
         header: "AudioAddict Radio Utilities"
 
       router.route 'login',    to: Commands::LoginCmd
-      router.route 'status',   to: Commands::StatusCmd
       router.route 'set',      to: Commands::SetCmd
       router.route 'channels', to: Commands::ChannelsCmd
       router.route 'now',      to: Commands::NowCmd

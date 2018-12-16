@@ -10,6 +10,7 @@ module AudioAddict
       usage "radio config del KEY"
       usage "radio config show"
       usage "radio config edit"
+      usage "radio config check"
       usage "radio config guide"
       usage "radio config --help"
 
@@ -25,6 +26,7 @@ module AudioAddict
       command "show", "Show the entire config file contents"
       command "edit", "Open the config file for editing"
       command "guide", "Show a list of supported config keys and their purpose"
+      command "check", "Verify and report problems with the config file"
 
       example "radio config edit"
       example "radio config set like_log ~/like.log"
@@ -74,7 +76,29 @@ module AudioAddict
         end
       end
 
+      def check_command
+        errors   = verify_and_show_keys required_keys, critical: true
+        warnings = verify_and_show_keys optional_keys
+
+        say "Done. #{errors} errors, #{warnings} warnings."
+        errors > 0 ? 1 : 0
+      end
+
     private
+
+      def verify_and_show_keys(keys, critical: false)
+        problems = 0
+        prefix = critical ? "!txtred!Error  !txtrst!" : "!txtylw!Warning!txtrst!"
+
+        keys.each do |key, command|
+          if !Config.has_key? key
+            problems += 1
+            say "#{prefix} : Key !txtgrn!#{key}!txtrst! is not set. Fix with !txtpur!radio #{command}!txtrst!."
+          end
+        end
+
+        problems
+      end
 
       def key_guide
         {
@@ -88,7 +112,23 @@ module AudioAddict
           cache_life: "Specify the cache life period.\nDefault: 6h.",
         }
       end
-      
+
+      def required_keys
+        {
+          email: 'login',
+          session_key: 'login',
+          listen_key: 'login',
+          network: 'set',
+          channel: 'set',
+        }
+      end
+
+      def optional_keys
+        {
+          like_log: 'config like_log PATH',
+        }
+      end
+
     end
   end
 end
