@@ -125,7 +125,7 @@ module AudioAddict
 
       def optional_keys
         {
-          like_log: 'config like_log PATH',
+          like_log: 'config set like_log PATH',
         }
       end
 
