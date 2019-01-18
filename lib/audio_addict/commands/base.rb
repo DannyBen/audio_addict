@@ -24,7 +24,7 @@ module AudioAddict
       end
 
       def current_network
-        Config.network || 'di'
+        Config.network
       end
 
       def current_channel
