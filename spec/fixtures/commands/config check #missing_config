@@ -2,5 +2,5 @@
 [0;31mError  [0m : Key [0;32mlisten_key[0m is not set. Fix with [0;35mradio login[0m.
 [0;31mError  [0m : Key [0;32mnetwork[0m is not set. Fix with [0;35mradio set[0m.
 [0;31mError  [0m : Key [0;32mchannel[0m is not set. Fix with [0;35mradio set[0m.
-[0;33mWarning[0m : Key [0;32mlike_log[0m is not set. Fix with [0;35mradio config like_log PATH[0m.
+[0;33mWarning[0m : Key [0;32mlike_log[0m is not set. Fix with [0;35mradio config set like_log PATH[0m.
 Done. 4 errors, 1 warnings.

@@ -45,7 +45,7 @@ module AudioAddict
     def session(username, password)
       params = { member_session: { username: username, password: password } }
       basic_auth
-      response http.post "/#{network}/member_sessions", body: params
+      response http.post "/#{network || 'di'}/member_sessions", body: params
     end
 
     def session_key
