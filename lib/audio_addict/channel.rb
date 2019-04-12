@@ -43,8 +43,8 @@ module AudioAddict
     end
 
     def vote(direction = :up, track: nil)
-      track ||= current_track.id
-      endpoint = "tracks/#{track}/vote/#{id}"
+      track ||= current_track
+      endpoint = "tracks/#{track.id}/vote/#{id}"
 
       if direction == :delete
         radio.api.delete endpoint
@@ -52,13 +52,14 @@ module AudioAddict
         radio.api.post "#{endpoint}/#{direction}"
       end
 
-      log_like if direction == :up and Config.like_log
+      log_like track if direction == :up and Config.like_log
     end
 
   private
 
-    def log_like
-      message = "#{radio.name} :: #{name} :: #{current_track.artist} :: #{current_track.title}"
+    def log_like(track = nil)
+      track ||= current_track
+      message = "#{radio.name} :: #{name} :: #{track.artist} :: #{track.title}"
       file = Config.like_log
       File.append file, message unless File.contains? file, message
     end
