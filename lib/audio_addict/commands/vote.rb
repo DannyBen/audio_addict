@@ -54,7 +54,7 @@ module AudioAddict
       end
 
       def get_user_track
-        options = tracks.map { |t| ["#{t.artist.ljust max_artist_len} > #{t.title}", t.id]}.to_h
+        options = tracks.map { |t| ["#{t.artist.ljust max_artist_len} > #{t.title}", t]}.to_h
         options = { "Cancel" => :cancel }.merge options
         prompt.select "Track:", options, marker: '>'
       end
