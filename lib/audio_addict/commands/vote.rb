@@ -56,7 +56,7 @@ module AudioAddict
       def get_user_track
         options = tracks.map { |t| ["#{t.artist.ljust max_artist_len} > #{t.title}", t]}.to_h
         options = { "Cancel" => :cancel }.merge options
-        prompt.select "Track:", options, marker: '>'
+        prompt.select "Track:", options, symbols: { marker: '>' }
       end
 
       def get_user_vote
@@ -66,7 +66,7 @@ module AudioAddict
       def menu_prompt
         options = { "Like" => :up, "Dislike" => :down, 
           "Unvote" => :delete, "Cancel" => :cancel }
-        prompt.select "Vote:", options, marker: '>'
+        prompt.select "Vote:", options, symbols: { marker: '>' }
       end
 
       def simple_prompt

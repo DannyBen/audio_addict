@@ -1,3 +1,9 @@
+class StringIO
+  def wait_readable(*)
+    true
+  end
+end
+
 module SpecMixin
   def reset_config
     Config.path = 'tmp/config.yml'

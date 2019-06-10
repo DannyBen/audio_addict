@@ -91,13 +91,13 @@ module AudioAddict
       def channel_prompt(channels)
         options = channels.map { |channel| ["#{channel.name.ljust 20} # #{channel.key}", channel.key] }.to_h
         options = { "Cancel" => :cancel }.merge options
-        prompt.select "Channel :", options, marker: '>', filter: true
+        prompt.select "Channel :", options, symbols: { marker: '>' }, filter: true
       end
 
       def network_prompt(networks)
         options = networks.invert
         options["Skip"] = :cancel
-        prompt.select "Network :", options, marker: '>', filter: true
+        prompt.select "Network :", options, symbols: { marker: '>' }, filter: true
       end
 
       def save_channel(channel, echo: true)
