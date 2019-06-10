@@ -52,9 +52,9 @@ module AudioAddict
         tree = log.tree
 
         say ""
-        network = prompt.select "Network:", tree.keys, marker: '>', filter: true
-        channel = prompt.select "Channel:", tree[network].keys, marker: '>', filter: true, per_page: page_size
-        artist  = prompt.select "Artist:",  tree[network][channel].keys, marker: '>', filter: true, per_page: page_size
+        network = prompt.select "Network:", tree.keys, symbols: { marker: '>' }, filter: true
+        channel = prompt.select "Channel:", tree[network].keys, symbols: { marker: '>' }, filter: true, per_page: page_size
+        artist  = prompt.select "Artist:",  tree[network][channel].keys, symbols: { marker: '>' }, filter: true, per_page: page_size
         
         say "Songs:"
         tree[network][channel][artist].each { |song| say "- !txtgrn!#{song}" }
