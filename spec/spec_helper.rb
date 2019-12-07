@@ -9,6 +9,9 @@ include AudioAddict
 require_relative 'spec_mixin'
 include SpecMixin
 
+# Consistent Colsole output (for rspec_fixtures)
+ENV['TTY'] = 'on'
+
 reset_config
 
 Dir.mkdir 'spec/tmp' unless Dir.exist? 'spec/tmp'
