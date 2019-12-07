@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 group :development, :test do
   gem 'byebug'
-  gem 'github_changelog_generator'
+  # gem 'github_changelog_generator'
   gem 'lp'
   gem 'pretty_trace'
   gem 'rspec'
