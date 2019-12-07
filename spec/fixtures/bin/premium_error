@@ -1,2 +1,2 @@
-ERROR: AudioAddict::PremiumAccount
-This operation requires a premium account
+[4;31mERROR: AudioAddict::PremiumAccount
+[0mThis operation requires a premium account
