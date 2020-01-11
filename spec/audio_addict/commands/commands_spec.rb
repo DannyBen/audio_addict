@@ -20,7 +20,6 @@ describe 'commands (generated specs)' do
     it "works" do
       command = spec[:cmd]
       keyboard = spec[:kbd]
-      live = spec[:live]
       tag = spec[:tag]&.to_sym
 
       test_name = "#{command}"
@@ -35,7 +34,7 @@ describe 'commands (generated specs)' do
       
       Dir.chdir 'spec/tmp' do
         send tag if tag and respond_to? tag
-        output = interactive *keyboard do
+        output = interactive(*keyboard) do
           subject.run argv
         end
         expect(output).to match_fixture "commands/#{fixture}"
