@@ -83,10 +83,10 @@ module SpecMixin
   def interactive(*args, &block)
     if ENV['DEBUG'] == '2'
       # :nocov:
-      interactive! *args, &block
+      interactive!(*args, &block)
       # :nocov:
     else
-      capture_output { interactive! *args, &block }
+      capture_output { interactive!(*args, &block) }
     end
   end
 
