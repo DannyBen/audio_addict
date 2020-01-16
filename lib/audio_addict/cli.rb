@@ -2,7 +2,7 @@ module AudioAddict
   class CLI
     def self.router
       router = MisterBin::Runner.new version: VERSION,
-                                     header: "AudioAddict Radio Utilities"
+        header: "AudioAddict Radio Utilities"
 
       router.route "login", to: Commands::LoginCmd
       router.route "set", to: Commands::SetCmd
