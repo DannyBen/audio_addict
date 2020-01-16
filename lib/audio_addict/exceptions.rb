@@ -1,6 +1,6 @@
 module AudioAddict
   class Error < StandardError; end
-  
+
   class Interrupt < Error; end
 
   class ArgumentError < Error; end
@@ -10,16 +10,16 @@ module AudioAddict
 
     def initialize(missing_keys)
       @missing_keys = missing_keys
-      super "Some parameters required by this operation are missing" 
+      super "Some parameters required by this operation are missing"
     end
   end
-  
+
   class PremiumAccount < Error
-    def initialize(message="This operation requires a premium account")
+    def initialize(message = "This operation requires a premium account")
       super
     end
   end
-  
+
   class APIError < Error
     attr_reader :response
 

@@ -1,4 +1,4 @@
-require 'fileutils'
+require "fileutils"
 
 class File
   def self.contains?(file, content)
@@ -10,7 +10,7 @@ class File
   end
 
   def self.append(file, content)
-    open(file, 'a') { |f| f.puts content }
+    open(file, "a") { |f| f.puts content }
   end
 
   def self.deep_write(file, content)

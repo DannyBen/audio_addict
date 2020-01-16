@@ -1,11 +1,10 @@
-require 'mister_bin'
-require 'colsole'
-require 'tty/prompt'
+require "mister_bin"
+require "colsole"
+require "tty/prompt"
 
 module AudioAddict
   module Commands
     class Base < MisterBin::Command
-
       def needs(*config_keys)
         missing = []
         config_keys.each do |key|
@@ -34,7 +33,6 @@ module AudioAddict
       def prompt
         @prompt ||= TTY::Prompt.new
       end
-
     end
   end
 end

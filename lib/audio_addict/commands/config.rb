@@ -34,21 +34,21 @@ module AudioAddict
       example "radio config get listen_key"
 
       def get_command
-        key = args['KEY'].to_sym
+        key = args["KEY"].to_sym
         value = Config.properties[key]
         say value ? "!txtgrn!#{value}" : "!txtred!<Unset>"
       end
 
       def set_command
-        key = args['KEY'].to_sym
-        value = args['VALUE']
+        key = args["KEY"].to_sym
+        value = args["VALUE"]
         Config.properties[key] = value
         Config.save
         say "!txtgrn!#{key}=#{value}"
       end
 
       def del_command
-        key = args['KEY'].to_sym
+        key = args["KEY"].to_sym
         Config.delete key
         Config.save
         say "!txtgrn!Deleted"
@@ -64,7 +64,7 @@ module AudioAddict
       end
 
       def edit_command
-        editor = ENV['EDITOR'] || 'vi'
+        editor = ENV["EDITOR"] || "vi"
         system "#{editor} #{Config.path}"
       end
 
@@ -77,14 +77,14 @@ module AudioAddict
       end
 
       def check_command
-        errors   = verify_and_show_keys required_keys, critical: true
+        errors = verify_and_show_keys required_keys, critical: true
         warnings = verify_and_show_keys optional_keys
 
         say "Done. #{errors} errors, #{warnings} warnings."
         errors > 0 ? 1 : 0
       end
 
-    private
+      private
 
       def verify_and_show_keys(keys, critical: false)
         problems = 0
@@ -115,20 +115,19 @@ module AudioAddict
 
       def required_keys
         {
-          email: 'login',
-          session_key: 'login',
-          listen_key: 'login',
-          network: 'set',
-          channel: 'set',
+          email: "login",
+          session_key: "login",
+          listen_key: "login",
+          network: "set",
+          channel: "set",
         }
       end
 
       def optional_keys
         {
-          like_log: 'config set like_log PATH',
+          like_log: "config set like_log PATH",
         }
       end
-
     end
   end
 end

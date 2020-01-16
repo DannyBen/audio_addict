@@ -1,4 +1,4 @@
-require 'yaml'
+require "yaml"
 
 module AudioAddict
   class Config
@@ -6,7 +6,7 @@ module AudioAddict
       attr_writer :path
 
       def method_missing(name, *args, &_blk)
-        if name.to_s.end_with? '='
+        if name.to_s.end_with? "="
           name = name[0..-2].to_sym
           properties[name] = args.first
         else
@@ -39,13 +39,12 @@ module AudioAddict
       end
 
       def path
-        @path ||= ENV.fetch('AUDIO_ADDICT_CONFIG_PATH', default_path)
+        @path ||= ENV.fetch("AUDIO_ADDICT_CONFIG_PATH", default_path)
       end
 
       def default_path
         "#{Dir.home}/.audio_addict/config"
       end
-
     end
   end
 end

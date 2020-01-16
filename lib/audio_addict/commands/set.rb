@@ -19,8 +19,8 @@ module AudioAddict
       example "radio set - rockradio"
 
       def run
-        channel = args['CHANNEL']
-        network = args['NETWORK']
+        channel = args["CHANNEL"]
+        network = args["NETWORK"]
 
         full_set = (channel and network) || !(channel or network)
 
@@ -31,7 +31,7 @@ module AudioAddict
         end
       end
 
-    private
+      private
 
       def set_both(channel, network)
         needs :session_key
@@ -50,19 +50,14 @@ module AudioAddict
 
         if !channel
           channel_menu
-
-        elsif channel == '-'
+        elsif channel == "-"
           save_channel radio.channels.keys.first
-
         elsif radio.valid_channel? channel
           save_channel channel
-        
         elsif radio.search(channel).any?
           channel_menu channel
-
         else
           say "!txtred!Invalid channel: #{radio.name} > #{channel}"
-
         end
       end
 
@@ -91,13 +86,13 @@ module AudioAddict
       def channel_prompt(channels)
         options = channels.map { |channel| ["#{channel.name.ljust 20} # #{channel.key}", channel.key] }.to_h
         options = { "Cancel" => :cancel }.merge options
-        prompt.select "Channel :", options, symbols: { marker: '>' }, filter: true
+        prompt.select "Channel :", options, symbols: { marker: ">" }, filter: true
       end
 
       def network_prompt(networks)
         options = networks.invert
         options["Skip"] = :cancel
-        prompt.select "Network :", options, symbols: { marker: '>' }, filter: true
+        prompt.select "Network :", options, symbols: { marker: ">" }, filter: true
       end
 
       def save_channel(channel, echo: true)
@@ -111,7 +106,6 @@ module AudioAddict
         Config.save
         say "Network : !txtgrn!#{radio.name}!txtrst! # #{network}" if echo
       end
-
     end
   end
 end

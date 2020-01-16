@@ -22,19 +22,19 @@ module AudioAddict
 
         say "!undgrn!#{radio.name}\n"
 
-        search = args['SEARCH']
+        search = args["SEARCH"]
 
         channels = search ? radio.search(search) : radio.channels
-        
+
         channels = channels.values
-        if args['--info']
+        if args["--info"]
           show_verbose channels
         else
           show_compact channels
         end
       end
 
-    private
+      private
 
       def show_verbose(channels)
         channels.each do |channel|
@@ -61,7 +61,6 @@ module AudioAddict
           say "!txtblu!#{channel.key.rjust 25} !txtgrn!#{channel.name.strip}"
         end
       end
-      
     end
   end
 end

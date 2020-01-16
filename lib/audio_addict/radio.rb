@@ -10,7 +10,7 @@ module AudioAddict
       rockradio: "Rock Radio",
       radiotunes: "Radio Tunes",
       jazzradio: "Jazz Radio",
-      classicalradio: "Classical Radio"
+      classicalradio: "Classical Radio",
     }
 
     DOMAINS = {
@@ -18,7 +18,7 @@ module AudioAddict
       rockradio: "rockradio.com",
       radiotunes: "radiotunes.com",
       jazzradio: "jazzradio.com",
-      classicalradio: "classicalradio.com"
+      classicalradio: "classicalradio.com",
     }
 
     def self.networks(search = nil)
@@ -57,7 +57,7 @@ module AudioAddict
     def search(query)
       channels.select do |key, channel|
         "#{key} #{channel.name.downcase}".include? query.downcase
-      end 
+      end
     end
 
     def search_by_id(ids)
@@ -77,16 +77,16 @@ module AudioAddict
       @api ||= API.new network
     end
 
-  private
+    private
 
     def channels!
       response = cache.get "#{network}/channels" do
-        api.get 'channels'
+        api.get "channels"
       end
 
       result = {}
       response.map do |channel|
-        key = channel['key']
+        key = channel["key"]
         candidate = Channel.new self, channel
         result[key] = candidate if candidate.active?
       end

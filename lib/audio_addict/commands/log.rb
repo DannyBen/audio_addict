@@ -32,13 +32,13 @@ module AudioAddict
 
       def show_command
         needs :like_log
-        query = args['SEARCH']
+        query = args["SEARCH"]
         puts query ? log.search(query) : log.data
       end
 
       def tail_command
         needs :like_log
-        lines = args['--lines'].to_i
+        lines = args["--lines"].to_i
         puts log.data[-lines..-1]
       end
 
@@ -52,10 +52,10 @@ module AudioAddict
         tree = log.tree
 
         say ""
-        network = prompt.select "Network:", tree.keys, symbols: { marker: '>' }, filter: true
-        channel = prompt.select "Channel:", tree[network].keys, symbols: { marker: '>' }, filter: true, per_page: page_size
-        artist  = prompt.select "Artist:",  tree[network][channel].keys, symbols: { marker: '>' }, filter: true, per_page: page_size
-        
+        network = prompt.select "Network:", tree.keys, symbols: { marker: ">" }, filter: true
+        channel = prompt.select "Channel:", tree[network].keys, symbols: { marker: ">" }, filter: true, per_page: page_size
+        artist = prompt.select "Artist:", tree[network][channel].keys, symbols: { marker: ">" }, filter: true, per_page: page_size
+
         say "Songs:"
         tree[network][channel][artist].each { |song| say "- !txtgrn!#{song}" }
         say ""
@@ -65,8 +65,8 @@ module AudioAddict
 
       def tree_command
         yaml = log.tree.to_yaml
-        filename = args['--save']
-        
+        filename = args["--save"]
+
         if filename
           File.write filename, yaml
           say "!txtgrn!Saved #{filename}"
@@ -75,7 +75,7 @@ module AudioAddict
         end
       end
 
-    private
+      private
 
       def log
         @log ||= Log.new
@@ -84,7 +84,6 @@ module AudioAddict
       def page_size
         @page_size ||= detect_terminal_size[1] - 4
       end
-
     end
   end
 end

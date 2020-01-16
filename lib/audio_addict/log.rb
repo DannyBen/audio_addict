@@ -31,9 +31,9 @@ module AudioAddict
 
     def tree!
       result = {}
-      
+
       data.each do |line|
-        network, channel, artist, song = line.split(' :: ')
+        network, channel, artist, song = line.split(" :: ")
         result[network] ||= {}
         result[network][channel] ||= {}
         result[network][channel][artist] ||= []
@@ -42,6 +42,5 @@ module AudioAddict
 
       result
     end
-
   end
 end

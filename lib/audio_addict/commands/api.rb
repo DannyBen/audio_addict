@@ -20,22 +20,21 @@ module AudioAddict
         puts response.to_yaml
       end
 
-    private
+      private
 
       def api_method
-        return :post if args['post']
-        return :delete if args['delete']
+        return :post if args["post"]
+        return :delete if args["delete"]
         return :get
       end
 
       def endpoint
-        args['ENDPOINT']
+        args["ENDPOINT"]
       end
 
       def api
         @api ||= API.new current_network
       end
-
     end
   end
 end

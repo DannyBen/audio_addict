@@ -1,7 +1,7 @@
 module AudioAddict
   module Commands
     class VoteCmd < Base
-      summary "Vote on a recently played track" 
+      summary "Vote on a recently played track"
 
       help "This command starts an interactive voting prompt for the currently playing track or for previously played tracks."
 
@@ -22,7 +22,7 @@ module AudioAddict
         vote_mode == :now ? vote_now : vote_past
       end
 
-    private
+      private
 
       def vote_past
         track = get_user_track
@@ -54,9 +54,9 @@ module AudioAddict
       end
 
       def get_user_track
-        options = tracks.map { |t| ["#{t.artist.ljust max_artist_len} > #{t.title}", t]}.to_h
+        options = tracks.map { |t| ["#{t.artist.ljust max_artist_len} > #{t.title}", t] }.to_h
         options = { "Cancel" => :cancel }.merge options
-        prompt.select "Track:", options, symbols: { marker: '>' }
+        prompt.select "Track:", options, symbols: { marker: ">" }
       end
 
       def get_user_vote
@@ -64,9 +64,9 @@ module AudioAddict
       end
 
       def menu_prompt
-        options = { "Like" => :up, "Dislike" => :down, 
-          "Unvote" => :delete, "Cancel" => :cancel }
-        prompt.select "Vote:", options, symbols: { marker: '>' }
+        options = { "Like" => :up, "Dislike" => :down,
+                    "Unvote" => :delete, "Cancel" => :cancel }
+        prompt.select "Vote:", options, symbols: { marker: ">" }
       end
 
       def simple_prompt
@@ -75,13 +75,12 @@ module AudioAddict
       end
 
       def vote_style
-        args['--all'] ? :menu : :simple
+        args["--all"] ? :menu : :simple
       end
 
       def vote_mode
-        args['--past'] ? :past : :now
+        args["--past"] ? :past : :now
       end
-
     end
   end
 end

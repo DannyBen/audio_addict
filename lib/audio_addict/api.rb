@@ -1,11 +1,11 @@
-require 'httparty'
+require "httparty"
 
 module AudioAddict
   class API
     include HTTParty
     include Cache
 
-    base_uri 'https://api.audioaddict.com/v1'
+    base_uri "https://api.audioaddict.com/v1"
 
     attr_accessor :network
 
@@ -15,22 +15,22 @@ module AudioAddict
 
     def login(username, password)
       session = session(username, password)
-      Config.session_key = session['key']
-      Config.listen_key = session['member']['listen_key']
-      Config.email = session['member']['email']
-      Config.premium = session['member']['user_type'] == 'premium'
+      Config.session_key = session["key"]
+      Config.listen_key = session["member"]["listen_key"]
+      Config.email = session["member"]["email"]
+      Config.premium = session["member"]["user_type"] == "premium"
       Config.save
     end
 
-    def get(path, args={})
+    def get(path, args = {})
       response http.get "/#{network}/#{path}", headers: headers, body: args
     end
 
-    def post(path, args={})
+    def post(path, args = {})
       response http.post "/#{network}/#{path}", headers: headers, body: args
     end
 
-    def delete(path, args={})
+    def delete(path, args = {})
       response http.delete "/#{network}/#{path}", headers: headers, body: args
     end
 
@@ -39,13 +39,13 @@ module AudioAddict
     end
 
     def basic_auth
-      http.basic_auth 'streams', 'diradio'
+      http.basic_auth "streams", "diradio"
     end
 
     def session(username, password)
       params = { member_session: { username: username, password: password } }
       basic_auth
-      response http.post "/#{network || 'di'}/member_sessions", body: params
+      response http.post "/#{network || "di"}/member_sessions", body: params
     end
 
     def session_key
@@ -56,7 +56,7 @@ module AudioAddict
       Config.listen_key
     end
 
-  private
+    private
 
     def response(httparty_response)
       raise APIError.new httparty_response unless httparty_response.success?
@@ -70,6 +70,5 @@ module AudioAddict
     def headers
       { "X-Session-Key" => session_key }
     end
-
   end
 end

@@ -6,7 +6,7 @@ module AudioAddict
     attr_reader :channel
 
     def initialize(channel, properties)
-      @channel, @properties  = channel, properties
+      @channel, @properties = channel, properties
     end
 
     def inspectable
@@ -14,11 +14,11 @@ module AudioAddict
     end
 
     def id
-      properties['track_id']
+      properties["track_id"]
     end
 
     def title
-      properties['title'].strip
+      properties["title"].strip
     end
   end
 end

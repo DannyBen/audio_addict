@@ -1,7 +1,7 @@
 module AudioAddict
   module Commands
     class PlaylistCmd < Base
-      summary "Generate playlists" 
+      summary "Generate playlists"
 
       help "This command lets you generate playlists for the active network. In order to allow configuration, the process is done in two stages: 'init' and 'generate'."
 
@@ -22,7 +22,7 @@ module AudioAddict
 
         require_premium_account
 
-        name = args['NAME']
+        name = args["NAME"]
         outfile = "#{name}.yml"
 
         say "!txtred!Warning!txtrst!: !txtgrn!#{outfile}!txtrst! already exists!" if File.exist? outfile
@@ -34,12 +34,12 @@ module AudioAddict
         end
       end
 
-      def generate_command(name=nil)
+      def generate_command(name = nil)
         needs :network, :channel, :listen_key
 
         require_premium_account
 
-        name ||= args['NAME']
+        name ||= args["NAME"]
 
         infile = "#{name}.yml"
         outfile = "#{name}.pls"
@@ -53,15 +53,15 @@ module AudioAddict
         end
       end
 
-    private
+      private
 
       def generate_config(outfile)
         data = {
-          template: "http://prem2.#{radio.domain}:80/%{channel_key}?%{listen_key}"
+          template: "http://prem2.#{radio.domain}:80/%{channel_key}?%{listen_key}",
         }
 
         channels = {}
-        
+
         radio.channels.each do |key, channel|
           key = fix_key key.to_sym
           channels[key] = channel.name
@@ -107,10 +107,9 @@ module AudioAddict
 
       # This is a patch to circumvent some anomalies in the AudioAddict API
       def fix_key(key)
-        key = :electrohouse if current_network == 'di' and key == :electro
+        key = :electrohouse if current_network == "di" and key == :electro
         key
       end
-
     end
   end
 end
