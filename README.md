@@ -2,7 +2,7 @@ AudioAddict Command Line
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/audio_addict.svg)](https://badge.fury.io/rb/audio_addict)
-[![Build Status](https://travis-ci.com/DannyBen/audio_addict.svg?branch=master)](https://travis-ci.com/DannyBen/audio_addict)
+[![Build Status](https://github.com/DannyBen/audio_addict/workflows/Test/badge.svg)](https://github.com/DannyBen/audio_addict/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/91e1a8251b771881bf6b/maintainability)](https://codeclimate.com/github/DannyBen/audio_addict/maintainability)
 
 ---

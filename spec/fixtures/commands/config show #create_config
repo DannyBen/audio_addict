@@ -1,5 +1,5 @@
-[4;35m# tmp/config.yml
-[0m---
+# tmp/config.yml
+---
 :cache_dir: cache
 :cache_life: 10s
 :channel: trance
