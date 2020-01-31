@@ -1,25 +1,24 @@
-[?25lNetwork : [90m(Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)[0m
-[32m> Digitally Imported[0m
+Network : (Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)
+> Digitally Imported
   Rock Radio
   Radio Tunes
   Jazz Radio
   Classical Radio
-  Skip[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GNetwork : 
+  SkipNetwork : 
   Digitally Imported
-[32m> Rock Radio[0m
+> Rock Radio
   Radio Tunes
   Jazz Radio
   Classical Radio
-  Skip[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GNetwork : [32mRock Radio[0m
-[?25h[?25lChannel : [90m(Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)[0m
-[32m> Cancel[0m
+  SkipNetwork : Rock Radio
+Channel : (Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)
+> Cancel
   Classic Trance       # classictrance
   Dance                # dance
   EBM                  # ebm
-  Trance               # trance[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GChannel : 
+  Trance               # tranceChannel : 
   Cancel
-[32m> Classic Trance       # classictrance[0m
+> Classic Trance       # classictrance
   Dance                # dance
   EBM                  # ebm
-  Trance               # trance[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GChannel : [32mClassic Trance       # classictrance[0m
-[?25h
+  Trance               # tranceChannel : Classic Trance       # classictrance

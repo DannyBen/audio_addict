@@ -20,6 +20,8 @@ RSpec.configure do |c|
   c.include SpecMixin
   c.include Colsole
 
+  c.strip_ansi_escape = true
+
   c.before :suite do
     AudioAddict::API.base_uri "http://localhost:3000"
   end

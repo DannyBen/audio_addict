@@ -1,8 +1,7 @@
-[?25lChannel : [90m(Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)[0m
-[32m> Cancel[0m
+Channel : (Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)
+> Cancel
   Classic Trance       # classictrance
-  Trance               # trance[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GChannel : 
+  Trance               # tranceChannel : 
   Cancel
-[32m> Classic Trance       # classictrance[0m
-  Trance               # trance[2K[1G[1A[2K[1G[1A[2K[1G[1A[2K[1GChannel : [32mClassic Trance       # classictrance[0m
-[?25h
+> Classic Trance       # classictrance
+  Trance               # tranceChannel : Classic Trance       # classictrance
