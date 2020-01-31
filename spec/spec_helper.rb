@@ -10,7 +10,7 @@ require_relative 'spec_mixin'
 include SpecMixin
 
 # Consistent Colsole output (for rspec_fixtures)
-ENV['TTY'] = 'on'
+ENV['TTY'] = 'off'
 
 reset_config
 

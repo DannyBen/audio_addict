@@ -1,33 +1,33 @@
-[0;32memail
-[0m  Last email used for logging in.
-  Usually set with [0;35mradio login[0m.
+email
+  Last email used for logging in.
+  Usually set with radio login.
 
-[0;32msession_key
-[0m  Used for authentication.
-  Usually set with [0;35mradio login[0m.
+session_key
+  Used for authentication.
+  Usually set with radio login.
 
-[0;32mlisten_key
-[0m  Used for generating playlists.
-  Usually set with [0;35mradio login[0m.
+listen_key
+  Used for generating playlists.
+  Usually set with radio login.
 
-[0;32mnetwork
-[0m  Specify the AudioAddict network you are currently listening to.
-  Usually set with [0;35mradio set[0m.
+network
+  Specify the AudioAddict network you are currently listening to.
+  Usually set with radio set.
 
-[0;32mchannel
-[0m  Specify the AudioAddict channel you are currently listening to.
-  Usually set with [0;35mradio set[0m.
+channel
+  Specify the AudioAddict channel you are currently listening to.
+  Usually set with radio set.
 
-[0;32mlike_log
-[0m  Specify the path to store all your positive votes.
+like_log
+  Specify the path to store all your positive votes.
   If this is not set, votes will only be sent to AudioAddict and not logged
   locally.
 
-[0;32mcache_dir
-[0m  Specify the path to store API response cache.
+cache_dir
+  Specify the path to store API response cache.
   Default: ~/.audio_addict/cache
 
-[0;32mcache_life
-[0m  Specify the cache life period.
+cache_life
+  Specify the cache life period.
   Default: 6h.
 

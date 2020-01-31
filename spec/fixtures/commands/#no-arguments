@@ -1,13 +1,13 @@
 AudioAddict Radio Utilities
 
 Commands:
-  [1;32mlogin     [0mSave login credentials
-  [1;32mset       [0mSet the radio network and channel
-  [1;32mchannels  [0mShow list of channels
-  [1;32mnow       [0mShow network, channel and playing track
-  [1;32mhistory   [0mShow track history for the current channel
-  [1;32mvote      [0mVote on a recently played track
-  [1;32mplaylist  [0mGenerate playlists
-  [1;32mconfig    [0mManage local configuration
-  [1;32mlog       [0mManage local like-log
-  [1;32mapi       [0mMake direct calls to the AudioAddict API
+  login     Save login credentials
+  set       Set the radio network and channel
+  channels  Show list of channels
+  now       Show network, channel and playing track
+  history   Show track history for the current channel
+  vote      Vote on a recently played track
+  playlist  Generate playlists
+  config    Manage local configuration
+  log       Manage local like-log
+  api       Make direct calls to the AudioAddict API
