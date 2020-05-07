@@ -11,6 +11,8 @@ include SpecMixin
 
 # Consistent Colsole output (for rspec_fixtures)
 ENV['TTY'] = 'off'
+ENV['COLUMNS'] = '80'
+ENV['LINES'] = '30'
 
 reset_config
 
