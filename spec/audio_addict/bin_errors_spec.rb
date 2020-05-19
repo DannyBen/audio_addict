@@ -8,6 +8,6 @@ describe 'bin/radio error handling' do
   end
 
   it "errors gracefully" do
-    expect(`bin/radio playlist init hello`).to match_fixture('bin/premium_error')
+    expect(`bin/radio playlist init hello`).to match_approval('bin/premium_error')
   end
 end

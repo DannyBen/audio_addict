@@ -37,7 +37,7 @@ describe 'commands (generated specs)' do
         output = interactive(*keyboard) do
           subject.run argv
         end
-        expect(output).to match_fixture "commands/#{fixture}"
+        expect(output).to match_approval "commands/#{fixture}"
       end
 
     end

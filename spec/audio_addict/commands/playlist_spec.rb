@@ -17,8 +17,8 @@ describe Commands::PlaylistCmd do
           subject.run %w[playlist init mylist]
         end
 
-        expect(File.read 'mylist.yml').to match_fixture 'playlist/mylist.yml'
-        expect(File.read 'mylist.pls').to match_fixture 'playlist/mylist.pls'
+        expect(File.read 'mylist.yml').to match_approval 'playlist/mylist.yml'
+        expect(File.read 'mylist.pls').to match_approval 'playlist/mylist.pls'
       end
     end
   end

@@ -17,7 +17,7 @@ describe Commands::LogCmd do
           subject.run %w[log tree --save logtree.yml]
         end
 
-        expect(File.read 'logtree.yml').to match_fixture 'log/logtree.yml'
+        expect(File.read 'logtree.yml').to match_approval 'log/logtree.yml'
       end
     end
   end
