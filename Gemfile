@@ -13,7 +13,7 @@ group :development, :test do
 
   # we are locking sinatra to 2.0.3 due to this issue:
   # https://github.com/sinatra/sinatra/issues/1476
-  gem 'sinatra', '2.0.3', require: false
+  gem 'sinatra', '2.0.8.1', require: false
 
 end
 
