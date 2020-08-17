@@ -27,5 +27,8 @@ jobs:
         bundle exec run mockserver --daemon
         sleep 2
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
+
     - name: Run tests
       run: bundle exec rspec
