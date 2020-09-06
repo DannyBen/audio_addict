@@ -6,6 +6,7 @@ module AudioAddict
     include Cache
 
     base_uri "https://api.audioaddict.com/v1"
+    debug_output $stderr if ENV['AUDIO_ADDICT_DEBUG']
 
     attr_accessor :network
 
