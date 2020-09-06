@@ -11,6 +11,7 @@ module AudioAddict
       radiotunes: "Radio Tunes",
       jazzradio: "Jazz Radio",
       classicalradio: "Classical Radio",
+      zenradio: "Zen Radio",
     }
 
     DOMAINS = {
@@ -19,6 +20,7 @@ module AudioAddict
       radiotunes: "radiotunes.com",
       jazzradio: "jazzradio.com",
       classicalradio: "classicalradio.com",
+      zenradio: "zenradio.com",
     }
 
     def self.networks(search = nil)
