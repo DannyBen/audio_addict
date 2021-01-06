@@ -41,6 +41,7 @@ Features
   - [RadioTunes]
   - [JazzRadio]
   - [ClassicalRadio]
+  - [ZenRadio]
 - View list of channels
 - View currently playing track
 - Vote on the currently playing track
@@ -80,3 +81,4 @@ Commands:
 [RadioTunes]: http://www.radiotunes.com
 [JazzRadio]: http://www.jazzradio.com
 [ClassicalRadio]: http://www.classicalradio.com
+[ZenRadio]: http://www.zenradio.com
