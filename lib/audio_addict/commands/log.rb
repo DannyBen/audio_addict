@@ -52,7 +52,7 @@ module AudioAddict
         tree = log.tree
 
         say ""
-        network = prompt.select "Network:", tree.keys, symbols: { marker: ">" }, filter: true
+        network = prompt.select "Network:", tree.keys, symbols: { marker: ">" }, filter: true, per_page: 10
         channel = prompt.select "Channel:", tree[network].keys, symbols: { marker: ">" }, filter: true, per_page: page_size
         artist = prompt.select "Artist:", tree[network][channel].keys, symbols: { marker: ">" }, filter: true, per_page: page_size
 

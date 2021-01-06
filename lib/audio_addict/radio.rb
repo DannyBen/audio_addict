@@ -52,6 +52,11 @@ module AudioAddict
       DOMAINS[network.to_sym]
     end
 
+    def url_template
+      channel_path = network == "zenradio" ? "zr%{channel_key}_aac" : "%{channel_key}"
+      "http://prem2.#{domain}:80/#{channel_path}?%{listen_key}"
+    end
+
     def channels
       @channels ||= channels!
     end

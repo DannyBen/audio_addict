@@ -17,6 +17,6 @@ Parameters:
     API endpoint path
 
 Examples:
-  radio channels
-  radio get track_history/channel/1
-  radio post tracks/1/vote/2/up
+  radio api channels
+  radio api get track_history/channel/1
+  radio api post tracks/1/vote/2/up

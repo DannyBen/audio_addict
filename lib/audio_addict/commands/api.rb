@@ -10,9 +10,9 @@ module AudioAddict
 
       param "ENDPOINT", "API endpoint path"
 
-      example "radio channels"
-      example "radio get track_history/channel/1"
-      example "radio post tracks/1/vote/2/up"
+      example "radio api channels"
+      example "radio api get track_history/channel/1"
+      example "radio api post tracks/1/vote/2/up"
 
       def run
         needs :network
