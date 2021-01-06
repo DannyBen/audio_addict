@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
 gem 'byebug'
-# gem 'github_changelog_generator'
 gem 'lp'
 gem 'pretty_trace'
 gem 'rspec'

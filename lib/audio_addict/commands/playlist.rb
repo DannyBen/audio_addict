@@ -56,10 +56,7 @@ module AudioAddict
       private
 
       def generate_config(outfile)
-        data = {
-          template: "http://prem2.#{radio.domain}:80/%{channel_key}?%{listen_key}",
-        }
-
+        data = { template: radio.url_template }
         channels = {}
 
         radio.channels.each do |key, channel|

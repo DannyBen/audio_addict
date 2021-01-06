@@ -11,6 +11,7 @@ module AudioAddict
       radiotunes: "Radio Tunes",
       jazzradio: "Jazz Radio",
       classicalradio: "Classical Radio",
+      zenradio: "Zen Radio",
     }
 
     DOMAINS = {
@@ -19,6 +20,7 @@ module AudioAddict
       radiotunes: "radiotunes.com",
       jazzradio: "jazzradio.com",
       classicalradio: "classicalradio.com",
+      zenradio: "zenradio.com",
     }
 
     def self.networks(search = nil)
@@ -48,6 +50,11 @@ module AudioAddict
 
     def domain
       DOMAINS[network.to_sym]
+    end
+
+    def url_template
+      channel_path = network == "zenradio" ? "zr%{channel_key}_aac" : "%{channel_key}"
+      "http://prem2.#{domain}:80/#{channel_path}?%{listen_key}"
     end
 
     def channels
