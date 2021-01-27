@@ -47,6 +47,7 @@ Features
 - Vote on the currently playing track
 - Save a log of a all your liked tracks
 - Generate playlists (requires a premium account)
+- Download songs from Youtube (using youtube-dl)
 
 
 Usage
@@ -69,6 +70,7 @@ Commands:
   playlist  Generate playlists
   config    Manage local configuration
   log       Manage local like log
+  download  Download songs from YouTube
   api       Make direct calls to the AudioAddict API
 
 ```
