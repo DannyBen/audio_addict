@@ -13,6 +13,7 @@ module AudioAddict
       router.route "playlist", to: Commands::PlaylistCmd
       router.route "config", to: Commands::ConfigCmd
       router.route "log", to: Commands::LogCmd
+      router.route "download", to: Commands::DownloadCmd
       router.route "api", to: Commands::APICmd
 
       router

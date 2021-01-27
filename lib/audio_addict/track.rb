@@ -20,5 +20,9 @@ module AudioAddict
     def title
       properties["title"].strip
     end
+
+    def search_string
+      "#{artist}, #{title}"
+    end
   end
 end
