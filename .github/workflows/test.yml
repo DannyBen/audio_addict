@@ -27,5 +27,10 @@ jobs:
         bundle exec run mockserver --daemon
         sleep 2
 
+    - name: Create dummy youtube-dl executable
+      run: |
+        sudo touch /usr/local/bin/youtube-dl
+        sudo chmod +x /usr/local/bin/youtube-dl
+
     - name: Run tests
       run: bundle exec rspec
