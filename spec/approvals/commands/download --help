@@ -1,0 +1,40 @@
+Download songs from YouTube
+
+This command uses youtube-dl to download the currently playing song, or songs
+from your like-log.
+
+Usage:
+  radio download current [--count N]
+  radio download log [--lines N --count N]
+  radio download search QUERY [--count N]
+  radio download --help
+
+Commands:
+  current
+    Download the currently playing song
+
+  log
+    Download the last N songs from the like-log
+
+  search
+    Download any song matching the Youtube search query
+
+Options:
+  -l --lines N
+    Number of log lines to download [default: 1]
+
+  -c --count N
+    Number of YouTube search results to download [default: 1]
+
+  -h --help
+    Show this help
+
+Parameters:
+  QUERY
+    YouTube search query
+
+Examples:
+  radio download current
+  radio download current --count 3
+  radio download log --lines 2 --count 3
+  radio download search 'Brimstone, Bright Shadow' -c2

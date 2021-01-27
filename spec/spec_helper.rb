@@ -14,6 +14,9 @@ ENV['TTY'] = 'off'
 ENV['COLUMNS'] = '80'
 ENV['LINES'] = '30'
 
+# Do not run youtube-dl, instead show the command
+ENV['YOUTUBE_DL_DRY_RUN'] = '1'
+
 reset_config
 
 Dir.mkdir 'spec/tmp' unless Dir.exist? 'spec/tmp'

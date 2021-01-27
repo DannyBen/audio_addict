@@ -101,3 +101,11 @@
 - :cmd: "api"
 - :cmd: "api --help"
 - :cmd: "api channels"
+
+# download
+- :cmd: "download"
+- :cmd: "download --help"
+- :cmd: "download current"
+- :cmd: "download log --count 2 --lines 3"
+  :tag: reset_like_log
+- :cmd: "download search something"

@@ -1,0 +1,9 @@
+
+Downloading : 12 Stones, Adrenaline
+DRY RUN: youtube-dl --extract-audio --audio-format mp3 ytsearch2:"12 Stones, Adrenaline"
+
+Downloading : Nale, Déjà Vu (The Extreme Remix)
+DRY RUN: youtube-dl --extract-audio --audio-format mp3 ytsearch2:"Nale, Déjà Vu (The Extreme Remix)"
+
+Downloading : 3 Doors Down, Loser
+DRY RUN: youtube-dl --extract-audio --audio-format mp3 ytsearch2:"3 Doors Down, Loser"

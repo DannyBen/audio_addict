@@ -1,9 +1,8 @@
 module AudioAddict
   class Error < StandardError; end
-
   class Interrupt < Error; end
-
   class ArgumentError < Error; end
+  class DependencyError < Error; end
 
   class ConfigError < Error
     attr_reader :missing_keys
