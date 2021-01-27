@@ -47,7 +47,7 @@ Features
 - Vote on the currently playing track
 - Save a log of a all your liked tracks
 - Generate playlists (requires a premium account)
-- Download songs from Youtube (using youtube-dl)
+- Download songs from YouTube (requires [youtube-dl][youtube-dl])
 
 
 Usage
@@ -84,3 +84,4 @@ Commands:
 [JazzRadio]: http://www.jazzradio.com
 [ClassicalRadio]: http://www.classicalradio.com
 [ZenRadio]: http://www.zenradio.com
+[youtube-dl]: https://github.com/ytdl-org/youtube-dl/
