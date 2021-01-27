@@ -1,0 +1,5 @@
+Usage:
+  radio download current [--count N]
+  radio download log [--lines N --count N]
+  radio download search QUERY [--count N]
+  radio download --help

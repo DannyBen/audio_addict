@@ -28,7 +28,7 @@ module AudioAddict
         needs :network, :channel
         count = args['--count']
 
-        say "!txtblu!Current Track !txtrst!: ... "
+        say "!txtblu!Downloading !txtrst!: ... "
 
         track = current_channel.current_track
         query = track.search_string

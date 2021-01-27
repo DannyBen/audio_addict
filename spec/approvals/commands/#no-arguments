@@ -10,4 +10,5 @@ Commands:
   playlist  Generate playlists
   config    Manage local configuration
   log       Manage local like-log
+  download  Download songs from YouTube
   api       Make direct calls to the AudioAddict API
