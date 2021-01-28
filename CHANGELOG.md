@@ -1,6 +1,12 @@
 Change Log
 ========================================
 
+v0.4.1 - 2021-01-28
+----------------------------------------
+
+- Allow settings the --count for the download command using an environment variable
+
+
 v0.4.0 - 2021-01-27
 ----------------------------------------
 
