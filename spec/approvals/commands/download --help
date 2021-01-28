@@ -24,7 +24,9 @@ Options:
     Number of log lines to download [default: 1]
 
   -c --count N
-    Number of YouTube search results to download [default: 1]
+    Number of YouTube search results to download
+    Defaults to the value of the AUDIO_ADDICT_DOWNLOAD_COUNT environment
+    variable, or 1
 
   -h --help
     Show this help
@@ -32,6 +34,10 @@ Options:
 Parameters:
   QUERY
     YouTube search query
+
+Environment Variables:
+  AUDIO_ADDICT_DOWNLOAD_COUNT
+    Set the default download count (--count)
 
 Examples:
   radio download current
