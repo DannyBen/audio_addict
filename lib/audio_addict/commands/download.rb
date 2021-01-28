@@ -11,13 +11,15 @@ module AudioAddict
       usage "radio download --help"
 
       option "-l --lines N", "Number of log lines to download [default: 1]"
-      option "-c --count N", "Number of YouTube search results to download [default: 1]"
+      option "-c --count N", "Number of YouTube search results to download\nDefaults to the value of the AUDIO_ADDICT_DOWNLOAD_COUNT environment variable, or 1"
 
       param "QUERY", "YouTube search query"
 
       command "current", "Download the currently playing song"
       command "log", "Download the last N songs from the like-log"
       command "search", "Download any song matching the Youtube search query"
+
+      environment "AUDIO_ADDICT_DOWNLOAD_COUNT", "Set the default download count (--count)"
 
       example "radio download current"
       example "radio download current --count 3"
@@ -26,7 +28,6 @@ module AudioAddict
 
       def current_command
         needs :network, :channel
-        count = args['--count']
 
         say "!txtblu!Downloading !txtrst!: ... "
 
@@ -40,7 +41,6 @@ module AudioAddict
 
       def log_command
         needs :like_log
-        count = args['--count']
         lines = args['--lines']&.to_i
 
         data = log.data[-lines..-1]
@@ -54,13 +54,16 @@ module AudioAddict
 
       def search_command
         query = args['QUERY']
-        count = args['--count']
 
         say "\n!txtblu!Downloading !txtgrn!: #{query}"
         Youtube.new(query).get count
       end
 
     private
+
+      def count
+        args['--count']&.to_i || ENV['AUDIO_ADDICT_DOWNLOAD_COUNT']&.to_i || 1
+      end
 
       def log
         @log ||= Log.new

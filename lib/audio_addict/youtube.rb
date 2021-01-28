@@ -26,7 +26,7 @@ module AudioAddict
   private
 
     def execute(command)
-      if ENV['YOUTUBE_DL_DRY_RUN']
+      if ENV['AUDIO_ADDICT_DOWNLOAD_DRY_RUN']
         puts "DRY RUN: #{command}"
         true
       else
