@@ -13,7 +13,8 @@ module AudioAddict
       [:query]
     end
 
-    def get(count = 1)
+    def get(count = nil)
+      count ||= 1
       raise DependencyError, "This command requires youtube-dl" unless command_exist? 'youtube-dl'
       success = execute command(count: count, query: query)
       raise DependencyError, "youtube-dl exited with an error" unless success
