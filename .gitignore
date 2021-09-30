@@ -13,4 +13,5 @@
 /tmp
 /toc.txt
 /mockserver.pid
+/nohup.out
 *.gem
