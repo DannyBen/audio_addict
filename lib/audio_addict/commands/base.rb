@@ -1,6 +1,6 @@
-require "mister_bin"
-require "colsole"
-require "tty/prompt"
+require 'mister_bin'
+require 'colsole'
+require 'tty/prompt'
 
 module AudioAddict
   module Commands

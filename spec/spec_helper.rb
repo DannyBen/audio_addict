@@ -28,6 +28,6 @@ RSpec.configure do |c|
   c.strip_ansi_escape = true
 
   c.before :suite do
-    AudioAddict::API.base_uri "http://localhost:3000"
+    AudioAddict::API.base_uri 'http://localhost:3000'
   end
 end

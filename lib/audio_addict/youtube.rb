@@ -15,9 +15,10 @@ module AudioAddict
 
     def get(count = nil)
       count ||= 1
-      raise DependencyError, "This command requires youtube-dl" unless command_exist? 'youtube-dl'
+      raise DependencyError, 'This command requires youtube-dl' unless command_exist? 'youtube-dl'
+
       success = execute command(count: count, query: query)
-      raise DependencyError, "youtube-dl exited with an error" unless success
+      raise DependencyError, 'youtube-dl exited with an error' unless success
     end
 
     def command(args)
@@ -36,7 +37,7 @@ module AudioAddict
     end
 
     def command_template
-      @command_template ||= %Q[youtube-dl --extract-audio --audio-format mp3 ytsearch%{count}:"%{query}"]
+      @command_template ||= %[youtube-dl --extract-audio --audio-format mp3 ytsearch%{count}:"%{query}"]
     end
   end
 end

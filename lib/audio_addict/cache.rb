@@ -1,4 +1,4 @@
-require "lightly"
+require 'lightly'
 
 module AudioAddict
   module Cache
@@ -11,7 +11,7 @@ module AudioAddict
     end
 
     def cache_life!
-      Config.cache_life || "6h"
+      Config.cache_life || '6h'
     end
 
     def cache_dir

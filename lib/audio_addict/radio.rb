@@ -6,21 +6,21 @@ module AudioAddict
     attr_reader :network
 
     NETWORKS = {
-      di: "Digitally Imported",
-      rockradio: "Rock Radio",
-      radiotunes: "Radio Tunes",
-      jazzradio: "Jazz Radio",
-      classicalradio: "Classical Radio",
-      zenradio: "Zen Radio",
+      di:             'Digitally Imported',
+      rockradio:      'Rock Radio',
+      radiotunes:     'Radio Tunes',
+      jazzradio:      'Jazz Radio',
+      classicalradio: 'Classical Radio',
+      zenradio:       'Zen Radio',
     }
 
     DOMAINS = {
-      di: "di.fm",
-      rockradio: "rockradio.com",
-      radiotunes: "radiotunes.com",
-      jazzradio: "jazzradio.com",
-      classicalradio: "classicalradio.com",
-      zenradio: "zenradio.com",
+      di:             'di.fm',
+      rockradio:      'rockradio.com',
+      radiotunes:     'radiotunes.com',
+      jazzradio:      'jazzradio.com',
+      classicalradio: 'classicalradio.com',
+      zenradio:       'zenradio.com',
     }
 
     def self.networks(search = nil)
@@ -33,7 +33,7 @@ module AudioAddict
     end
 
     def self.valid_network?(network)
-      NETWORKS.keys.include? network.to_sym
+      NETWORKS.has_key?(network.to_sym)
     end
 
     def initialize(network)
@@ -53,7 +53,7 @@ module AudioAddict
     end
 
     def url_template
-      channel_path = network == "zenradio" ? "zr%{channel_key}_aac" : "%{channel_key}"
+      channel_path = network == 'zenradio' ? 'zr%{channel_key}_aac' : '%{channel_key}'
       "http://prem2.#{domain}:80/#{channel_path}?%{listen_key}"
     end
 
@@ -77,27 +77,27 @@ module AudioAddict
     end
 
     def valid_channel?(channel)
-      channels.keys.include? channel
+      channels.has_key?(channel)
     end
 
     def api
       @api ||= API.new network
     end
 
-    private
+  private
 
     def channels!
       response = cache.get "#{network}/channels" do
-        api.get "channels"
+        api.get 'channels'
       end
 
       result = {}
       response.map do |channel|
-        key = channel["key"]
+        key = channel['key']
         candidate = Channel.new self, channel
         result[key] = candidate if candidate.active?
       end
-      result.sort_by { |key, channel| channel.name }.to_h
+      result.sort_by { |_key, channel| channel.name }.to_h
     end
   end
 end

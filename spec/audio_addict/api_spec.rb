@@ -5,8 +5,8 @@ describe API do
 
   subject { described_class.new 'di' }
 
-  context "on api error" do
-    it "raises an error" do
+  context 'when an API error occurs' do
+    it 'raises an error' do
       expect { subject.get 'no-such-route' }.to raise_error(APIError)
     end
   end

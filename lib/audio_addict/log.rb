@@ -21,7 +21,7 @@ module AudioAddict
     end
 
     def sort
-      output = data.sort.join("\n") + "\n"
+      output = "#{data.sort.join("\n")}\n"
       File.write path, output
     end
 
@@ -33,7 +33,7 @@ module AudioAddict
       result = {}
 
       data.each do |line|
-        network, channel, artist, song = line.split(" :: ")
+        network, channel, artist, song = line.split(' :: ')
         result[network] ||= {}
         result[network][channel] ||= {}
         result[network][channel][artist] ||= []

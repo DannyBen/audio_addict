@@ -1,58 +1,58 @@
 module AudioAddict
   module Commands
     class ChannelsCmd < Base
-      summary "Show list of channels"
+      summary 'Show list of channels'
 
-      help "This command lets you list and search for channels in the currently active radio network."
+      help 'This command lets you list and search for channels in the currently active radio network.'
 
-      usage "radio channels [SEARCH --info]"
-      usage "radio channels --help"
+      usage 'radio channels [SEARCH --info]'
+      usage 'radio channels --help'
 
-      option "-i --info", "Show results with additional info, such as channel description and related channels"
+      option '-i --info', 'Show results with additional info, such as channel description and related channels'
 
-      param "SEARCH", "Channel name or a partial name to search for"
+      param 'SEARCH', 'Channel name or a partial name to search for'
 
-      example "radio channels"
-      example "radio channels --info"
-      example "radio channels metal"
-      example "radio channels metal -i"
+      example 'radio channels'
+      example 'radio channels --info'
+      example 'radio channels metal'
+      example 'radio channels metal -i'
 
       def run
         needs :network
 
         say "!undgrn!#{radio.name}\n"
 
-        search = args["SEARCH"]
+        search = args['SEARCH']
 
         channels = search ? radio.search(search) : radio.channels
 
         channels = channels.values
-        if args["--info"]
+        if args['--info']
           show_verbose channels
         else
           show_compact channels
         end
       end
 
-      private
+    private
 
       def show_verbose(channels)
         channels.each do |channel|
-          say ""
+          say ''
           say "!txtgrn!#{channel.name.ljust 22} !txtrst!# #{channel.key}"
-          say ""
-          say word_wrap "#{channel.description}"
-          say ""
+          say ''
+          say word_wrap channel.description.to_s
+          say ''
 
           similar = channel.similar_channels
 
-          if similar.any?
-            say "Similar Channels:"
-            similar.each do |key, similar|
-              say "- !txtblu!#{similar.name.ljust 20}!txtrst! # #{key}"
-            end
-            say ""
+          next unless similar.any?
+
+          say 'Similar Channels:'
+          similar.each do |key, similar_channel|
+            say "- !txtblu!#{similar_channel.name.ljust 20}!txtrst! # #{key}"
           end
+          say ''
         end
       end
 
