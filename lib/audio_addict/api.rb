@@ -1,11 +1,11 @@
-require "httparty"
+require 'httparty'
 
 module AudioAddict
   class API
     include HTTParty
     include Cache
 
-    base_uri "https://api.audioaddict.com/v1"
+    base_uri 'https://api.audioaddict.com/v1'
     debug_output $stderr if ENV['AUDIO_ADDICT_DEBUG']
 
     attr_accessor :network
@@ -16,10 +16,10 @@ module AudioAddict
 
     def login(username, password)
       session = session(username, password)
-      Config.session_key = session["key"]
-      Config.listen_key = session["member"]["listen_key"]
-      Config.email = session["member"]["email"]
-      Config.premium = session["member"]["user_type"] == "premium"
+      Config.session_key = session['key']
+      Config.listen_key = session['member']['listen_key']
+      Config.email = session['member']['email']
+      Config.premium = session['member']['user_type'] == 'premium'
       Config.save
     end
 
@@ -40,13 +40,13 @@ module AudioAddict
     end
 
     def basic_auth
-      http.basic_auth "streams", "diradio"
+      http.basic_auth 'streams', 'diradio'
     end
 
     def session(username, password)
       params = { member_session: { username: username, password: password } }
       basic_auth
-      response http.post "/#{network || "di"}/member_sessions", body: params
+      response http.post "/#{network || 'di'}/member_sessions", body: params
     end
 
     def session_key
@@ -57,10 +57,11 @@ module AudioAddict
       Config.listen_key
     end
 
-    private
+  private
 
     def response(httparty_response)
-      raise APIError.new httparty_response unless httparty_response.success?
+      raise APIError, httparty_response unless httparty_response.success?
+
       JSON.parse httparty_response.body
     end
 
@@ -69,7 +70,7 @@ module AudioAddict
     end
 
     def headers
-      { "X-Session-Key" => session_key }
+      { 'X-Session-Key' => session_key }
     end
   end
 end

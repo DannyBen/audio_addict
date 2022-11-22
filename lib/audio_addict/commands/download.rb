@@ -1,35 +1,36 @@
 module AudioAddict
   module Commands
     class DownloadCmd < Base
-      summary "Download songs from YouTube"
+      summary 'Download songs from YouTube'
 
-      help "This command uses youtube-dl to download the currently playing song, or songs from your like-log."
+      help 'This command uses youtube-dl to download the currently playing song, or songs from your like-log.'
 
-      usage "radio download current [--count N]"
-      usage "radio download log [--lines N --count N]"
-      usage "radio download search QUERY [--count N]"
-      usage "radio download --help"
+      usage 'radio download current [--count N]'
+      usage 'radio download log [--lines N --count N]'
+      usage 'radio download search QUERY [--count N]'
+      usage 'radio download --help'
 
-      option "-l --lines N", "Number of log lines to download [default: 1]"
-      option "-c --count N", "Number of YouTube search results to download\nDefaults to the value of the AUDIO_ADDICT_DOWNLOAD_COUNT environment variable, or 1"
+      option '-l --lines N', 'Number of log lines to download [default: 1]'
+      option '-c --count N',
+        "Number of YouTube search results to download\nDefaults to the value of the AUDIO_ADDICT_DOWNLOAD_COUNT environment variable, or 1"
 
-      param "QUERY", "YouTube search query"
+      param 'QUERY', 'YouTube search query'
 
-      command "current", "Download the currently playing song"
-      command "log", "Download the last N songs from the like-log"
-      command "search", "Download any song matching the Youtube search query"
+      command 'current', 'Download the currently playing song'
+      command 'log', 'Download the last N songs from the like-log'
+      command 'search', 'Download any song matching the Youtube search query'
 
-      environment "AUDIO_ADDICT_DOWNLOAD_COUNT", "Set the default download count (--count)"
+      environment 'AUDIO_ADDICT_DOWNLOAD_COUNT', 'Set the default download count (--count)'
 
-      example "radio download current"
-      example "radio download current --count 3"
-      example "radio download log --lines 2 --count 3"
+      example 'radio download current'
+      example 'radio download current --count 3'
+      example 'radio download log --lines 2 --count 3'
       example "radio download search 'Brimstone, Bright Shadow' -c2"
 
       def current_command
         needs :network, :channel
 
-        say "!txtblu!Downloading !txtrst!: ... "
+        say '!txtblu!Downloading !txtrst!: ... '
 
         track = current_channel.current_track
         query = track.search_string
@@ -43,9 +44,9 @@ module AudioAddict
         needs :like_log
         lines = args['--lines']&.to_i
 
-        data = log.data[-lines..-1]
+        data = log.data[-lines..]
         data.each do |line|
-          network, channel, artist, song = line.split(" :: ")
+          _network, _channel, artist, song = line.split(' :: ')
           query = "#{artist}, #{song}"
           say "\n!txtblu!Downloading !txtgrn!: #{query}"
           Youtube.new(query).get count

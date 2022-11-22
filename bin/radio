@@ -7,28 +7,24 @@ router = AudioAddict::CLI.router
 
 begin
   exit router.run ARGV
-
 rescue Interrupt, AudioAddict::Interrupt, TTY::Reader::InputInterrupt
   say "\nGoodbye"
-  exit 1  
-
+  exit 1
 rescue AudioAddict::ConfigError => e
-  say "!undred!ERROR: Missing Configuration Values"
+  say '!undred!ERROR: Missing Configuration Values'
   say "#{e.message}:"
   e.missing_keys.each do |key|
     say "- !txtblu!#{key}"
   end
-  say ""
-  say "Run !txtpur!radio config guide!txtrst! for more information"
-  exit 1  
-
+  say ''
+  say 'Run !txtpur!radio config guide!txtrst! for more information'
+  exit 1
 rescue => e
   if ENV['DEBUG']
-    puts e.backtrace.reverse 
-    say ""
+    puts e.backtrace.reverse
+    say ''
   end
   say "!undred!ERROR: #{e.class}"
   say e.message
   exit 1
-
 end

@@ -61,4 +61,3 @@ delete '*' do
   path = params['splat'].first
   halt 500, "DELETE #{path} : not implemented"
 end
-

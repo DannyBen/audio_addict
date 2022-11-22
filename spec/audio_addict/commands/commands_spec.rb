@@ -11,35 +11,34 @@ describe 'commands (generated specs)' do
   commands = YAML.load_file 'spec/audio_addict/commands/commands.yml'
   commands = commands[:commands]
 
-  before do 
+  before do
     reset_config
     reset_tmp_dir
   end
 
   commands.each do |spec|
-    it "works" do
+    it 'runs as expected' do
       command = spec[:cmd]
       keyboard = spec[:kbd]
       tag = spec[:tag]&.to_sym
 
-      test_name = "#{command}"
+      test_name = command.to_s
       test_name = "#{test_name} (#{keyboard.join ' '})" if keyboard
       test_name = "#{test_name} ##{tag}" if tag
-      test_name = "#no-arguments" if test_name.empty?
+      test_name = '#no-arguments' if test_name.empty?
 
       say "$ !txtpur!#{test_name}"
 
-      fixture = test_name.gsub(/[^#\w\- \(\)\{\}\[\]]/, '')
-      argv = command.split ' '
-      
+      fixture = test_name.gsub(/[^#\w\- (){}\[\]]/, '')
+      argv = command.split
+
       Dir.chdir 'spec/tmp' do
-        send tag if tag and respond_to? tag
+        send tag if tag && respond_to?(tag)
         output = interactive(*keyboard) do
           subject.run argv
         end
         expect(output).to match_approval "commands/#{fixture}"
       end
-
     end
   end
 

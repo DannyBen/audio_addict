@@ -7,19 +7,21 @@ module AudioAddict
     attr_reader :radio
 
     def initialize(radio, properties)
-      @radio, @properties = radio, properties
+      @radio = radio
+      @properties = properties
     end
 
     def inspectable
-      [:key, :name, :id]
+      %i[key name id]
     end
 
     def active?
       # Seems like each network has a different way of marking inactive channels.
       # This is where we normalize it
-      return false if !properties["asset_id"]
-      return false if name[0] == "X" and key[0] != "x"
-      return true
+      return false unless properties['asset_id']
+      return false if (name[0] == 'X') && (key[0] != 'x')
+
+      true
     end
 
     def track_history
@@ -36,9 +38,10 @@ module AudioAddict
     end
 
     def similar_channels
-      similar = properties["similar_channels"]
+      similar = properties['similar_channels']
       return [] unless similar
-      ids = similar.map { |s| s["similar_channel_id"] }
+
+      ids = similar.map { |s| s['similar_channel_id'] }
       radio.search_by_id ids
     end
 
@@ -52,10 +55,10 @@ module AudioAddict
         radio.api.post "#{endpoint}/#{direction}"
       end
 
-      log_like track if direction == :up and Config.like_log
+      log_like track if (direction == :up) && Config.like_log
     end
 
-    private
+  private
 
     def log_like(track = nil)
       track ||= current_track

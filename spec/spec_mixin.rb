@@ -11,12 +11,12 @@ end
 module SpecMixin
   def reset_config
     Config.path = 'tmp/config.yml'
-    Config.email = "eli@marko.com"
+    Config.email = 'eli@marko.com'
     Config.premium = true
-    Config.session_key = "dummy-session"
-    Config.listen_key = "dummy-listen"
-    Config.network = "di"
-    Config.channel = "trance"
+    Config.session_key = 'dummy-session'
+    Config.listen_key = 'dummy-listen'
+    Config.network = 'di'
+    Config.channel = 'trance'
     Config.cache_dir = 'cache'
     Config.cache_life = '10s'
     Config.like_log = 'tmp/like.log'
@@ -34,7 +34,7 @@ module SpecMixin
 
   def reset_like_log
     log_fixture = File.expand_path 'fixtures/like.log', __dir__
-    system %Q[cp "#{log_fixture}" 'tmp/like.log']
+    system %[cp "#{log_fixture}" 'tmp/like.log']
   end
 
   def tmp_dir
@@ -44,33 +44,31 @@ module SpecMixin
   def require_mock_server!
     result = HTTParty.get('http://localhost:3000/')
     result = JSON.parse result.body
-    raise "Please start the mock server" unless result['mockserver'] == 'online'
+    raise 'Please start the mock server' unless result['mockserver'] == 'online'
   rescue Errno::ECONNREFUSED
     # :nocov:
-    raise "Please start the mock server"
+    raise 'Please start the mock server'
     # :nocov:
   end
 
   def keyboard
     {
       enter: '',
-      down: "\e[B",
-      up: "\e[A",
+      down:  "\e[B",
+      up:    "\e[A",
     }
   end
 
   def stdin_send(*args)
-    begin
-      $stdin = StringIO.new
-      until args.empty?
-        arg = args.shift % keyboard
-        $stdin.puts arg
-      end
-      $stdin.rewind
-      yield
-    ensure
-      $stdin = STDIN
+    $stdin = StringIO.new
+    until args.empty?
+      arg = args.shift % keyboard
+      $stdin.puts arg
     end
+    $stdin.rewind
+    yield
+  ensure
+    $stdin = STDIN
   end
 
   def capture_output
@@ -94,12 +92,11 @@ module SpecMixin
     end
   end
 
-  def interactive!(*args)
+  def interactive!(*args, &block)
     if args.any?
-      stdin_send(*args) { yield }
+      stdin_send(*args, &block)
     else
       yield
     end
   end
-
 end

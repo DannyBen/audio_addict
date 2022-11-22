@@ -1,20 +1,20 @@
 require 'spec_helper'
 
 describe Commands::LogCmd do
-  subject { CLI.router }
+  subject { described_class.new }
 
-  before do 
+  before do
     reset_tmp_dir
   end
 
-  describe "tree --save FILE" do
-    it "saves the YAML files properly" do
+  describe 'tree --save FILE' do
+    it 'saves the YAML files properly' do
       Dir.chdir 'spec/tmp' do
         FileUtils.rm 'logtree.yml' if File.exist? 'logtree.yml'
         reset_like_log
 
         capture_output do
-          subject.run %w[log tree --save logtree.yml]
+          subject.execute %w[log tree --save logtree.yml]
         end
 
         expect(File.read 'logtree.yml').to match_approval 'log/logtree.yml'
@@ -22,5 +22,5 @@ describe Commands::LogCmd do
     end
   end
 
-  describe 
+  describe
 end
