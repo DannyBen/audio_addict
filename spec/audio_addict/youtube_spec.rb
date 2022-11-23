@@ -18,7 +18,7 @@ describe Youtube do
   end
 
   describe '#get' do
-    context "when AUDIO_ADDICT_DOWNLOAD_DRY_RUN is not set" do
+    context 'when AUDIO_ADDICT_DOWNLOAD_DRY_RUN is not set' do
       before do
         ENV['AUDIO_ADDICT_DOWNLOAD_DRY_RUN'] = nil
         allow(subject).to receive(:command_exist?).with('youtube-dl').and_return true
@@ -26,11 +26,11 @@ describe Youtube do
 
       after { ENV['AUDIO_ADDICT_DOWNLOAD_DRY_RUN'] = '1' }
 
-      it "calls the system command" do
+      it 'calls the system command' do
         expect(subject).to receive(:system)
           .with('youtube-dl --extract-audio --audio-format mp3 ytsearch1:"Brimstone, Intake"')
           .and_return true
-        
+
         subject.get
       end
     end

@@ -3,7 +3,9 @@ require:
   - rubocop-rspec
 
 inherit_gem:
-  rentacop: rentacop.yml
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
 
 AllCops:
   TargetRubyVersion: 2.6
@@ -20,29 +22,11 @@ Layout/LineLength:
   Exclude:
     - "lib/audio_addict/commands/**/*"
 
-# Prefer `receive` over `have_received` spies
-RSpec/MessageSpies:
-  EnforcedStyle: receive
-
-# Allow top level `describe` to include arbitrary text in some cases
-RSpec/DescribeClass:
-  Exclude:
-    - spec/audio_addict/commands/commands_spec.rb
-    - spec/audio_addict/bin_errors_spec.rb
-
-# Allow stubbing other `subject` methods
-RSpec/SubjectStub:
-  Enabled: false
-
-# Allow nameless `subject`
-RSpec/NamedSubject:
-  Enabled: false
-
-# Allow higher metrics
+# Allow longer examples
 RSpec/ExampleLength:
   Max: 17
-RSpec/MultipleExpectations:
-  Max: 4
-RSpec/NestedGroups:
-  Max: 4
 
+# Allow `expect` for configuring response in some cases
+RSpec/StubbedMock:
+  Exclude:
+    - spec/audio_addict/youtube_spec.rb
