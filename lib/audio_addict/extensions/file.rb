@@ -13,7 +13,7 @@ class File
     end
 
     def append(file, content)
-      File.open(file, 'a') { |f| f << content }
+      File.open(file, 'a') { |f| f << "#{content}\n" }
     end
 
     def deep_write(file, content)
