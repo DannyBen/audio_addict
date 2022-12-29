@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'httparty', '~> 0.16'
   s.add_runtime_dependency 'lightly', '~> 0.3'
   s.add_runtime_dependency 'mister_bin', '~> 0.7.3'
-  s.add_runtime_dependency 'requires', '~> 0.1'
+  s.add_runtime_dependency 'requires', '~> 1.0'
   s.add_runtime_dependency 'tty-prompt', '~> 0.19'
 
   s.metadata['rubygems_mfa_required'] = 'true'

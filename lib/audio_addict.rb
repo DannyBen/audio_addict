@@ -1,9 +1,9 @@
 require 'requires'
 require 'byebug' if ENV['BYEBUG']
-requires \
-  'audio_addict/exceptions',
-  'audio_addict/cache',
-  'audio_addict/inspectable',
-  'audio_addict/auto_properties',
-  'audio_addict/commands/base',
-  'audio_addict'
+
+requires 'audio_addict/exceptions'
+requires 'audio_addict/cache'
+requires 'audio_addict/inspectable'
+requires 'audio_addict/auto_properties'
+requires 'audio_addict/commands/base'
+requires 'audio_addict'
