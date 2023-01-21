@@ -12,7 +12,7 @@ module AudioAddict
         proceed = true
 
         if radio.api.logged_in?
-          say "!txtylw!You are already logged in as !undylw!#{Config.email}"
+          say "y`You are already logged in as` yu`#{Config.email}`"
           proceed = prompt.yes? 'Login again?'
         end
 
@@ -28,9 +28,9 @@ module AudioAddict
         if user && pass
           say 'Logging in... '
           radio.api.login user, pass
-          resay '!txtgrn!Saved'
+          say 'g`Saved`', replace: true
         else
-          say '!txtred!Cancelled'
+          say 'r`Cancelled`'
         end
       end
     end

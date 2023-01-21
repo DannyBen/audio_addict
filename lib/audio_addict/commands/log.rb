@@ -45,7 +45,7 @@ module AudioAddict
       def sort_command
         needs :like_log
         log.sort
-        say '!txtgrn!Sorted'
+        say 'g`Sorted`'
       end
 
       def browse_command
@@ -59,7 +59,7 @@ module AudioAddict
           per_page: page_size
 
         say 'Songs:'
-        tree[network][channel][artist].each { |song| say "- !txtgrn!#{song}" }
+        tree[network][channel][artist].each { |song| say "- g`#{song}`" }
         say ''
 
         browse_command if prompt.yes?('Again?')
@@ -71,7 +71,7 @@ module AudioAddict
 
         if filename
           File.write filename, yaml
-          say "!txtgrn!Saved #{filename}"
+          say "g`Saved #{filename}`"
         else
           puts yaml
         end
