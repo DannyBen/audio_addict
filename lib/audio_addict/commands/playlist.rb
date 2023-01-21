@@ -26,7 +26,7 @@ module AudioAddict
         name = args['NAME']
         outfile = "#{name}.yml"
 
-        say "!txtred!Warning!txtrst!: !txtgrn!#{outfile}!txtrst! already exists!" if File.exist? outfile
+        say "r`Warningr`: g`#{outfile}` already exists!" if File.exist? outfile
         proceed = prompt.yes? "Create #{outfile}?"
         return unless proceed
 
@@ -46,11 +46,11 @@ module AudioAddict
         outfile = "#{name}.pls"
 
         if File.exist? infile
-          say "!txtred!Warning!txtrst!: !txtgrn!#{outfile}!txtrst! already exists!" if File.exist? outfile
+          say "r`Warning`: g`#{outfile}` already exists!" if File.exist? outfile
           proceed = prompt.yes? "Create #{outfile}?"
           generate_playlist infile, outfile if proceed
         else
-          say "!txtred!Cannot find #{infile}"
+          say "r`Cannot find #{infile}`"
         end
       end
 
@@ -68,7 +68,7 @@ module AudioAddict
         data[:channels] = channels
 
         File.write outfile, data.to_yaml
-        say "Saved !txtgrn!#{outfile}"
+        say "Saved g`#{outfile}`"
       end
 
       def generate_playlist(infile, outfile)
@@ -92,7 +92,7 @@ module AudioAddict
         output = "#{output.join("\n")}\n"
 
         File.write outfile, output
-        say "Saved !txtgrn!#{outfile}"
+        say "Saved g`#{outfile}`"
       end
 
       def template_params(channel_key)

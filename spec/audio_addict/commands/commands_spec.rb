@@ -27,7 +27,7 @@ describe 'commands (generated specs)' do
       test_name = "#{test_name} ##{tag}" if tag
       test_name = '#no-arguments' if test_name.empty?
 
-      say "$ !txtpur!#{test_name}"
+      say "$ m`#{test_name}`"
 
       fixture = test_name.gsub(/[^#\w\- (){}\[\]]/, '')
       argv = command.split

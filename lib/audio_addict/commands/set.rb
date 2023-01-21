@@ -59,7 +59,7 @@ module AudioAddict
         elsif radio.search(channel).any?
           channel_menu channel
         else
-          say "!txtred!Invalid channel: #{radio.name} > #{channel}"
+          say "r`Invalid channel: #{radio.name} > #{channel}`"
         end
       end
 
@@ -100,13 +100,13 @@ module AudioAddict
       def save_channel(channel, echo: true)
         Config.channel = channel
         Config.save
-        say "Channel : !txtgrn!#{radio.name} > #{current_channel.name}!txtrst! # #{channel}" if echo
+        say "Channel : g`#{radio.name} > #{current_channel.name}` # #{channel}" if echo
       end
 
       def save_network(network, echo: true)
         Config.network = network
         Config.save
-        say "Network : !txtgrn!#{radio.name}!txtrst! # #{network}" if echo
+        say "Network : g`#{radio.name}` # #{network}" if echo
       end
     end
   end

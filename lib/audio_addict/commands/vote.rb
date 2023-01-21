@@ -42,7 +42,7 @@ module AudioAddict
       def send_vote(vote, track = nil)
         say 'Voting... '
         current_channel.vote vote, track: track
-        resay '!txtgrn!Voted'
+        say 'g`Voted`', replace: true
       end
 
       def tracks

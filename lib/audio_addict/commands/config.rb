@@ -36,7 +36,7 @@ module AudioAddict
       def get_command
         key = args['KEY'].to_sym
         value = Config.properties[key]
-        say value ? "!txtgrn!#{value}" : '!txtred!<Unset>'
+        say value ? "g`#{value}`" : 'r`<Unset>`'
       end
 
       def set_command
@@ -44,22 +44,22 @@ module AudioAddict
         value = args['VALUE']
         Config.properties[key] = value
         Config.save
-        say "!txtgrn!#{key}=#{value}"
+        say "g`#{key}=#{value}`"
       end
 
       def del_command
         key = args['KEY'].to_sym
         Config.delete key
         Config.save
-        say '!txtgrn!Deleted'
+        say 'g`Deleted`'
       end
 
       def show_command
-        say "!undpur!# #{Config.path}"
+        say "mu`# #{Config.path}`"
         if File.exist? Config.path
           puts File.read Config.path
         else
-          say '!txtred!File Not Found'
+          say 'r`File Not Found`'
         end
       end
 
@@ -70,7 +70,7 @@ module AudioAddict
 
       def guide_command
         key_guide.each do |key, value|
-          say "!txtgrn!#{key}"
+          say "g`#{key}`"
           say word_wrap "  #{value}"
           say ''
         end
@@ -93,7 +93,7 @@ module AudioAddict
         keys.each do |key, command|
           unless Config.has_key? key
             problems += 1
-            say "#{prefix} : Key !txtgrn!#{key}!txtrst! is not set. Fix with !txtpur!radio #{command}!txtrst!."
+            say "#{prefix} : Key g`#{key}` is not set. Fix with m`radio #{command}`."
           end
         end
 

@@ -11,20 +11,20 @@ rescue Interrupt, AudioAddict::Interrupt, TTY::Reader::InputInterrupt
   say "\nGoodbye"
   exit 1
 rescue AudioAddict::ConfigError => e
-  say '!undred!ERROR: Missing Configuration Values'
+  say 'ru`ERROR: Missing Configuration Values`'
   say "#{e.message}:"
   e.missing_keys.each do |key|
-    say "- !txtblu!#{key}"
+    say "- b`#{key}`"
   end
   say ''
-  say 'Run !txtpur!radio config guide!txtrst! for more information'
+  say 'Run m`radio config guide` for more information'
   exit 1
 rescue => e
   if ENV['DEBUG']
     puts e.backtrace.reverse
     say ''
   end
-  say "!undred!ERROR: #{e.class}"
+  say "ru`ERROR: #{e.class}`"
   say e.message
   exit 1
 end

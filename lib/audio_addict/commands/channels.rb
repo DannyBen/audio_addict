@@ -20,7 +20,7 @@ module AudioAddict
       def run
         needs :network
 
-        say "!undgrn!#{radio.name}\n"
+        say "gu`#{radio.name}`\n"
 
         search = args['SEARCH']
 
@@ -39,7 +39,7 @@ module AudioAddict
       def show_verbose(channels)
         channels.each do |channel|
           say ''
-          say "!txtgrn!#{channel.name.ljust 22} !txtrst!# #{channel.key}"
+          say "g`#{channel.name.ljust 22} `# #{channel.key}"
           say ''
           say word_wrap channel.description.to_s
           say ''
@@ -50,7 +50,7 @@ module AudioAddict
 
           say 'Similar Channels:'
           similar.each do |key, similar_channel|
-            say "- !txtblu!#{similar_channel.name.ljust 20}!txtrst! # #{key}"
+            say "- b`#{similar_channel.name.ljust 20}` # #{key}"
           end
           say ''
         end
@@ -58,7 +58,7 @@ module AudioAddict
 
       def show_compact(channels)
         channels.each do |channel|
-          say "!txtblu!#{channel.key.rjust 25} !txtgrn!#{channel.name.strip}"
+          say "b`#{channel.key.rjust 25}` g`#{channel.name.strip}`"
         end
       end
     end

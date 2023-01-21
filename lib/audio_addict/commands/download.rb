@@ -30,12 +30,12 @@ module AudioAddict
       def current_command
         needs :network, :channel
 
-        say '!txtblu!Downloading !txtrst!: ... '
+        say 'b`Downloading` : ... '
 
         track = current_channel.current_track
         query = track.search_string
 
-        resay "!txtblu!Downloading !txtgrn!: #{query}"
+        say "b`Downloading` : g`#{query}`", replace: true
 
         Youtube.new(query).get count
       end
@@ -48,7 +48,7 @@ module AudioAddict
         data.each do |line|
           _network, _channel, artist, song = line.split(' :: ')
           query = "#{artist}, #{song}"
-          say "\n!txtblu!Downloading !txtgrn!: #{query}"
+          say "\nb`Downloading` : g`#{query}`"
           Youtube.new(query).get count
         end
       end
@@ -56,7 +56,7 @@ module AudioAddict
       def search_command
         query = args['QUERY']
 
-        say "\n!txtblu!Downloading !txtgrn!: #{query}"
+        say "\nb`Downloading` : g`#{query}`"
         Youtube.new(query).get count
       end
 

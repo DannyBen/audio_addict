@@ -11,13 +11,13 @@ module AudioAddict
       def run
         needs :network, :channel
 
-        say "!txtblu!  Network !txtrst!: !txtgrn!#{radio.name}!txtrst! # #{radio.network}"
-        say "!txtblu!  Channel !txtrst!: !txtgrn!#{current_channel.name}!txtrst! # #{current_channel.key}"
-        say '!txtblu!    Track !txtrst!: ... '
+        say "b`  Network `: g`#{radio.name}` # #{radio.network}"
+        say "b`  Channel `: g`#{current_channel.name}` # #{current_channel.key}"
+        say 'b`    Track `: ... '
 
         track = current_channel.current_track
-        resay "!txtblu!    Track !txtrst!: !txtgrn!#{track.title.strip}"
-        say "!txtblu!       By !txtrst!: !txtgrn!#{track.artist.strip}"
+        say "b`    Track `: g`#{track.title.strip}`", replace: true
+        say "b`       By `: g`#{track.artist.strip}`"
       end
     end
   end
