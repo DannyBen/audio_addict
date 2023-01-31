@@ -88,7 +88,7 @@ module AudioAddict
 
       def verify_and_show_keys(keys, critical: false)
         problems = 0
-        prefix = critical ? '!txtred!Error  !txtrst!' : '!txtylw!Warning!txtrst!'
+        prefix = critical ? 'r`Error  `' : 'y`Warning`'
 
         keys.each do |key, command|
           unless Config.has_key? key
@@ -102,11 +102,11 @@ module AudioAddict
 
       def key_guide
         {
-          email:       "Last email used for logging in.\nUsually set with !txtpur!radio login!txtrst!.",
-          session_key: "Used for authentication.\nUsually set with !txtpur!radio login!txtrst!.",
-          listen_key:  "Used for generating playlists.\nUsually set with !txtpur!radio login!txtrst!.",
-          network:     "Specify the AudioAddict network you are currently listening to.\nUsually set with !txtpur!radio set!txtrst!.",
-          channel:     "Specify the AudioAddict channel you are currently listening to.\nUsually set with !txtpur!radio set!txtrst!.",
+          email:       "Last email used for logging in.\nUsually set with m`radio login`.",
+          session_key: "Used for authentication.\nUsually set with m`radio login`.",
+          listen_key:  "Used for generating playlists.\nUsually set with m`radio login`.",
+          network:     "Specify the AudioAddict network you are currently listening to.\nUsually set with m`radio set`.",
+          channel:     "Specify the AudioAddict channel you are currently listening to.\nUsually set with m`radio set`.",
           like_log:    "Specify the path to store all your positive votes.\nIf this is not set, votes will only be sent to AudioAddict and not logged locally.",
           cache_dir:   "Specify the path to store API response cache.\nDefault: ~/.audio_addict/cache",
           cache_life:  "Specify the cache life period.\nDefault: 6h.",

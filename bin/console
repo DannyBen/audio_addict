@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'irb'
-require 'irb/completion'
-require 'audio_addict'
-
-include AudioAddict
-
-IRB.start

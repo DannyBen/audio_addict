@@ -1,23 +1,13 @@
-require "runfile-tasks"
 require "byebug"
 require "pretty_trace/enable-trim"
 require "lp"
-
-require_relative 'lib/audio_addict'
+require 'audio_addict/version'
 
 title   "AudioAddict Developer Toolbelt"
 summary "Runfile tasks for building the AudioAddict gem"
 version AudioAddict::VERSION
 
-include AudioAddict
-
-RunfileTasks::RubyGems.all 'audio_addict'
-RunfileTasks::Testing.rspec
-
-help   "Run interactive console"
-action :console, :c do
-  system "bundle exec bin/console"
-end
+import_gem 'runfile-tasks/gem', gemname: 'audio_addict'
 
 help   "Generate changelog and append old changelog"
 action :changelog do
@@ -33,4 +23,3 @@ action :mockserver do |args|
   exec "ruby spec/mock_api/server.rb"
 end
 
-require './debug' if File.exist? 'debug.rb'

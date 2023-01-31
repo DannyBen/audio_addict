@@ -84,7 +84,7 @@ module AudioAddict
       end
 
       def page_size
-        @page_size ||= detect_terminal_size[1] - 4
+        @page_size ||= terminal_height - 4
       end
     end
   end

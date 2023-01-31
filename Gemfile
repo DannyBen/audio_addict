@@ -5,8 +5,8 @@ gem 'lp'
 gem 'pretty_trace'
 gem 'rspec'
 gem 'rspec_approvals'
-gem 'runfile', require: false
-gem 'runfile-tasks', require: false
+gem 'runfile', '>= 1.0.0.rc4', require: false
+gem 'runfile-tasks', '>= 1.0.0.rc2', require: false
 gem 'simplecov'
 
 gem 'puma', require: false

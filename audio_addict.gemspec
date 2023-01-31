@@ -13,9 +13,10 @@ Gem::Specification.new do |s|
   s.executables = ['radio']
   s.homepage    = 'https://github.com/dannyben/audio_addict'
   s.license     = 'MIT'
+
   s.required_ruby_version = '>= 2.7.0'
 
-  s.add_runtime_dependency 'colsole', '~> 0.8', '>= 0.8.1'
+  s.add_runtime_dependency 'colsole', '>= 0.8.1', '< 2'
   s.add_runtime_dependency 'httparty', '~> 0.21'
   s.add_runtime_dependency 'lightly', '~> 0.3'
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
