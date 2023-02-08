@@ -84,4 +84,4 @@ Commands:
 [JazzRadio]: http://www.jazzradio.com
 [ClassicalRadio]: http://www.classicalradio.com
 [ZenRadio]: http://www.zenradio.com
-[youtube-dl]: https://github.com/ytdl-org/youtube-dl/
+[youtube-dl]: https://github.com/yt-dlp/yt-dlp
