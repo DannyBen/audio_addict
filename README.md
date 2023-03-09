@@ -1,5 +1,4 @@
-AudioAddict Command Line
-==================================================
+# AudioAddict Command Line
 
 [![Gem Version](https://badge.fury.io/rb/audio_addict.svg)](https://badge.fury.io/rb/audio_addict)
 [![Build Status](https://github.com/DannyBen/audio_addict/workflows/Test/badge.svg)](https://github.com/DannyBen/audio_addict/actions?query=workflow%3ATest)
@@ -14,14 +13,12 @@ radio network.
 
 ---
 
-Demo
---------------------------------------------------
+## Demo
 
-![Demo](https://raw.githubusercontent.com/DannyBen/audio_addict/master/demo/demo.gif)
+![demo](support/demo/cast.gif)
 
 
-Install
---------------------------------------------------
+## Install
 
 Please note that in order to use this gem you need to have an AUdioAddict 
 account (free or premium) at one of the AudioAddict networks.
@@ -31,8 +28,7 @@ $ gem install audio_addict
 ```
 
 
-Features
---------------------------------------------------
+## Features
 
 - Easy to use command line interface
 - Support for all the networks on the [AudioAddict Platform]:
@@ -50,8 +46,7 @@ Features
 - Download songs from YouTube (requires [youtube-dl][youtube-dl])
 
 
-Usage
---------------------------------------------------
+## Usage
 
 - Run the `radio` command to see a list of available subcommands.
 - To see additional help, run `radio <subcommand> --help`
@@ -74,8 +69,6 @@ Commands:
   api       Make direct calls to the AudioAddict API
 
 ```
-
----
 
 [AudioAddict Platform]: http://www.audioaddict.com
 [Digitally Imported]: http://di.fm

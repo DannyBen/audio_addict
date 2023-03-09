@@ -7,13 +7,13 @@ title   "AudioAddict Developer Toolbelt"
 summary "Runfile tasks for building the AudioAddict gem"
 version AudioAddict::VERSION
 
-import_gem 'runfile-tasks/gem', gemname: 'audio_addict'
+import_gem 'runfile-tasks/gem'
 
 help   "Generate changelog and append old changelog"
 action :changelog do
   system "git changelog --save"
   # append older changelog (prior to switching to git-changelog)
-  system "cat .changelog.old.md >> CHANGELOG.md"
+  system "cat support/changelog.old.md >> CHANGELOG.md"
 end
 
 help   "Run test mock server"
