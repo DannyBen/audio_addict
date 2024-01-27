@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'byebug'
 gem 'lp'
 gem 'pretty_trace'
+gem 'rackup'
 gem 'rspec'
 gem 'rspec_approvals'
 gem 'runfile', '>= 1.0.0.rc4', require: false
