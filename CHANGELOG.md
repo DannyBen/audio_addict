@@ -1,6 +1,12 @@
 Change Log
 ========================================
 
+Untagged - Latest
+----------------------------------------
+
+- Drop support for Ruby 2.7
+
+
 v0.4.6 - 2023-01-31
 ----------------------------------------
 
@@ -50,6 +56,7 @@ v0.3.0 - 2021-01-06
 - Add ZenRadio network
 
 
+<!-- break v0.1.9 -->
 ## [v0.1.9](https://github.com/DannyBen/audio_addict/tree/v0.1.9) (2018-12-14)
 [Full Changelog](https://github.com/DannyBen/audio_addict/compare/v0.1.8...v0.1.9)
 
@@ -141,7 +148,7 @@ v0.3.0 - 2021-01-06
 
 **Merged pull requests:**
 
-- Refactor status comnmand [\#7](https://github.com/DannyBen/audio_addict/pull/7) ([DannyBen](https://github.com/DannyBen))
+- Refactor status command [\#7](https://github.com/DannyBen/audio_addict/pull/7) ([DannyBen](https://github.com/DannyBen))
 - Refactor playlist command [\#6](https://github.com/DannyBen/audio_addict/pull/6) ([DannyBen](https://github.com/DannyBen))
 - Add config command [\#5](https://github.com/DannyBen/audio_addict/pull/5) ([DannyBen](https://github.com/DannyBen))
 
