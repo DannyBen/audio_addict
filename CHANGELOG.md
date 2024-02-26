@@ -1,10 +1,12 @@
 Change Log
 ========================================
 
-Untagged - Latest
+v0.4.7 - 2024-02-26
 ----------------------------------------
 
 - Drop support for Ruby 2.7
+- Fix typos
+- Add missing httparty dependencies
 
 
 v0.4.6 - 2023-01-31
