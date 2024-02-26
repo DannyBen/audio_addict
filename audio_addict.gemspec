@@ -16,12 +16,19 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.0.0'
 
-  s.add_runtime_dependency 'colsole', '>= 0.8.1', '< 2'
-  s.add_runtime_dependency 'httparty', '~> 0.21'
-  s.add_runtime_dependency 'lightly', '~> 0.3'
-  s.add_runtime_dependency 'mister_bin', '~> 0.7'
-  s.add_runtime_dependency 'requires', '~> 1.0'
-  s.add_runtime_dependency 'tty-prompt', '~> 0.19'
+  s.add_dependency 'colsole', '~> 1.0.0'
+  s.add_dependency 'httparty', '~> 0.21'
+  s.add_dependency 'lightly', '~> 0.3'
+  s.add_dependency 'mister_bin', '~> 0.7'
+  s.add_dependency 'requires', '~> 1.0'
+  s.add_dependency 'tty-prompt', '~> 0.19'
+
+  # FIXME: These are needed since Ruby 3.4 will no longer bundle these, and the
+  #        dependencies have not yet reflected this change, namely `httparty`
+  #        and `multi_xml`. Remove when appropriate.
+  s.add_dependency 'base64', '>= 0'
+  s.add_dependency 'bigdecimal', '>= 0'
+  s.add_dependency 'csv', '>= 0'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end

@@ -3,7 +3,7 @@ module AudioAddict
     class SetCmd < Base
       summary 'Set the radio network and channel'
 
-      help 'This command provides both interactive and non-interactive means of storing the currenlty active channel and network in the configuration file.'
+      help 'This command provides both interactive and non-interactive means of storing the currently active channel and network in the configuration file.'
 
       usage 'radio set [CHANNEL NETWORK]'
       usage 'radio set --help'

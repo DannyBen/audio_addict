@@ -1,7 +1,7 @@
 Set the radio network and channel
 
 This command provides both interactive and non-interactive means of storing the
-currenlty active channel and network in the configuration file.
+currently active channel and network in the configuration file.
 
 Usage:
   radio set [CHANNEL NETWORK]
