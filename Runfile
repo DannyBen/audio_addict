@@ -1,4 +1,3 @@
-require "byebug"
 require "pretty_trace/enable-trim"
 require "lp"
 require 'audio_addict/version'

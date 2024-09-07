@@ -26,9 +26,17 @@ Gem::Specification.new do |s|
   # FIXME: These are needed since Ruby 3.4 will no longer bundle these, and the
   #        dependencies have not yet reflected this change, namely `httparty`
   #        and `multi_xml`. Remove when appropriate.
-  s.add_dependency 'base64', '>= 0'
-  s.add_dependency 'bigdecimal', '>= 0'
-  s.add_dependency 'csv', '>= 0'
+  s.add_dependency 'base64', '>= 0', '< 1'
+  s.add_dependency 'bigdecimal', '>= 2', '< 4'
+  s.add_dependency 'csv', '>= 2', '< 4'
+  s.add_dependency 'json', '>= 1', '< 4'
+  s.add_dependency 'ostruct', '>= 0', '< 2'
+  s.add_dependency 'logger', '>= 1', '< 3'
 
-  s.metadata['rubygems_mfa_required'] = 'true'
+  s.metadata = {
+    'bug_tracker_uri'       => 'https://github.com/DannyBen/audio_addict/issues',
+    'changelog_uri'         => 'https://github.com/DannyBen/audio_addict/blob/master/CHANGELOG.md',
+    'source_code_uri'       => 'https://github.com/DannyBen/audio_addict',
+    'rubygems_mfa_required' => 'true',
+  }
 end

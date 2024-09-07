@@ -1,5 +1,4 @@
 require 'requires'
-require 'byebug' if ENV['BYEBUG']
 
 requires 'audio_addict/exceptions'
 requires 'audio_addict/cache'

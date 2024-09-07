@@ -1,3 +1,5 @@
+require 'json'
+
 class StringIO
   def wait_readable(*)
     true
