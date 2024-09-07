@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 
 module AudioAddict
   class API

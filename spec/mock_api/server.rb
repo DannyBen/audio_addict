@@ -1,6 +1,6 @@
 require 'sinatra'
-require 'byebug'
 require 'yaml'
+require 'json'
 
 set :port, 3000
 set :bind, '0.0.0.0'

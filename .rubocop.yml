@@ -9,6 +9,8 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 3.0
+  SuggestExtensions: false
+
 
 # Allow some methods to start with `set_` or `get_`
 Naming/AccessorMethodName:
