@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/dannyben/audio_addict'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 3.0.0'
+  s.required_ruby_version = '>= 3.1'
 
   s.add_dependency 'colsole', '~> 1.0.0'
   s.add_dependency 'httparty', '~> 0.21'
@@ -30,8 +30,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'bigdecimal', '>= 2', '< 4'
   s.add_dependency 'csv', '>= 2', '< 4'
   s.add_dependency 'json', '>= 1', '< 4'
-  s.add_dependency 'ostruct', '>= 0', '< 2'
   s.add_dependency 'logger', '>= 1', '< 3'
+  s.add_dependency 'ostruct', '>= 0', '< 2'
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/DannyBen/audio_addict/issues',
