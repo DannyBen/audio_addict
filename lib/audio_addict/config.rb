@@ -5,7 +5,7 @@ module AudioAddict
     class << self
       attr_writer :path
 
-      def method_missing(name, *args, &_blk)
+      def method_missing(name, *args, &)
         if name.to_s.end_with? '='
           name = name[0..-2].to_sym
           properties[name] = args.first

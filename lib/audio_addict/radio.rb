@@ -37,7 +37,7 @@ module AudioAddict
     end
 
     def initialize(network)
-      @network = network
+      @network = network.to_sym
     end
 
     def inspectable
@@ -45,15 +45,15 @@ module AudioAddict
     end
 
     def name
-      NETWORKS[network.to_sym]
+      NETWORKS[network]
     end
 
     def domain
-      DOMAINS[network.to_sym]
+      DOMAINS[network]
     end
 
     def url_template
-      channel_path = network == 'zenradio' ? 'zr%{channel_key}_aac' : '%{channel_key}'
+      channel_path = network == :zenradio ? 'zr%{channel_key}' : '%{channel_key}'
       "http://prem2.#{domain}:80/#{channel_path}?%{listen_key}"
     end
 

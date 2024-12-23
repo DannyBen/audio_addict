@@ -94,9 +94,9 @@ module SpecMixin
     end
   end
 
-  def interactive!(*args, &block)
+  def interactive!(*args, &)
     if args.any?
-      stdin_send(*args, &block)
+      stdin_send(*args, &)
     else
       yield
     end

@@ -2,7 +2,7 @@ module AudioAddict
   module AutoProperties
     attr_reader :properties
 
-    def method_missing(method_sym, *args, &block)
+    def method_missing(method_sym, *args, &)
       respond_to?(method_sym) ? properties[method_sym.to_s] : super
     end
 
