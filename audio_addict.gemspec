@@ -14,24 +14,14 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/dannyben/audio_addict'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 3.1'
+  s.required_ruby_version = '>= 3.2'
 
-  s.add_dependency 'colsole', '~> 1.0.0'
+  s.add_dependency 'colsole', '~> 1.0'
   s.add_dependency 'httparty', '~> 0.21'
   s.add_dependency 'lightly', '~> 0.3'
   s.add_dependency 'mister_bin', '~> 0.7'
   s.add_dependency 'requires', '~> 1.0'
   s.add_dependency 'tty-prompt', '~> 0.19'
-
-  # FIXME: These are needed since Ruby 3.4 will no longer bundle these, and the
-  #        dependencies have not yet reflected this change, namely `httparty`
-  #        and `multi_xml`. Remove when appropriate.
-  s.add_dependency 'base64', '>= 0', '< 1'
-  s.add_dependency 'bigdecimal', '>= 2', '< 4'
-  s.add_dependency 'csv', '>= 2', '< 4'
-  s.add_dependency 'json', '>= 1', '< 4'
-  s.add_dependency 'logger', '>= 1', '< 3'
-  s.add_dependency 'ostruct', '>= 0', '< 2'
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/DannyBen/audio_addict/issues',
