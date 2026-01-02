@@ -6,6 +6,7 @@ require 'bundler'
 Bundler.require :default, :development
 
 include AudioAddict
+
 require_relative 'spec_mixin'
 include SpecMixin
 

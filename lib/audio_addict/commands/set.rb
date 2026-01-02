@@ -66,7 +66,7 @@ module AudioAddict
       def channel_menu(channel = nil)
         list = channel ? radio.search(channel).values : radio.channels.values
 
-        if list.count == 1
+        if list.one?
           save_channel list.first.key
         else
           answer = channel_prompt list
@@ -77,7 +77,7 @@ module AudioAddict
       def network_menu(network = nil)
         list = Radio.networks network
 
-        if list.count == 1
+        if list.one?
           save_network list.keys.first
         else
           answer = network_prompt list
