@@ -37,7 +37,7 @@ module AudioAddict
     end
 
     def initialize(network)
-      @network = network.to_sym
+      @network = network&.to_sym
     end
 
     def inspectable
