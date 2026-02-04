@@ -1,5 +1,7 @@
 # AudioAddict Command Line
 
+![repocard](repocard.svg)
+
 Command line utility for performing various operations on the AudioAddict 
 radio network.
 
