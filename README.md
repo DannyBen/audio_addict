@@ -1,6 +1,6 @@
 # AudioAddict Command Line
 
-![repocard](repocard.svg)
+![repocard](https://repocard.dannyben.com/svg/audio_addict.svg)
 
 Command line utility for performing various operations on the AudioAddict 
 radio network.
